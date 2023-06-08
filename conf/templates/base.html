@@ -1,0 +1,19 @@
+<!doctype html>
+{% load static %}
+<html>
+    <head>
+        <title>Django</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        {% include 'header.html' %}
+
+        {% block content %}
+
+        {% endblock %}
+
+        {% include 'footer.html' %}
+    </body>
+</html>
