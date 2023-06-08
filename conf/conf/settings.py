@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "Page",
+    'django_extensions', #orm test용
 ]
 
 MIDDLEWARE = [
@@ -91,10 +92,22 @@ WSGI_APPLICATION = "conf.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
+ENGINE = get_secret("ENGINE")
+HOST = get_secret("HOST")
+NAME = get_secret("NAME")
+PORT = get_secret("PORT")
+USER = get_secret("USER")
+PASSWORD = get_secret("PASSWORD")
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": ENGINE,
+        'HOST' : HOST,
+        "NAME": NAME,
+        'PORT': PORT,
+        'USER':USER,
+        'PASSWORD':PASSWORD,
     }
 }
 
