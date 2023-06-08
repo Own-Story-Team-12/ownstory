@@ -1,6 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/pycharm,windows,linux,visualstudio,django
 # Edit at https://www.toptal.com/developers/gitignore?templates=pycharm,windows,linux,visualstudio,django
-secret.py
+secret.json
 ### Django ###
 *.log
 *.pot
