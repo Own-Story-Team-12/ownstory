@@ -9,4 +9,8 @@
 {% endblock %}
 page app index.html
 
+{% if user %}
+    <p>Welcome, {{ user.name }}!</p>
+{% endif %}
+
 {% endblock %}
