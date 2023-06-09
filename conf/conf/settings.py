@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "Page",
-    'django_extensions', #orm test용
+    'django_extensions', # mysql - django 연동
 ]
 
 MIDDLEWARE = [
