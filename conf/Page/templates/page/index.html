@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock %}
 page app index.html
-made by...
-
+{% if user %}
+    <p>Welcome, {{ user.name }}!</p>
+{% endif %}
 {% endblock %}

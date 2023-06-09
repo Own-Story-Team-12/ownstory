@@ -16,7 +16,7 @@ from django.core.exceptions import ImproperlyConfigured
 
 
 
-
+# check
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     "Page",
     "Upload",
     "bootstrap4",
+    'django_extensions',
+    "won",#orm test용
 ]
 
 MIDDLEWARE = [
