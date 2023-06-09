@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "Page",
-    'django_extensions', #orm test용
+    'django_extensions',
+    "won",#orm test용
 ]
 
 MIDDLEWARE = [

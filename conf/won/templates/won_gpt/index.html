@@ -1,0 +1,10 @@
+<form action="chat" method="post" entype="application/x-www-form-urlencoded">
+    {% csrf_token %}
+<!doctype html>
+
+        <div id="file-module-0">
+            <label>Fairytale Generate</label>   
+        </div>
+        <div><textarea id="question" name="question"></textarea></div>
+        <div><button id="text-button" type="submit" >Generate</button></div>
+    </form>
