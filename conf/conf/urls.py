@@ -21,4 +21,5 @@ from django.shortcuts import render
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('Page.urls')),
+    path('won/', include('won.urls')),
 ]
