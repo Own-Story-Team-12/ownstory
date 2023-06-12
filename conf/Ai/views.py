@@ -42,6 +42,7 @@ def result_image(request):
         img_keywords = test.clarifai()
         result_db.result = img_keywords
         result_db.save()
+        print(img_keywords)
         
         result = chatGPT(result_db.result)
         context = {
