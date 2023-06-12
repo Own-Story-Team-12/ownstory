@@ -59,6 +59,8 @@ INSTALLED_APPS = [
     "bootstrap4",
     'django_extensions',
     "won",#orm test용
+    "Ai",
+
 ]
 
 MIDDLEWARE = [

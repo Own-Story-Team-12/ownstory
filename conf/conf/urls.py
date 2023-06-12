@@ -9,4 +9,7 @@ urlpatterns = [
     path('', include('Page.urls')),
     path('Upload/', include('Upload.urls')),
     path('won/', include('won.urls')),
+    path('Ai/', include('Ai.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
