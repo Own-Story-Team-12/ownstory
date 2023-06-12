@@ -3,13 +3,13 @@ from django.conf import settings
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from Ai import extract_keyword
+from Ai.translate import get_trans_papago
 from Ai.models import Result
 from django.utils import timezone
 import openai
 
 
 openai.api_key = "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"# 원장희 gpt api key
-
 
 
 def index(request):
@@ -43,10 +43,15 @@ def result_image(request):
         result_db.result = img_keywords
         result_db.save()
         print(img_keywords)
-        
+
         result = chatGPT(result_db.result)
+
+        korean_script = get_trans_papago(result, 'en','ko')
+        print(korean_script)
+
         context = {
         #'question': "keywords are " + img_keywords,
+        'korean_script' : korean_script,
         'result': result
     }
      return render(request, 'Ai/result.html', context)
@@ -66,8 +71,11 @@ def result_keyword(request):
     #post로 받은 keyword
     prompt = request.POST.get('keyword')
     result = chatGPT(prompt)
+
+    korean_script = get_trans_papago(result, 'en','ko')
+    print(korean_script)
     context = {
-        'question': "keywords are " + prompt,
+        'korean_script' : korean_script,
         'result': result
     }
 
