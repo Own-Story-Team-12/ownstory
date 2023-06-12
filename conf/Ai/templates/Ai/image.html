@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+<!-- 기본적으로 폼태그의 enctype을 지정하지 않을 시에는 디폴트값인 ‘application/x-www-form-urlencoded’로 간주되기 때문에 
+    파일을 전송하고자 할 경우 꼭 enctype을 multipart/form-data로 지정해 주어야 한다. -->
+
+<form action="result" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input name="img_file" type="file">
+    <input type="submit" value="이미지 키워드 추출하기">
+</form>
+{% endblock %}
