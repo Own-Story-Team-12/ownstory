@@ -5,7 +5,6 @@ from django.core.files.base import ContentFile
 from Ai import extract_keyword
 from Ai.models import Result
 from django.utils import timezone
-from urllib import parse
 
 def index(request):
     return render(request, 'Ai/index.html')
@@ -34,4 +33,6 @@ def result_image(request):
         result.result = context
         result.save()
      return render(request, 'Ai/result.html', context)
+
+
 

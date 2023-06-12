@@ -17,6 +17,7 @@ class Keyword_Extraction:
         """
         self.image_url = image_url
 
+    #local file이면 file_bytes로 인코딩
     def clarifai(self):
         image_url = self.image_url
         with open(image_url, "rb") as f:
