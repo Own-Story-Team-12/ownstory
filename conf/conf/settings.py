@@ -16,7 +16,7 @@ from django.core.exceptions import ImproperlyConfigured
 
 
 
-
+# check
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "Page",
+    "Upload",
+    "bootstrap4",
     'django_extensions',
     "won",#orm test용
 ]
@@ -92,7 +94,6 @@ WSGI_APPLICATION = "conf.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 
 ENGINE = get_secret("ENGINE")
 HOST = get_secret("HOST")
@@ -156,3 +157,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
