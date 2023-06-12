@@ -58,7 +58,6 @@ INSTALLED_APPS = [
     "Upload",
     "bootstrap4",
     'django_extensions',
-    "won",#orm test용
     "Ai",
 
 ]

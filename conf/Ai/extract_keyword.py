@@ -43,7 +43,7 @@ class Keyword_Extraction:
         for concept in response.outputs[0].data.concepts:
             keyword.append(concept.name)
         
-        return keyword[:10]
+        return keyword[:5]
         
    
 if __name__ == "__main__":

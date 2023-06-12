@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+<!-- action은 이동할 페이지 -->
+<form action="result" method="post">
+{% csrf_token %}
+    <div> 키워드를 입력하세요.</div>
+    <input type="text" name="keyword">
+    <input type="submit" value="동화 생성하기">
+</form>
+{% endblock %}
