@@ -11,7 +11,18 @@
 <form action="result" method="post">
 {% csrf_token %}
     <div> 키워드를 입력하세요.</div>
-    <input type="text" name="keyword">
+    <div>
+        <label for="name">주인공 이름:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+        <label for="personal">주인공 성격:</label>
+        <input type="text" id="personal" name="personal" required>
+    </div>
+    <div>
+        <label for="types">종:</label>
+        <input type="text" id="types" name="types" required>
+    </div>
     <input type="submit" value="동화 생성하기">
 </form>
 {% endblock %}

@@ -52,10 +52,10 @@ def result_image(request):
      return render(request, 'Ai/result.html', context)
 
 
-def chatGPT(prompt):
+def chatGPT(chat_prompt):
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": "Use keywords to create fairy tales for kids in very, very simple words at least 1500 characters. keywords are"+ str(prompt)}]
+        messages=[{"role": "user", "content": "Use keywords to create fairy tales for kids in very, very simple words at least 1500 characters. keywords are"+ str(chat_prompt)}]
     )
     print(completion)
     result = completion.choices[0].message.content
@@ -64,10 +64,17 @@ def chatGPT(prompt):
 
 def result_keyword(request):
     #post로 받은 keyword
-    prompt = request.POST.get('keyword')
-    result = chatGPT(prompt)
+    
+    name = request.POST.get('name')
+    personal = request.POST.get('personal')
+    types = request.POST.get('types')
+    
+    chat_prompt = f"Use keywords to create fairy tales for kids. Here are the keywords:\n- Name: {name}\n- Personal: {personal}\n- Type: {types}\n\n"
+    result = chatGPT(chat_prompt)
+    
+    result = chatGPT(chat_prompt)
     context = {
-        'question': "keywords are " + prompt,
+        'question': f"hero's name is {name}, hero's personality is {personal}, and hero's species is {types}", 
         'result': result
     }
 
