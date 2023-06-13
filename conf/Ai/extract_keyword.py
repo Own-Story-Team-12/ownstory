@@ -28,7 +28,7 @@ class Keyword_Extraction:
             #user_app_id=resources_pb2.UserAppIDSet(app_id=YOUR_APPLICATION_ID),
             inputs=[
                 resources_pb2.Input(
-                    # data=resources_pb2.Data(image=resources_pb2.Image(url=image_url))
+                    #data=resources_pb2.Data(image=resources_pb2.Image(url=image_url))
                     data=resources_pb2.Data(image=resources_pb2.Image(base64=file_bytes))
 
                 )
@@ -43,14 +43,15 @@ class Keyword_Extraction:
         for concept in response.outputs[0].data.concepts:
             keyword.append(concept.name)
         
-        return keyword[:10]
+        return keyword[:5]
         
    
 if __name__ == "__main__":
-    SAMPLE_URL = "https://samples.clarifai.com/metro-north.jpg"
+    #SAMPLE_URL = "https://samples.clarifai.com/metro-north.jpg"
     #SAMPLE_URL = "https://yourelc.com.au/wp-content/uploads/2022/07/Blog.png"
-    #SAMPLE_URL = 'https://artprojectsforkids.org/wp-content/uploads/2020/03/Boy-with-hat-simple-791x1024.jpg'
-    #SAMPLE_URL = "file://static\dog.jpg"
-    test = Keyword_Extraction(image_url=SAMPLE_URL)
+    SAMPLE_URL = 'https://artprojectsforkids.org/wp-content/uploads/2020/03/Boy-with-hat-simple-791x1024.jpg'
+    
+    #SAMPLE_URL = "C:\Users\lee\Downloads\IE001219155_STD.jpg"
+    test = Keyword_Extraction(SAMPLE_URL)
     result = test.clarifai()
     print(result)
