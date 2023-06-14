@@ -64,17 +64,17 @@ def chatGPT(chat_prompt):
 
 def result_keyword(request):
     #post로 받은 keyword
-    
+    title = request.POST.get('title')
     name = request.POST.get('name')
     personal = request.POST.get('personal')
     types = request.POST.get('types')
     
-    chat_prompt = f"Use keywords to create fairy tales for kids. Here are the keywords:\n- Name: {name}\n- Personal: {personal}\n- Type: {types}\n\n"
+    chat_prompt = f"Use keywords to create fairy tales for kids. Here are the keywords:\n- Title: {title}\n- Name: {name}\n- Personal: {personal}\n- Type: {types}\n\n"
     result = chatGPT(chat_prompt)
     
     result = chatGPT(chat_prompt)
     context = {
-        'question': f"hero's name is {name}, hero's personality is {personal}, and hero's species is {types}", 
+        'question': f"hero's name is {name}, hero's personality is {personal}, and hero's species is {types}, and this fariy's title is {title}", 
         'result': result
     }
 
