@@ -10,6 +10,7 @@ urlpatterns = [
     path('Upload/', include('Upload.urls')),
     path('won/', include('won.urls')),
     path('Ai/', include('Ai.urls')),
+    path('accounts/', include('allauth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

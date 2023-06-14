@@ -54,13 +54,18 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites", # 소셜 로그인
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.naver", # 네이버
+    "allauth.socialaccount.providers.google", # 구글
     "Page",
     "Upload",
     "bootstrap4",
     'django_extensions',
-    "won",#orm test용
+    "won",
     "Ai",
-
 ]
 
 MIDDLEWARE = [
@@ -115,6 +120,7 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'Page.User' # 재정의 User 모델 
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -134,6 +140,41 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [ # 소셜 로그인
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SOCIALACCOUNT_PROVIDERS = { # 소셜 로그인 - 구글
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'APP': {
+        'client_id': '262062469053-vrrci2nr3nsjlh4elgokh1uqhonkl2am.apps.googleusercontent.com',
+        'secret': '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',
+        'key': '',
+        'redirect_uri': 'https://127.0.0.1:8000/accounts/google/login/callback/'
+        }
+    },
+    'naver': {
+              'APP': {
+            'client_id': 'QB2F4ilPEzY4Ru9rUPSU',
+            'secret': '2a6KHVwO9i',
+            'key': ''
+        }
+    }
+}
+
+SITE_ID = 1
+
+ACCOUNT_SIGNUP_REDIRECT_URL = 'Page:index' # 소셜로그인 후 리디렉션 경로
+LOGIN_REDIRECT_URL = 'Page:index' # 로그인 후 리디렉션 경로
+ACCOUNT_LOGOUT_ON_GET = True # 로그아웃 버튼 클릭 시 자동 로그아웃
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/

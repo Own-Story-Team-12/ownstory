@@ -40,7 +40,7 @@ def create_user(request):
         hashed_pw = make_password(password)
         
         #회원생성
-        user = User(name = name, password = hashed_pw)
+        user = User(username = name, password = hashed_pw)
         user.save()
         
         return redirect('Page:login')
@@ -50,9 +50,8 @@ def create_user(request):
 # 회원인증
 def authenticate(name, password):
     try:
-        user = User.objects.get(name=name)
+        user = User.objects.get(username=name)
         
-        print(user.name) ## 
         if check_password(password, user.password):
             return user
 
