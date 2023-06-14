@@ -13,8 +13,9 @@
 {% endif %}
     </fieldset>
 </form>
+
+<a href= "{% url 'social:begin' 'google-oauth2' %}"> Google로 로그인</a>
 {% load socialaccount %}
-<a href=" {% provider_login_url 'google' %}"> Google로 로그인</a>
 <a href=" {% provider_login_url 'naver' %}"> Naver로 로그인</a>
 <a href="/join">회원가입 </a>
 
