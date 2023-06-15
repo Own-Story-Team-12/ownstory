@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.contrib import messages
+from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.hashers import make_password, check_password
 from .models import User
 
@@ -78,5 +79,6 @@ def login_user(request):
         
 #로그아웃
 def logout(request):
+    auth_logout(request)
     request.session.pop('user_id', None)
     return redirect('Page:index')

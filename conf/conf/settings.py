@@ -162,7 +162,7 @@ AUTHENTICATION_BACKENDS = [ # 소셜 로그인
 ACCOUNT_SIGNUP_REDIRECT_URL = 'Page:index' # 소셜로그인 후 리디렉션 경로
 LOGIN_REDIRECT_URL = 'Page:index' # 로그인 후 리디렉션 경로
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True # 창을 닫으면 세션정보 지우기
-SOCIAL_AUTH_ASSOCIATE_BY_EMAIL = True # email을 기준으로 사용자 연결
+# SOCIAL_AUTH_ASSOCIATE_BY_EMAIL = True # email을 기준으로 사용자 연결
 
 SOCIAL_AUTH_PIPELINE =(
     'social_core.pipeline.social_auth.social_details',
