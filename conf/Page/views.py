@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.contrib import messages
+from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.hashers import make_password, check_password
 from .models import User
 
@@ -31,6 +32,11 @@ def create_user(request):
         password = request.POST.get('user-pw')
         password_ch = request.POST.get('user-pw-check')
         
+        # ID 중복 확인
+        if User.objects.filter(username=name).exists():
+            messages.error(request, "사용중인 ID 입니다.")
+            return render(request, 'Page/join.html', {'name': name}) 
+        
         # 비밀번호 확인
         if password != password_ch:
             return redirect('Page:join')
@@ -40,7 +46,7 @@ def create_user(request):
         hashed_pw = make_password(password)
         
         #회원생성
-        user = User(name = name, password = hashed_pw)
+        user = User(username = name, password = hashed_pw)
         user.save()
         
         return redirect('Page:login')
@@ -50,9 +56,8 @@ def create_user(request):
 # 회원인증
 def authenticate(name, password):
     try:
-        user = User.objects.get(name=name)
+        user = User.objects.get(username=name)
         
-        print(user.name) ## 
         if check_password(password, user.password):
             return user
 
@@ -71,9 +76,7 @@ def login_user(request):
         if user is not None:
             # 로그인 성공
             request.session['user_id'] = user.id # 세션에 user.id 저장
-            request.session['is_logged_in'] = True
             return redirect('Page:index')
-            #return HttpResponse(f"login success")
         else:
             #로그인 실패
             messages.error(request, '로그인에 실패했습니다. 아이디 또는 패스워드를 확인해주세요.')  # 오류 메시지 저장
@@ -81,6 +84,6 @@ def login_user(request):
         
 #로그아웃
 def logout(request):
+    auth_logout(request)
     request.session.pop('user_id', None)
-    request.session['is_logged_in'] = False
     return redirect('Page:index')
