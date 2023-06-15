@@ -1,6 +1,6 @@
 import requests
-client_id = "kWDLr7w6bYqAvIXfikpC" # 개발자센터에서 발급받은 Client ID 값
-client_secret = "Xna43_x7Ev" # 개발자센터에서 발급받은 Client Secret 값
+client_id = "z5DCD75pFHv9kMa6zE49" # 개발자 센터에서 발급받은 Client ID 값
+client_secret = "grLVHGK9mW" # 개발자 센터에서 발급받은 Client Secret 값
 # text: 입력 텍스트, source: 입력 텍스트 언어, target: 출력 텍스트 언어
 def get_trans_papago(text, source, target) -> str:
 
