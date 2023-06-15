@@ -70,9 +70,7 @@ def login_user(request):
         if user is not None:
             # 로그인 성공
             request.session['user_id'] = user.id # 세션에 user.id 저장
-            request.session['is_logged_in'] = True
             return redirect('Page:index')
-            #return HttpResponse(f"login success")
         else:
             #로그인 실패
             messages.error(request, '로그인에 실패했습니다. 아이디 또는 패스워드를 확인해주세요.')  # 오류 메시지 저장
@@ -81,5 +79,4 @@ def login_user(request):
 #로그아웃
 def logout(request):
     request.session.pop('user_id', None)
-    request.session['is_logged_in'] = False
     return redirect('Page:index')
