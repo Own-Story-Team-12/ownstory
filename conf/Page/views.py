@@ -32,6 +32,11 @@ def create_user(request):
         password = request.POST.get('user-pw')
         password_ch = request.POST.get('user-pw-check')
         
+        # ID 중복 확인
+        if User.objects.filter(username=name).exists():
+            messages.error(request, "사용중인 ID 입니다.")
+            return render(request, 'Page/join.html', {'name': name}) 
+        
         # 비밀번호 확인
         if password != password_ch:
             return redirect('Page:join')

@@ -1,7 +1,7 @@
 <form action = {% url 'Page:createuser' %} method = "POST" onsubmit="return validPW()" >
     <fieldset>
         {% csrf_token %}
-        <label>아이디:<input type="text" name="user-name" size="12"></label>
+        <label>아이디:<input type="text" name="user-name" size="12" value = {{ name }}></label>
         <label>비밀번호:<input type="password" name="user-pw" size="12" ></label>
         <label>비밀번호 확인:<input type="password" name="user-pw-check" size="12" ></label>
         <input type="submit" value="가입">
@@ -20,4 +20,10 @@
         return true;
     }
 
+    // ID 중복 시 경고창
+    {% if messages %}
+        {% for message in messages %}
+        alert("{{ message }}")
+        {% endfor %}
+    {% endif %}
 </script>

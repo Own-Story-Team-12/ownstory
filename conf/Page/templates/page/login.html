@@ -1,7 +1,7 @@
 <form action = {% url 'Page:loginuser' %} method = "POST">
     <fieldset>
         {% csrf_token %}
-        <label>아이디:<input type="text" name="user-name" size="12" value="ID"></label>
+        <label>아이디:<input type="text" name="user-name" size="12"></label>
         <label>비밀번호:<input type="password" name="user-pw" size="12" ></label>
         <input type="submit" value="로그인">
         {% if messages %}
