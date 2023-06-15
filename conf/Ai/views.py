@@ -59,14 +59,20 @@ def result_image(request):
 
 
 def result_keyword(request):
-    #post로 받은 keyword
-    keyword = request.POST.get('keyword')
+
+    name = request.POST.get('name')
+    personality = request.POST.get('personality')
+    animal = request.POST.get('animal')
+    animal_feature = request.POST.get('animal_feature')
+
+    ko_keyword = [name, personality, animal, animal_feature]
 
     result_db = Result()
     result_db.pub_date = timezone.datetime.now() 
-    result_db.keyword = keyword
+    result_db.keyword = ko_keyword
 
-    title, content = chatGPT(result_db.keyword)
+    en_keyword = get_trans_papago(ko_keyword, 'en','ko')
+    title, content = chatGPT(en_keyword)
     result_db.title = title
     result_db.content = content
 
