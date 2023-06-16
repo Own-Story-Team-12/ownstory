@@ -1,3 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
 <form action = {% url 'Page:loginuser' %} method = "POST">
     <fieldset>
         {% csrf_token %}
@@ -17,3 +26,4 @@
 <a href= "{% url 'social:begin' 'google-oauth2' %}"> Google로 로그인</a>
 <a href= "{% url 'social:begin' 'naver' %}"> Naver로 로그인</a>
 <a href="/join">회원가입 </a>
+{% endblock %}
