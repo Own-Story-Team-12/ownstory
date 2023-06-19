@@ -4,3 +4,5 @@ mysqlclient==2.1.1
 clarifai-grpc==9.5.0
 openai==0.27.8
 bootstrap4==0.1.0
+scipy==1.10.1
+scikit-learn==1.2.2

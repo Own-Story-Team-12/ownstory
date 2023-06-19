@@ -4,9 +4,6 @@
 
 {% load static %}
 
-{% block extrahead %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-
 <script>
     function randomFill() {
         var nameTextBox = document.getElementById('name');
@@ -14,10 +11,9 @@
         var animalTextBox = document.getElementById('animal');
         var animal_featureTextBox = document.getElementById('animal_feature');
 
-
         var names = ['영수', '민수', '영희', '철수'];
         var personalities = ['착함', '노래를 잘함', '잘 웃음', '운동을 잘함'];
-        var animals = ['돼지', '고양이', '개', '원숭이'];
+        var animals = ['돼지', '고양이', '강아지', '원숭이'];
         var animal_features = ['착함', '노래를 잘함', '잘 웃음', '운동을 잘함'];
         
         var randomNameIndex = Math.floor(Math.random() * names.length);
@@ -36,11 +32,14 @@
         animal_featureTextBox.value = randomAnimal_feature;
     }
 </script>
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 {% endblock %}
 <!-- action은 이동할 페이지 -->
 <div> 키워드를 입력하세요.</div>
 <button onclick="randomFill()">랜덤 채우기</button>
+
 <form action="result" method="post" autocomplete="off">
 {% csrf_token %}
     <div>
@@ -63,4 +62,3 @@
     <input type="submit" value="동화 생성하기">
 </form>
 {% endblock %}
-
