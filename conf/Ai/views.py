@@ -5,6 +5,7 @@ from Ai.translate import get_trans_papago
 from Ai.make_fairytale import chatGPT
 from Ai.text2img import Txt2img
 from Ai.text2keyword import textrank_keyword
+from Ai.text2TTS import text2TTS
 from Ai.models import Result
 from django.utils import timezone
 
@@ -17,7 +18,6 @@ def image(request):
 
 def keyword(request):
     return render(request, 'Ai/keyword.html')
-
 
 def result_image(request):
      #POST 방식으로 name이 img_file인 파일이 들어오면
@@ -81,6 +81,7 @@ def result_keyword(request):
     result_db.title = title
     result_db.content = content
 
+    content_tts = text2TTS(content)
 
     split_content = content.split('.')
     half_index = len(split_content) // 2
@@ -93,12 +94,12 @@ def result_keyword(request):
     print(first_half)
     print(second_half)
 
-    first = Txt2img()
-    second = Txt2img()
-    pc_id1 = first.txt2img(first_half)
-    pc_id2 = second.txt2img(second_half)
-    img1 = first.process_id(pc_id1)
-    img2 = second.process_id(pc_id2)
+    # first = Txt2img()
+    # second = Txt2img()
+    # pc_id1 = first.txt2img(first_half)
+    # pc_id2 = second.txt2img(second_half)
+    # img1 = first.process_id(pc_id1)
+    # img2 = second.process_id(pc_id2)
 
     #생성된 동화 번역
     ko_title = get_trans_papago(title, 'en','ko')
@@ -111,11 +112,9 @@ def result_keyword(request):
         'content' : content,
         'ko_title' : ko_title,
         'ko_content' : ko_content,
-        'img1' : img1,
-        'img2' : img2,
+        'TTS' : content_tts,
         }
-    
-
     return render(request, 'Ai/result.html', context)
 
-
+     # 'img1' : img1,
+    # 'img2' : img2,
