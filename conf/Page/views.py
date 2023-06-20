@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.contrib import messages
+from django.contrib import auth
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.hashers import make_password, check_password
 from .models import User
@@ -87,3 +88,34 @@ def logout(request):
     auth_logout(request)
     request.session.pop('user_id', None)
     return redirect('Page:index')
+
+############
+
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializers import UserSerializer
+
+@api_view(['POST'])
+def login_drf(request):
+    username = request.data.get('username')
+    password = request.data.get('password')
+    
+    # 사용자 인증
+    user = authenticate(name=username, password = password)
+    if user is not None:
+        # 로그인 성공
+        
+        return Response({'message': '로그인 성공'})
+    else:
+        #로그인 실패
+        return Response({'message': '로그인 실패. 아이디 또는 패스워드를 확인해주세요.'}, status=401)
+    
+@api_view(['POST'])
+def create_drf(request):
+    serializer = UserSerializer(data = request.data)
+    if serializer.is_valid():
+        user = serializer.save()
+        return Response({'message':'회원가입 성공'}, status=201)
+    else:
+        return Response(serializer.errors, status = 400)

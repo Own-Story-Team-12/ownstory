@@ -6,7 +6,7 @@
         <ul>
             <li><a href = "/"> HOME </a></li>
             {% if user.is_authenticated %} 
-            <li><a href = "logout/"> LOGOUT </a></li>
+            <li><a href = "/logout/"> LOGOUT </a></li>
             {% else %}
             <li><a href = "/login/"> LOGIN </a></li>
             {% endif %}
