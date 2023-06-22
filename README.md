@@ -29,6 +29,7 @@
 ![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/122524846/2525c085-74a2-4c1a-a35f-cbf950d6b162)
 
 ## 4. 3 Tier Architecture
+![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/122524846/6b30e54a-0206-46b1-af08-0664dd4c5574)
 
 ## 5. DB 설계
 
