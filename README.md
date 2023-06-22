@@ -32,6 +32,7 @@
 ![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/122524846/6b30e54a-0206-46b1-af08-0664dd4c5574)
 
 ## 5. DB 설계
+![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/122524846/c4a5f4b4-464f-45f0-ad76-691924baa782)
 
 ## 6. 개발 환경
 
