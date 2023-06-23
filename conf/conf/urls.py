@@ -10,7 +10,5 @@ urlpatterns = [
     path('Upload/', include('Upload.urls')),
     path('Ai/', include('Ai.urls')),
     path('accounts/', include('allauth.urls')),
-    path('auth/', include('social_django.urls', namespace='social')),
+    path('auth/', include('social_django.urls', namespace='social')),    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-

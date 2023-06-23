@@ -24,66 +24,50 @@ def login(request):
 
 def join(request):
     return render(request, 'page/join.html')
-
-# 회원가입
-def create_user(request):
-    if request.method == "POST":
-        name = request.POST.get('user-name')
-        password = request.POST.get('user-pw')
-        password_ch = request.POST.get('user-pw-check')
-        
-        # ID 중복 확인
-        if User.objects.filter(username=name).exists():
-            messages.error(request, "사용중인 ID 입니다.")
-            return render(request, 'Page/join.html', {'name': name}) 
-        
-        # 비밀번호 확인
-        if password != password_ch:
-            return redirect('Page:join')
-    
-        
-        #비밀번호 암호화
-        hashed_pw = make_password(password)
-        
-        #회원생성
-        user = User(username = name, password = hashed_pw)
-        user.save()
-        
-        return redirect('Page:login')
-    return render(request, 'Page/join.html')
-
-
-# 회원인증
-def authenticate(name, password):
-    try:
-        user = User.objects.get(username=name)
-        
-        if check_password(password, user.password):
-            return user
-
-    except User.DoesNotExist:
-        pass
-    return None
-
-# 로그인
-def login_user(request):
-    if request.method == "POST":
-        name = request.POST.get('user-name')
-        password = request.POST.get('user-pw')
-        
-        # 사용자 인증
-        user = authenticate(name=name, password = password)
-        if user is not None:
-            # 로그인 성공
-            request.session['user_id'] = user.id # 세션에 user.id 저장
-            return redirect('Page:index')
-        else:
-            #로그인 실패
-            messages.error(request, '로그인에 실패했습니다. 아이디 또는 패스워드를 확인해주세요.')  # 오류 메시지 저장
-            return redirect('Page:login')
         
 #로그아웃
 def logout(request):
     auth_logout(request)
     request.session.pop('user_id', None)
     return redirect('Page:index')
+
+############
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework_jwt.settings import api_settings
+from rest_framework_simplejwt.tokens import RefreshToken
+from django.contrib.auth import authenticate
+from .serializers import UserSerializer
+
+jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
+jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
+
+class SignupView(APIView):
+    def post(self, request):
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            # ID 중복검사
+            username = serializer.validated_data['username']
+            if User.objects.filter(username=username).exists():
+                return Response({'error': '이미 사용중인 ID 입니다.'}, status=400)
+            user = serializer.save()
+            payload = jwt_payload_handler(user)
+            token = jwt_encode_handler(payload)
+            return Response({'token': token})
+        return Response(serializer.errors, status=400)
+
+class LoginView(APIView):
+    def post(self, request):
+        username = request.data.get('username')
+        password = request.data.get('password')
+
+        user = authenticate(username=username, password=password)
+
+        if user is None:
+            return Response({'detail': 'Invalid credentials'}, status=400)
+
+        refresh = RefreshToken.for_user(user)
+        access_token = str(refresh.access_token)
+
+        return Response({'access_token': access_token})
