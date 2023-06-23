@@ -43,6 +43,7 @@
 <button onclick="randomFill()">랜덤 채우기</button>
 <form action="result" method="post" autocomplete="off">
 {% csrf_token %}
+  
     <div>
         <label for="name">주인공 이름 :</label>
         <input type="text" id="name" name="name">
@@ -60,6 +61,7 @@
         <input type="text" id="animal_feature" name="animal_feature">
     </div>
     
+
     <input type="submit" value="동화 생성하기">
 </form>
 {% endblock %}

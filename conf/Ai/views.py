@@ -57,7 +57,6 @@ def result_image(request):
         
      return render(request, 'Ai/result.html', context)
 
-
 def result_keyword(request):
 
     name = request.POST.get('name')
