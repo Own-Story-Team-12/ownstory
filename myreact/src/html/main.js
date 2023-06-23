@@ -11,6 +11,7 @@ function Header(){
   <nav>
       <ul>
         <li><a href = "login/">Login</a></li>
+        <li><a href = "fairytale/">Falrytale</a></li>
       </ul>
   </nav>
 </header>);
