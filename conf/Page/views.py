@@ -72,7 +72,8 @@ class LoginView(APIView):
         access_token = str(refresh.access_token)
         
         response = HttpResponse()
-        response['Access-Control-Allow-Origin'] = 'http://localhost:3000/'
+
+        response['Access-Control-Allow-Origin'] = 'http://localhost:3000'
         response['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE'
         response['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
         response.content = access_token
