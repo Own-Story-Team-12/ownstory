@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.hashers import make_password, check_password
 from .models import User
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -69,5 +70,11 @@ class LoginView(APIView):
 
         refresh = RefreshToken.for_user(user)
         access_token = str(refresh.access_token)
+        
+        response = HttpResponse()
+        response['Access-Control-Allow-Origin'] = 'http://localhost:3000/'
+        response['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE'
+        response['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
+        response.content = access_token
 
-        return Response({'access_token': access_token})
+        return response
