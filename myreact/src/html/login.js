@@ -33,7 +33,7 @@ function LoginPage() {
                 const api = axios.create({
                     baseURL: '/',
                 });
-                api.post("http://127.0.0.1:8000/page/login/", {
+                api.post("http://127.0.0.1:8000/login/", {
                     username: id,
                     password: pw,
                 })
