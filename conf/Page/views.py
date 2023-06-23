@@ -79,3 +79,12 @@ class LoginView(APIView):
         response.content = access_token
 
         return response
+    
+class keywordtestview(APIView): # 테스트용 백
+    def post(self, request):
+        name = request.data.get('name')
+        personality = request.data.get('personality')
+        animal = request.data.get('animal')
+        animal_feature = request.data.get('animal_feature')
+        
+        return Response({'name':name, 'personality': personality})
