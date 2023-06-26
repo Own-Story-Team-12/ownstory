@@ -51,11 +51,20 @@ class SignupView(APIView):
             # ID 중복검사
             username = serializer.validated_data['username']
             if User.objects.filter(username=username).exists():
-                return Response({'error': '이미 사용중인 ID 입니다.'}, status=400)
+                 return Response({'error': '이미 사용중인 ID 입니다.'}, status=400)
             user = serializer.save()
             payload = jwt_payload_handler(user)
             token = jwt_encode_handler(payload)
-            return Response({'token': token})
+            
+            response = HttpResponse()
+            
+            response['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+            response['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE'
+            response['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
+            response['Authorization'] = 'Bearer ' + token
+            
+            response.content = token
+            return response
         return Response(serializer.errors, status=400)
 
 class LoginView(APIView):
@@ -78,4 +87,13 @@ class LoginView(APIView):
         response['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
         response.content = access_token
 
-        return Response({'access_token': access_token})
+        return response
+    
+class keywordtestview(APIView): # 테스트용 백
+    def post(self, request):
+        name = request.data.get('name')
+        personality = request.data.get('personality')
+        animal = request.data.get('animal')
+        animal_feature = request.data.get('animal_feature')
+        
+        return Response({'name':name, 'personality': personality})
