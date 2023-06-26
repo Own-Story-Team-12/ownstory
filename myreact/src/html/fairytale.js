@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { json } from 'react-router-dom';
+import styles from '../main.module.css';
+import Headerjs from './header';
+import Footerjs from './footer';
+
 function KeywordInput(){
     const [name, setName] = useState('');
     const [personality, setPersonality] = useState('');
@@ -75,7 +79,7 @@ function KeywordInput(){
     };
 
    return(
-    <div>
+    <div className={styles.body}>
         <button>내가 직접 만드는 동화</button>
         <button> 내가 그린 그림으로 만드는 동화</button>
         <p>주인공의 이름은 뭐야?</p>
@@ -93,4 +97,15 @@ function KeywordInput(){
    ); 
 }
 
-export default KeywordInput;
+
+function FairytalePage(){
+    return (
+        <div className="app">
+          <Headerjs></Headerjs>
+          <KeywordInput></KeywordInput>
+          <Footerjs></Footerjs>
+        </div>
+      );
+    }
+
+export default FairytalePage;

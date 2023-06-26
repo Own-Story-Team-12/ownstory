@@ -1,34 +1,34 @@
 import logo from '../logo.svg';
-import styles from '../App.module.css';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
+import { Link, NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import styles from '../main.module.css';
+import Headerjs from './header';
+import Footerjs from './footer';
   
-function Header(){
-  return  (<header className={styles.header}>
-  <h1>
-      <a href="/">AIVLE </a>
-  </h1>
-  <nav>
-      <ul>
-        <li><a href = "login/">Login</a></li>
-        <li><a href = "fairytale/">동화생성</a></li>
-        <li><a href = "record/">동화녹음</a></li>
-      </ul>
-  </nav>
-</header>);
-}
 
-function Footer(){
-  return  (<footer>
-    © 2023 AIVLE Company, Inc. All rights reserved.
-  </footer>);
+function Body(){
+  return (
+    <div className={styles.body}>
+      <div>
+        사진들어갈곳
+      </div>
+      <div>
+        소개페이지
+        소개글
+      </div>
+      <div>
+          사용방법
+        </div>
+    </div>
+  );
 }
 
 function MainPage() {
   return (
     <div className="app">
-      <Header></Header>
-      <Footer></Footer>
+      <Headerjs></Headerjs>
+      <Body></Body>
+      <Footerjs></Footerjs>
     </div>
   );
 }

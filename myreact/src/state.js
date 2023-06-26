@@ -9,3 +9,13 @@ export const myStateAtomPW = atom({
     key: 'PW',
     default: '',
 });
+
+export const myStateAtomIndex = atom({
+  key: 'Index',
+  default: '',
+});
+
+export const myStateAtomGlobalID = atom({
+  key: 'GlobalID',
+  default: '',
+});

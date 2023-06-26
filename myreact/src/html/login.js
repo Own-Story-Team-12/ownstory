@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import JoinPage from '../html/Join';
 import styles from '../login.module.css';
-import { useRecoilState } from 'recoil';
-import { myStateAtomID, myStateAtomPW } from '../state';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function LoginPage() {
         //useState() - 값이 변화되는 것을 저장
-        const [id, setId] = useRecoilState(myStateAtomID);
-        const [pw, setPw] = useRecoilState(myStateAtomPW);
+        const [id, setId] = useState(false);
+        const [pw, setPw] = useState(false);
         const [showWarning, setShowWarning] = useState(false);
+        const usenavigate = useNavigate();
 
         //state값이 변화되는 함수 - input에 쓴 값으로 바뀜
         const onIdChange = (e) => {
@@ -17,7 +16,7 @@ function LoginPage() {
             setId(e.target.value); //이벤트를 받는 타겟의 value값으로 변경
             setShowWarning(false);
         }
-
+        
         const onPwChange = (e) => {
             //e: 이벤트 객체
             setPw(e.target.value); //이벤트를 받는 타겟의 value값으로 변경
@@ -39,6 +38,12 @@ function LoginPage() {
                 })
                 .then(function (response) {
                     console.log(response.data);
+                    const token = response.data;
+                    const IDinfo = id
+                    localStorage.setItem('IDinfo', JSON.stringify(IDinfo));
+                    localStorage.setItem('token', JSON.stringify(token));
+                    
+                    usenavigate('/');
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -47,9 +52,10 @@ function LoginPage() {
         }
         
     return (
+    
     <div className={styles.body}> 
       <section className={styles.login_form}>
-        <h1>LOGIN PAGE</h1>
+        <h1><NavLink to="/">Own Story</NavLink></h1>
         <div className={styles.int_area}>
             <input type="text" name="id" id="id" onChange={ onIdChange } autoComplete="off" required></input>
             <label htmlFor="id" className={showWarning && !id ? styles.warning : ''}>USER NAME</label>
@@ -59,13 +65,14 @@ function LoginPage() {
             <label htmlFor="id" className={showWarning && !pw ? styles.warning : ''}>PASSWORD</label>
         </div>
         <div className={styles.btn_area}>
-            <button type="submit" onClick={onDataPost}>LOGIN</button>
+            <button type="submit" onClick={onDataPost}>로그인</button>
         </div>
         <div className={styles.caption}>
-            <a href="/join">SIGN UP?</a>
+            <NavLink to="/join">SING UP?</NavLink>
         </div>
       </section>
       </div>
+      
     );
   }
   
