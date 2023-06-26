@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import LoginPage from './html/login';
 import JoinPage from './html/Join';
 import MainPage from './html/main';
-import KeywordInput from './html/fairytale'
+import KeywordInput from './html/fairytale';
+import AudioRecord from './html/record';
 
 
 function Pages(){
@@ -13,7 +14,8 @@ function Pages(){
     <Route path="/" element={<MainPage />}/>
     <Route path="/login" element={<LoginPage />}/>
     <Route path="/join" element={<JoinPage />}/>
-    <Route path = "fairytale" element={<KeywordInput />}/>
+    <Route path = "/fairytale" element={<KeywordInput />}/>
+    <Route path = "/record" element={<AudioRecord />}/>
   </Routes>
   );
 };

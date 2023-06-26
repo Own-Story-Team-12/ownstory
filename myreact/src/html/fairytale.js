@@ -76,9 +76,15 @@ function KeywordInput(){
 
    return(
     <div>
+        <button>내가 직접 만드는 동화</button>
+        <button> 내가 그린 그림으로 만드는 동화</button>
+        <p>주인공의 이름은 뭐야?</p>
         <input type = "text" value = {name} onChange={handleNameChange}></input>
+        <p>주인공의 특징은 뭐야?</p>
         <input type = "text" value = {personality} onChange={handlePersonalityChange}></input>
+        <p>어떤 동물이 나올까?</p>
         <input type = "text" value = {animal} onChange={handleAnimalChange}></input>
+        <p>그 동물의 특징은 뭐야?</p>
         <input type = "text" value = {animal_feature} onChange={handleAnimalFeatureChange}></input>
         <button onClick={handelSetInput}>아무거나 넣어볼래요</button>
         <button onClick={handleSubmit }>동화 만들어 주세요</button>

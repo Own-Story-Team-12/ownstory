@@ -11,7 +11,8 @@ function Header(){
   <nav>
       <ul>
         <li><a href = "login/">Login</a></li>
-        <li><a href = "fairytale/">Falrytale</a></li>
+        <li><a href = "fairytale/">동화생성</a></li>
+        <li><a href = "record/">동화녹음</a></li>
       </ul>
   </nav>
 </header>);

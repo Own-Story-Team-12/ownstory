@@ -40,5 +40,6 @@ bower_components
 psd
 thumb
 sketch
+src/html/google.js
 
 # End of https://www.toptal.com/developers/gitignore/api/react
