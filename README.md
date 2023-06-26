@@ -87,9 +87,9 @@
 
 - Back-End and Cloud
 
-| Python | Django | MySQL | AWS |
-| --- | --- | --- | --- |
-| ![image](https://cdn.icon-icons.com/icons2/2699/PNG/512/python_vertical_logo_icon_168039.png) | ![image](https://images.velog.io/images/poiuyy0420/post/c8d8fd01-0a25-4866-aa3a-11ccc70d66af/d_rest.png) | ![image](https://cdn.icon-icons.com/icons2/2415/PNG/512/mysql_original_wordmark_logo_icon_146417.png) | ![image](https://cdn.iconscout.com/icon/free/png-256/free-aws-1869025-1583149.png) |
+| Python | Django | django REST framework | MySQL | AWS |
+| --- | --- | --- | --- | --- |
+| ![image](https://cdn.icon-icons.com/icons2/2699/PNG/512/python_vertical_logo_icon_168039.png) | ![image](https://cdn.icon-icons.com/icons2/2622/PNG/512/brand_django_icon_158932.png) | ![image](https://images.velog.io/images/poiuyy0420/post/c8d8fd01-0a25-4866-aa3a-11ccc70d66af/d_rest.png) | ![image](https://cdn.icon-icons.com/icons2/2415/PNG/512/mysql_original_wordmark_logo_icon_146417.png) |  ![image](https://cdn.iconscout.com/icon/free/png-256/free-aws-1869025-1583149.png)
 
 - etc
 
