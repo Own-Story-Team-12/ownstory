@@ -7,7 +7,7 @@ def chatGPT(prompt):
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": "Write the title of the fairy tale in isolation, \
-                   and write a minimum of 20 words using very, very simple words,\
+                   and write a minimum of 10 words using too much simple words,\
                     using the keyword on the next line. keywords are"+ str(prompt)}]
     )
     print(completion)
@@ -19,6 +19,6 @@ def chatGPT(prompt):
 
 if __name__ == "__main__":
 
-    title, content = chatGPT('lion, tiger')
+    title, content = chatGPT('lee, brave lion, a lion meets many animals, forest')
     print(title)
     print(content)

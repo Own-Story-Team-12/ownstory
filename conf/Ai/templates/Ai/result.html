@@ -7,12 +7,14 @@
 {% block extrahead %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock %}
+    <img src="{{image}}"><br>  
     <div id="result">{{title}}</div><br>
     <div id="ko_result">{{content}}</div><br><br>
     <div id="ko_title">{{ko_title}}</div><br>
     <div id="ko_content">{{ko_content}}</div><br>
-    <!-- <img src="{{img1}}" alt="Image1">
-    <img src="{{img2}}" alt="Image2"> -->
-    <audio src="{{TTS}}" controls="controls"></audio>
+    <div id="TTS_example">{{TTS_example}}</div><br>
+    <div id="TTS_myvoice">{{TTS_myvoice}}</div><br>
+    <!-- <audio src="{{TTS_example}}" controls="controls"></audio>
+    <audio src="{{TTS_myvoice}}" controls="controls"></audio> -->
 {% endblock %}
 

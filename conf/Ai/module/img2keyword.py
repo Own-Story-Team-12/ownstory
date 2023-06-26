@@ -42,7 +42,7 @@ class Img2keyword:
             keyword.append(concept.name)
         
         #그림과 관련된 단어들 예외 처리
-        exception = ['illustration','painting','vintage','print','art','sketch','vector','design','visuals']
+        exception = ['illustration','painting','vintage','print','art','sketch','vector','design','visuals','graphic design', 'no person', 'paper', 'chalk out', 'scribble', 'retro']
         for word in exception:
             if word in keyword:
                 keyword.remove(word)

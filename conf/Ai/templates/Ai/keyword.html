@@ -12,9 +12,9 @@
         var animal_featureTextBox = document.getElementById('animal_feature');
 
         var names = ['영수', '민수', '영희', '철수'];
-        var personalities = ['착함', '노래를 잘함', '잘 웃음', '운동을 잘함'];
-        var animals = ['돼지', '고양이', '강아지', '원숭이'];
-        var animal_features = ['착함', '노래를 잘함', '잘 웃음', '운동을 잘함'];
+        var personalities = ['용감한 사자', '노래를 잘하는 공주', '잘 웃는 거북이', '말을 잘하는 인형'];
+        var animals = ['숲', '바다', '마을', '책상'];
+        var animal_features = ['사자가 많은 동물들을 만나는 이야기', '공주와 왕자가 만나는 이야기', '거북이가 여행하는 이야기', '책상을 탈출하려는 인형'];
         
         var randomNameIndex = Math.floor(Math.random() * names.length);
         var randomPersonalityIndex = Math.floor(Math.random() * personalities.length);
@@ -41,21 +41,21 @@
 <button onclick="randomFill()">랜덤 채우기</button>
 
 <form action="result" method="post" autocomplete="off">
-{% csrf_token %}
+    {% csrf_token %}
     <div>
-        <label for="name">주인공 이름 :</label>
+        <label for="name">주인공의 이름은 뭐야?</label>
         <input type="text" id="name" name="name">
     </div>
     <div>
-        <label for="personality">주인공 특징 :</label>
+        <label for="personality">주인공에 대해서 설명해줘</label>
         <input type="text" id="personality" name="personality">
     </div>
     <div>
-        <label for="animal">동화에 나올 동물 :</label>
+        <label for="animal">배경은 어디야?</label>
         <input type="text" id="animal" name="animal">
     </div>
     <div>
-        <label for="animal_feature">동물의 특징 :</label>
+        <label for="animal_feature">어떤 내용으로 동화를 만들어줄까?</label>
         <input type="text" id="animal_feature" name="animal_feature">
     </div>
     
