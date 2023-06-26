@@ -9,7 +9,7 @@ function Header(){
 
   let finalID = '';
 
-  if (ID !== "") {
+  if (ID !== null) {
     finalID = ID.slice(1, -1);
   }  
 

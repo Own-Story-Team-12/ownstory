@@ -22,6 +22,10 @@ function LoginPage() {
             setPw(e.target.value); //이벤트를 받는 타겟의 value값으로 변경
             setShowWarning(false);
         }
+
+        const goBack=() => {
+            usenavigate(-1);
+        }
     
         const onDataPost = () => {
             if (!id || !pw) {
@@ -55,6 +59,7 @@ function LoginPage() {
     
     <div className={styles.body}> 
       <section className={styles.login_form}>
+      <button className={styles.back} onClick={goBack}>←</button>
         <h1><NavLink to="/">Own Story</NavLink></h1>
         <div className={styles.int_area}>
             <input type="text" name="id" id="id" onChange={ onIdChange } autoComplete="off" required></input>
