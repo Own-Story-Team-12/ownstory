@@ -5,6 +5,7 @@ import LoginPage from './html/login';
 import JoinPage from './html/Join';
 import MainPage from './html/main';
 import RecordPage from './html/record';
+import ImageInputPage from './html/imageinput';
 
 
 function Pages(){
@@ -14,6 +15,8 @@ function Pages(){
     <Route path="/login" element={<LoginPage />}/>
     <Route path="/join" element={<JoinPage />}/>
     <Route path="/record" element={<RecordPage />}/>
+    <Route path="/imageinput" element={<ImageInputPage />}/>
+    
   </Routes>
   );
 };
