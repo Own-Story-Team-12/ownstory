@@ -32,7 +32,7 @@ def result_image(file_absolute_path):
 
         #result 페이지에 넘겨줄 값
         context = {
-        'image' : file.name,
+        'image' : file_absolute_path.name,
         'title' : title,
         'content' : content,
         'ko_title' : ko_title,
