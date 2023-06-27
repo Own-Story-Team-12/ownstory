@@ -2,8 +2,16 @@ Django==4.2.2
 django-extensions==3.2.3
 mysqlclient==2.1.1
 clarifai-grpc==9.5.0
+django-allauth==0.54.0
+social-auth-app-django==5.2.0
 openai==0.27.8
 bootstrap4==0.1.0
 scikit-learn==1.2.2
 TTS==0.14.3
 djangorestframework==3.14.0
+django-cors-headers==4.1.0
+djangorestframework==3.14.0
+Pillow
+djangorestframework-simplejwt == 5.2.2 
+djangorestframework-jwt == 1.11.0 
+
