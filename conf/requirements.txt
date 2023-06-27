@@ -5,5 +5,8 @@ clarifai-grpc==9.5.0
 openai==0.27.8
 bootstrap4==0.1.0
 scikit-learn==1.2.2
-TTS==0.14.3
+scipy==1.9.1
+# TTS==0.14.3
+nltk==3.7
 djangorestframework==3.14.0
+Pillow==9.2.0
