@@ -6,10 +6,10 @@ function Header(){
   const router = useLocation();
   const token = localStorage.getItem('token');
   const ID = localStorage.getItem('IDinfo');
-
+  console.log(ID);
   let finalID = '';
 
-  if (ID !== "") {
+  if (ID !== null) {
     finalID = ID.slice(1, -1);
   }  
 
