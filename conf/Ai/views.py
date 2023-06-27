@@ -114,25 +114,25 @@ from .serializers import ResultSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
+from django.core.files.storage import FileSystemStorage
 from Ai.module.returnresult import result_image, result_keyword
 
 
 class ResultAPIView(APIView):
     def post(self, request):
 
-        content_type = request.content_type
-        if content_type == 'multipart/form-data':
+        #content_type = request.content_type
+        #if content_type == 'multipart/form-data':
+        if request.method == 'POST' and request.FILES.get('img_file'):
             file = request.FILES['img_file']
-        
-            with tempfile.NamedTemporaryFile(delete=False) as temp_file:
-                temp_file.write(file.read())
-                temp_file_path = temp_file.name
 
-            file_absolute_path = temp_file_path
-
-            response_data = result_image(file_absolute_path)
+            fs = FileSystemStorage(location=settings.MEDIA_ROOT)
+            filename = fs.save(file.name, file)
+            uploaded_file_url = fs.url(filename)
+            response_data = result_image(uploaded_file_url)
 
             return Response(response_data, status=status.HTTP_200_OK)
+        
         else:
             name = request.data.get('name')
             feature = request.data.get('feature')

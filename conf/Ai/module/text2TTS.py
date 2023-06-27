@@ -10,7 +10,7 @@ def text2TTS(script):
     return PATH
 
 def text2TTS_myvoice(script):
-    command = f'tts --text "{script}" --model_path tts_model/model_file_me.pth --config_path Ai/tts_model/config.json --out_path media/myvoice.wav'
+    command = f'tts --text "{script}" --model_path tts_model/model_file_me.pth --config_path tts_model/config.json --out_path media/myvoice.wav'
     print(command)
     subprocess.call(command, shell=True)
 
