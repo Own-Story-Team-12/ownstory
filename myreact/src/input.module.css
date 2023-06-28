@@ -50,7 +50,7 @@
 
   .bookleft{
     display: grid;
-    place-items: center;
+    place-items: top;
     height: 80vh;
     position: relative;
     left:-70px;
@@ -68,10 +68,20 @@
   
   }
 
-  .imageinput {
+  .imageinputbt {
     place-items: center;
-    background-color: red;
     
+    
+  }
+
+  .imageinputbox{
+    margin-top: 15vh;
+    width : 300px;
+    height: 300px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 2px dotted gray;
   }
 
   input[type="file"] {
@@ -82,3 +92,61 @@
   button {
     display: none;
   }
+
+  .upload {
+    background-color: gray;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
+    color : white
+  }
+
+  .uploaded {
+    color: gray;
+    position: relative;
+    bottom : -10px;
+    right: -5px;
+    
+  }
+
+  .ex{
+    
+    bottom : -200px;
+    right: -50px;
+
+  }
+
+  .warn {
+    color:red;
+    font-size:10;
+    position : relative;
+
+    right : -10px;
+    bottom : -100px;
+
+  }
+
+
+  .genbtn {
+    background-color: #FFA500;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
+    color : black;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .selectedimg {
+    position: relative;
+    bottom : -50px;
+    
+  }
+
+  
