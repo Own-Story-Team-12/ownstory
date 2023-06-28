@@ -57,7 +57,7 @@ def result_keyword(ko_keyword):
 
     #TTS
     tts_example = text2TTS(content)
-    tts_myvoice = text2TTS_myvoice(content)
+    # tts_myvoice = text2TTS_myvoice(content)
 
     #생성된 동화 번역
     #deepL
@@ -74,7 +74,7 @@ def result_keyword(ko_keyword):
         'ko_title' : ko_title,
         'ko_content' : ko_content,
         'TTS_example' : tts_example,
-        'TTS_myvoice' : tts_myvoice,
+        # 'TTS_myvoice' : tts_myvoice,
         }
     
     return context
