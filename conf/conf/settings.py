@@ -54,8 +54,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "allauth",
-    "social_django", # 소셜 로그인
     "rest_framework", 
     "rest_framework_simplejwt",
     "Page",

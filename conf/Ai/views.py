@@ -2,6 +2,7 @@ from django.conf import settings
 from .serializers import ResultSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.viewsets import ModelViewSet
 from rest_framework import status
 from django.core.files.storage import FileSystemStorage
 from Ai.module.returnresult import result_image, result_keyword
@@ -38,3 +39,7 @@ class ResultAPIView(APIView):
         
 #Django REST Framework는 기본적으로 JSON 시리얼라이저를 사용하므로,
 #Python의 dict 객체를 Response 객체에 전달하면 자동으로 JSON으로 시리얼라이즈
+
+
+# class SaveViewSet(ModelViewSet):
+#     pass
