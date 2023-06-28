@@ -60,9 +60,7 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     "Page",
     "Upload",
-    "bootstrap4",
     'django_extensions',
-    "won",
     "Ai",
     'corsheaders',
 ]
