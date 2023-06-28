@@ -1,13 +1,15 @@
 import axios from "axios";
 import React, { useState } from 'react';
-import styles from '../main.module.css';
+import styles from '../input.module.css';
 import Headerjs from './header';
 import Footerjs from './footer';
+import 보이 from './static_image/boy.png'
+
   
 
 function Body(){
 
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(보이);
 
 
   const ReadyImage = (event) => {
@@ -36,13 +38,13 @@ function Body(){
 
     const formData = new FormData()
 
-    formData.append('image', selectedFile)
+    formData.append('image_file', selectedFile)
 
     const api = axios.create({
       baseURL: '/',
     });
 
-    api.post("장고의 ai 모델 url", formData)
+    api.post("/Ai/api/", formData)
     .then(function (response) {
       console.log(response.data)
 
@@ -55,10 +57,31 @@ function Body(){
   
   
   return (
-    <div className={styles.body}>
-      <input type='file' onChange={ReadyImage}/>
-      <img src={selectedFile} width="300" height="300"></img>
-      <button onClick={PostImage}>생성하기</button>
+    <div  className={`${styles.body} ${styles.inputback}`} >
+      <div className={styles.openbook}>
+        <div className={styles.bookleft}>
+          <div>
+            <img src={selectedFile} width="300" height="300" />
+          </div>
+          <div> 
+            <label for="file-input" class="custom-file-input">
+              <span>파일을 올리자</span>
+            </label> 
+            <input id='file-input' className={styles.imageinput } type='file' onChange={ReadyImage} />
+          </div>
+        </div>
+        <div className={styles.bookright}>
+          <div>
+            <img src={보이} width="300" height="300"/>
+          </div>
+          <div>
+            <label for="generate" class="custom-generate">
+                <span>동화를 생성하자</span>
+              </label> 
+            <button id='generate' onClick={PostImage}>생성하기</button>     
+          </div>
+        </div>
+      </div>
     </div>
     )
   }

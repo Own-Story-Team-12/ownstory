@@ -1,0 +1,84 @@
+* {
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'SUITE-Regular', sans-serif;
+    /* border기준으로
+    개발자가 생각한 사이즈와
+    실제로 출력된 사이즈가
+    같기 때문에 개발환경이
+    편해진다. */
+  }
+  .body{
+    min-height: 100vh;
+    margin-top: 80px;
+    /* padding-bottom : 100px; */
+    position : relative;
+    
+    background-color: #FFFAEA;
+    
+    
+  }
+
+  .inputback{
+    background-image: url('C:\Users\User\Desktop\bigp\Fairytale\myreact\src\html\static_image\동화 페이지 뒷배경.png');
+    background-size: cover;
+    background-position: center;
+
+    display: grid;
+    place-items: center;
+  }
+
+  .openbook{
+
+    
+    background-image: url('C:\Users\User\Desktop\bigp\Fairytale\myreact\src\html\static_image\책.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat:no-repeat;
+
+    min-width: 80%;
+    min-height: 80%;
+
+    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .bookleft{
+    display: grid;
+    place-items: center;
+    height: 80vh;
+    position: relative;
+    left:-70px;
+
+    
+    
+  }
+  
+  .bookright{
+    display: grid;
+    place-items: center;
+    height: 80vh;
+    position: relative;
+    right : -80px;
+  
+  }
+
+  .imageinput {
+    place-items: center;
+    background-color: red;
+    
+  }
+
+  input[type="file"] {
+    display: none;
+    
+  }
+
+  button {
+    display: none;
+  }

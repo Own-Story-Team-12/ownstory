@@ -60,7 +60,7 @@ INSTALLED_APPS = [
     "Upload",
     "bootstrap4",
     'django_extensions',
-    "won",
+    #"won",
     "Ai",
     'corsheaders',
 ]
