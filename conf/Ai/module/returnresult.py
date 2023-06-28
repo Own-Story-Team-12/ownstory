@@ -5,7 +5,7 @@ from Ai.module.make_fairytale import chatGPT
 from Ai.module.text2img import Txt2img
 from Ai.module.text2keyword import textrank_keyword
 from Ai.module.text2TTS import text2TTS, text2TTS_myvoice
-import tempfile
+import os
 
 def result_image(file_absolute_path):
         
@@ -29,10 +29,13 @@ def result_image(file_absolute_path):
         ko_title = get_trans_papago(title, 'en','ko')
         ko_content = get_trans_papago(content, 'en','ko')
 
-
+        #current_dir = os.getcwd()
+        # current_dir = os.path.dirname(os.path.abspath(__file__))
+        # image_url = os.path.join(current_dir + file_absolute_path)
+        
         #result 페이지에 넘겨줄 값
         context = {
-        'image' : file.name,
+        #'image' : image_url,
         'title' : title,
         'content' : content,
         'ko_title' : ko_title,
@@ -47,7 +50,7 @@ def result_image(file_absolute_path):
 def result_keyword(ko_keyword):
     #입력받은 키워드 영어로 변환 후 동화 생성
     #deepL
-    #en_keyword = get_trans_deepl(ko_keyword)
+    # en_keyword = get_trans_deepl(ko_keyword)
 
     en_keyword = get_trans_papago(ko_keyword, 'ko','en')
     title, content = chatGPT(en_keyword)
