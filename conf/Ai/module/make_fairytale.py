@@ -7,8 +7,8 @@ def chatGPT(prompt):
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": "Write the title of the fairy tale in isolation, \
-                   and write a minimum of 10 words using too much simple words,\
-                    using the keyword on the next line. keywords are"+ str(prompt)}]
+                   Don't write fairy tales in numerical order, Write a minimum of 1 sentences and and a maximum of 3 sentences using words that are too easy for 2-4 year olds.\
+                    using the keywords below. keywords are"+ str(prompt)}]
     )
     print(completion)
     result = completion.choices[0].message.content

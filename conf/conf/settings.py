@@ -54,8 +54,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "allauth",
-    "social_django", # 소셜 로그인
     "rest_framework", 
     "rest_framework_simplejwt",
     "Page",
@@ -141,43 +139,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-GOOGLE_OAUTH2_KEY = get_secret("CLIENT_ID_GOOGLE")
-GOOGLE_OAUTH2_SECRET = get_secret("CLIENT_PW_GOOGLE")
-NAVER_OAUTH2_KEY = get_secret("CLIENT_ID_NAVER")
-NAVER_OAUTH2_SECRET = get_secret("CLIENT_PW_NAVER")
+# GOOGLE_OAUTH2_KEY = get_secret("CLIENT_ID_GOOGLE")
+# GOOGLE_OAUTH2_SECRET = get_secret("CLIENT_PW_GOOGLE")
+# NAVER_OAUTH2_KEY = get_secret("CLIENT_ID_NAVER")
+# NAVER_OAUTH2_SECRET = get_secret("CLIENT_PW_NAVER")
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = GOOGLE_OAUTH2_KEY
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = GOOGLE_OAUTH2_SECRET
-SOCIAL_AUTH_NAVER_KEY = NAVER_OAUTH2_KEY
-SOCIAL_AUTH_NAVER_SECRET = NAVER_OAUTH2_SECRET
-
-AUTHENTICATION_BACKENDS = [ # 소셜 로그인
-    'social_core.backends.open_id.OpenIdAuth',  #구글 로그인 처리를 위한 파이썬 클래스
-    #'social_core.backends.google.GoogleOpenId',
-    'social_core.backends.google.GoogleOAuth2', 
-    'social_core.backends.google.GooglePlusAuth',
-    'social_core.backends.naver.NaverOAuth2',
-    'django.contrib.auth.backends.ModelBackend', 
-]
-
-
-ACCOUNT_SIGNUP_REDIRECT_URL = 'Page:index' # 소셜로그인 후 리디렉션 경로
-LOGIN_REDIRECT_URL = 'Page:index' # 로그인 후 리디렉션 경로
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True # 창을 닫으면 세션정보 지우기
-# SOCIAL_AUTH_ASSOCIATE_BY_EMAIL = True # email을 기준으로 사용자 연결
-
-SOCIAL_AUTH_PIPELINE =(
-    'social_core.pipeline.social_auth.social_details',
-    'social_core.pipeline.social_auth.social_uid',
-    'social_core.pipeline.social_auth.auth_allowed',
-    'social_core.pipeline.social_auth.social_user',
-    'social_core.pipeline.user.get_username',
-    'social_core.pipeline.user.create_user',
-    'social_core.pipeline.social_auth.associate_user',
-    'social_core.pipeline.social_auth.load_extra_data',
-    'social_core.pipeline.user.user_details',
-    'Page.pipeline.save_user_id_to_session', # 소셜 로그인 후 세션에 user.id저장
-)
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = GOOGLE_OAUTH2_KEY
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = GOOGLE_OAUTH2_SECRET
+# SOCIAL_AUTH_NAVER_KEY = NAVER_OAUTH2_KEY
+# SOCIAL_AUTH_NAVER_SECRET = NAVER_OAUTH2_SECRET
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
