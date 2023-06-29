@@ -5,6 +5,7 @@ import LoginPage from './html/login';
 import JoinPage from './html/Join';
 import MainPage from './html/main';
 import RecordPage from './html/record';
+import ImageInputPage from './html/imageinput';
 import KeywordInput from './html/fairytale';
 import MyPage from './html/mypage';
 
@@ -16,6 +17,7 @@ function Pages(){
     <Route path="/login" element={<LoginPage />}/>
     <Route path="/join" element={<JoinPage />}/>
     <Route path="/record" element={<RecordPage />}/>
+    <Route path="/imageinput" element={<ImageInputPage />}/>
     <Route path = "/fairytale/keyword" element={<KeywordInput />}/>
     <Route path = "/mypage" element={<MyPage />}/>
   </Routes>

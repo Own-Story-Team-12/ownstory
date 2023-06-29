@@ -6,6 +6,16 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.hashers import make_password, check_password
 from .models import User
 from django.http import HttpResponse
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework_jwt.settings import api_settings
+from rest_framework_simplejwt.tokens import RefreshToken
+from django.contrib.auth import authenticate
+from .serializers import UserSerializer
+import os
+import time
+import csv
+
 from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
@@ -35,12 +45,7 @@ def logout(request):
 
 ############
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework_jwt.settings import api_settings
-from rest_framework_simplejwt.tokens import RefreshToken
-from django.contrib.auth import authenticate
-from .serializers import UserSerializer
+
 
 jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
 jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
@@ -109,3 +114,67 @@ class userInfo(APIView):
             'password': user.password,
         }
         return Response(member_info)
+class UploadAudioView(APIView):
+    def post(self, request, format=None):
+        audio_file = request.FILES.get('audioFile')  # 파일 업로드 필드명에 맞게 수정하세요
+        # 저장할 디렉토리 경로
+        save_directory = './media/wav/'
+        
+        if not os.path.exists(save_directory):
+            os.makedirs(save_directory)
+
+        # 파일명
+        filename = audio_file.name
+        file_path = os.path.join(save_directory, filename)
+        
+        if int(filename.split('.')[0]) < 5:
+            with open(file_path, 'wb') as f:
+                f.write(audio_file.read())             
+            
+        file_count = len(os.listdir(save_directory))
+
+        return Response({'message': file_count})
+    
+class AudioCheckView(APIView):
+    def post(self, request):
+        userid = request.data.get('name') # 추후에 활용할수있을것같아서 받아옴
+        
+        save_directory = './media/wav/'
+
+        try:
+            os.makedirs(save_directory)
+        except FileExistsError:
+            if not os.path.isdir(save_directory):
+                print(1)
+            
+        file_count = len(os.listdir(save_directory))
+
+        return Response({'message': file_count})
+    
+class AudioFitView(APIView):
+    def post(self, request):
+        # texts = request.data.get('text')   
+        # print(texts)
+          
+        save_directory = './media/wav/'
+        
+        text = ["The pigs and cows ran everywhere.",
+                  "Float the soap on top of the bath water.",
+                  "A very young boy sliding down a slide into a swimming pool. wearing blue floaties.",
+                  "I can't do that right now. Please try again later.",
+                  "The boy was there when the sun rose."]
+
+        data = []
+        file_names = os.listdir(save_directory)
+        
+        for i in range(len(text)):
+            t = file_names[i][:-4]+'|'+text[i]
+            t = t.replace('"', '')
+            data.append([t])
+            
+        f = open('./media/wav/metadata.csv', 'w', newline='')
+        writer = csv.writer(f)
+        writer.writerows(data)
+        f.close()
+
+        return Response({'message': '성공'})

@@ -6,6 +6,8 @@ django-cors-headers==4.1.0
 djangorestframework==3.14.0
 djangorestframework-simplejwt==5.2.2 
 djangorestframework-jwt==1.11.0
-clarifai-grpc==9.5.0
 openai==0.27.8
 TTS==0.14.3
+clarifai-grpc==9.5.0
+
+

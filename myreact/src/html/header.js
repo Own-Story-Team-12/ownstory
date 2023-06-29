@@ -7,12 +7,13 @@ function Header(){
   const router = useLocation();
   const token = localStorage.getItem('token');
   const ID = localStorage.getItem('IDinfo');
-
+  console.log(ID);
   let finalID = '';
 
   if (ID !== null) {
     finalID = ID.slice(1, -1);
-  }  
+  }
+  
 
   const handleLogout = () => {
         // 로그아웃 시 Local Storage에 저장된 토큰을 제거하고 로그인 상태를 초기화합니다.
@@ -60,7 +61,7 @@ function Header(){
               <li><NavLink to="/" className={router.pathname === '/d' && styles.active2}>동화 생성</NavLink>
                 <ul className={styles.downmenu}>
                     <li><NavLink to="/fairytale/keyword">단어로 쓰는 동화</NavLink></li>
-                    <li><NavLink to="/">그림으로 쓰는 동화</NavLink></li>
+                    <li><NavLink to="/imageinput">그림으로 쓰는 동화</NavLink></li>
                 </ul>
               </li>
               <li><NavLink to="/record" className={router.pathname === '/record' && styles.active2}>동화 녹음</NavLink></li>

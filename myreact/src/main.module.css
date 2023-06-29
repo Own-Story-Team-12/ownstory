@@ -14,8 +14,46 @@
     margin-top: 80px;
     /* padding-bottom : 100px; */
     position : relative;
+    
     background-color: #FFFAEA;
+    
+    
   }
+
+  .inputback{
+    background-image: url('./html/static_image/동화 페이지 뒷배경.png');
+    background-size: cover;
+    background-position: center;
+
+    display: grid;
+    place-items: center;
+  }
+
+  .openbook{
+
+    
+    background-image: url('./html/static_image/책.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat:no-repeat;
+
+    min-width: 80%;
+    min-height: 80%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .bookleft{
+    display: block;
+  }
+  
+  .bookright{
+    display: block;
+  }
+  
   
   .header{
     width: 100%;

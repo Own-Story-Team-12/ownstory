@@ -1,0 +1,132 @@
+* {
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'SUITE-Regular', sans-serif;
+    /* border기준으로
+    개발자가 생각한 사이즈와
+    실제로 출력된 사이즈가
+    같기 때문에 개발환경이
+    편해진다. */
+  }
+  .body{
+    min-height: 100vh;
+    margin-top: 80px;
+    /* padding-bottom : 100px; */
+    position : relative;
+    
+    background-color: #FFFAEA;
+
+  }
+  .title{
+    padding: 20px;
+    text-align: center;
+  }
+  .subtitle{
+    text-decoration: underline;
+    text-decoration-color: #BDBDBD;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 15px;
+  }
+  .btnarea{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btnrow{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .question{
+    height: 45px;
+    width: 45px;
+    border: none;
+    background: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+  }
+  .qIcon{    
+    height: 45px;
+    width: 45px;
+  }
+
+  .tooltip{
+    padding: 10px;
+    height: auto;
+    width: 330px;
+    background-color: #E6E7DE;
+    z-index: 999;
+    position:absolute;
+    border: #BDBDBD;
+    text-align: center;
+    font-size: 13px;
+    z-index: 999;
+  }
+
+  .voice{
+    width: 70%;
+    height: 30%;
+    margin: 1% auto;
+    border:#BDBDBD solid;
+    border-radius:10px;
+    position: relative;
+    padding: 1%;
+  }
+
+  .mypost{
+    width: 70%;
+    height: 30%;
+    margin: 1% auto;
+    border:#BDBDBD solid;
+    border-radius:10px;
+    position: relative;
+    padding: 1%;
+    
+  }
+
+  .voicebtn{
+    width: 176px;
+    height: 137px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FEEEBA;
+    border: #BDBDBD solid 1px;
+    border-radius:15px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .voicebtn img{
+    width: 75px;
+    height: 75px;
+  }
+
+  .btnContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .pencil {
+    height: 45px;
+    width: 45px;
+    border: none;
+    background: none;
+  }
+  .pencil img{
+    width:13px;
+    height: 13px;
+  }
+  .more{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    padding-top: 10px;
+    padding-right: 20px;
+  }

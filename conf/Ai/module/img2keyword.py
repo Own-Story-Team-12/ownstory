@@ -2,6 +2,7 @@ from clarifai_grpc.channel.clarifai_channel import ClarifaiChannel
 from clarifai_grpc.grpc.api import service_pb2_grpc
 from clarifai_grpc.grpc.api import service_pb2, resources_pb2
 from clarifai_grpc.grpc.api.status import status_code_pb2
+import os
 
 stub = service_pb2_grpc.V2Stub(ClarifaiChannel.get_grpc_channel())
 YOUR_CLARIFAI_API_KEY = "935b6ea5b10e42998d669593fa58c7d8" #your api key
@@ -17,7 +18,8 @@ class Img2keyword:
 
     #local file이면 file_bytes로 인코딩
     def clarifai(self):
-        image_url = self.image_url
+        current_dir = os.getcwd()
+        image_url = os.path.join(current_dir + self.image_url)
         with open(image_url, "rb") as f:
             file_bytes = f.read()
         metadata = (("authorization", f"Key {YOUR_CLARIFAI_API_KEY}"),)
@@ -42,7 +44,7 @@ class Img2keyword:
             keyword.append(concept.name)
         
         #그림과 관련된 단어들 예외 처리
-        exception = ['illustration','painting','vintage','print','art','sketch','vector','design','visuals']
+        exception = ['illustration','painting','vintage','print','art','sketch','vector','design','visuals','graphic design', 'no person', 'paper', 'chalk out', 'scribble', 'retro']
         for word in exception:
             if word in keyword:
                 keyword.remove(word)
