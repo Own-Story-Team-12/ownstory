@@ -63,7 +63,7 @@ function LoginPage() {
         <h1><NavLink to="/">Own Story</NavLink></h1>
         <div className={styles.int_area}>
             <input type="text" name="id" id="id" onChange={ onIdChange } autoComplete="off" required></input>
-            <label htmlFor="id" className={showWarning && !id ? styles.warning : ''}>USER NAME</label>
+            <label htmlFor="id" className={showWarning && !id ? styles.arning : ''}>USER NAME</label>
         </div>
         <div className={styles.int_area}>
             <input type="password" name="pw" id="pw" onChange={ onPwChange } autoComplete="off" required></input>

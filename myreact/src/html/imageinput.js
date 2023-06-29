@@ -3,7 +3,9 @@ import React, { useState, useEffect } from 'react';
 import styles from '../input.module.css';
 import Headerjs from './header';
 import Footerjs from './footer';
-import 보이 from './static_image/boy.png'
+import { NavLink, useNavigate } from 'react-router-dom';
+
+
 
 function SelectInput(){
   const currentURL = window.location.href;
@@ -20,6 +22,8 @@ function Body(){
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const usenavigate = useNavigate();
+
 
   useEffect(() => {
     // 상태 업데이트 후에 실행할 작업
@@ -35,7 +39,7 @@ function Body(){
 
     const file = event.target.files[0];
     
-  
+
     
 
     const reader = new FileReader();
@@ -65,6 +69,7 @@ function Body(){
     }
     
 
+  
     
 
   }  
@@ -73,11 +78,20 @@ function Body(){
 
     event.preventDefault();
 
+
+
+    
+
     if (selectedFile){
   
     const formData = new FormData()
 
     formData.append('img_file', File)
+
+    // FormData 객체의 데이터 확인
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ': ' + pair[1]);
+      }
 
     const api = axios.create({
       baseURL: '/',
@@ -89,7 +103,13 @@ function Body(){
       },
     })
     .then(function (response) {
-      console.log(response.data)
+      console.log(response)
+      localStorage.setItem('response', JSON.stringify(response));
+      usenavigate('/result');
+      
+      
+      
+
 
     })
     .catch(function (error) {
@@ -129,7 +149,7 @@ function Body(){
             <label htmlFor="generate" className="custom-generate">
                 <span className={styles.genbtn}>이 그림으로 동화를 만들어 주세요</span>
               </label> 
-            <button id='generate' onClick={PostImage}>생성하기</button>     
+            <button className={styles.postbtn} id='generate' onClick={PostImage}>생성하기</button>     
           </div>
         </div>
       </div>
