@@ -6,27 +6,31 @@ import axios from "axios";
 function Body() {
 
   const response = JSON.parse(localStorage.getItem('response'));
-  
-  console.log(response)
+  const sendData = {
+    user: localStorage.getItem('IDinfo').slice(1,-1),
+     ...response.data
+    }
 
+  console.log(sendData);
 
   const saveDB = (event) => {
-  
+    
+    
+    
+
     event.preventDefault();
     
     const api = axios.create({
       baseURL: '/',
     })
 
-    api.post("http://127.0.0.1:8000/Save/", {
-      image : response.data.image,
-      title : response.data.title,
-      content : response.data.content,
-      ko_title : response.data.ko_tilte,
-      ko_content : response.data.ko_content,
-      TTS_example : response.data.TTS_example,
-      TTS_myvoice : response.data.TTS_myvoice
-    })
+
+    api.post("http://127.0.0.1:8000/AI/save/", sendData
+      ,{
+        headers:{
+          'Content-Type':'multipart/form-data',
+        },
+      })
     .then(function (response) {
       console.log("good")
     })
