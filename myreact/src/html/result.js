@@ -6,22 +6,26 @@ import axios from "axios";
 function Body() {
 
   const response = JSON.parse(localStorage.getItem('response'));
-  
-  console.log(response)
+  const sendData = {
+    user: localStorage.getItem('IDinfo').slice(1,-1),
+     ...response.data
+    }
 
+  console.log(sendData);
 
   const saveDB = (event) => {
-  
+    
+    
+    
+
     event.preventDefault();
     
     const api = axios.create({
       baseURL: '/',
     })
 
-    api.post("http://127.0.0.1:8000/Save/", {
-      user: localStorage.getItem('IDinfo').slice(1,-1),
-       ...response.data
-      }
+
+    api.post("http://127.0.0.1:8000/AI/save/", sendData
       ,{
         headers:{
           'Content-Type':'multipart/form-data',
