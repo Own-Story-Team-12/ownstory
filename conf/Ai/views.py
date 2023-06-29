@@ -57,7 +57,7 @@ class ResultAPIView(APIView):
         #POST로 들어오고 img_file이라는 필드명을 get할 수 있으면
         if request.method == 'POST' and request.FILES.get('img_file'):
             file = request.FILES['img_file']
-            
+            print(123123123123213123123)
             #media 폴더에 이미지 파일 저장 
             fs = FileSystemStorage(location=settings.MEDIA_ROOT)
             filename = fs.save(file.name, file)

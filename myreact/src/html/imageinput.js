@@ -83,8 +83,7 @@ function Body(){
     
 
     if (selectedFile){
-    
-
+  
     const formData = new FormData()
 
     formData.append('img_file', File)
@@ -94,15 +93,15 @@ function Body(){
       console.log(pair[0] + ': ' + pair[1]);
       }
 
-
     const api = axios.create({
       baseURL: '/',
     });
 
-    api.post("http://127.0.0.1:8000//Ai/api/", formData,
-    { headers: {
-      'Content-type': 'multipart/form-data',
-    }})
+    api.post("http://127.0.0.1:8000/Ai/result/", formData,{
+      headers:{
+        'Content-Type':'multipart/form-data',
+      },
+    })
     .then(function (response) {
       console.log(response)
       localStorage.setItem('response', JSON.stringify(response));
@@ -115,7 +114,7 @@ function Body(){
     })
     .catch(function (error) {
       console.log(error)
-    })
+    });
   }
 }
   
