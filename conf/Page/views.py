@@ -6,6 +6,7 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.hashers import make_password, check_password
 from .models import User
 from django.http import HttpResponse
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
@@ -97,3 +98,14 @@ class keywordtestview(APIView): # 테스트용 백
         animal_feature = request.data.get('animal_feature')
         
         return Response({'name':name, 'personality': personality})
+    
+class userInfo(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        member_info = {
+            'username': user.username,
+            'password': user.password,
+        }
+        return Response(member_info)

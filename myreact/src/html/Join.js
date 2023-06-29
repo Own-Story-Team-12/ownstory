@@ -81,7 +81,6 @@ function JoinPage() {
                     if (error.response.status === 400) {
                         setIsFailModalOpen(true);
                         setErrormsg('이미 사용중인 ID입니다.');
-        
 
                     } else {
                       console.log(error);

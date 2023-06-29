@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { React } from 'react';
+import axios from 'axios';
 import styles from '../main.module.css';
   
 function Header(){
@@ -17,6 +18,26 @@ function Header(){
         // 로그아웃 시 Local Storage에 저장된 토큰을 제거하고 로그인 상태를 초기화합니다.
     localStorage.removeItem('token');
   };
+
+  const redirectiontoMypage=() =>{
+    const token = localStorage.getItem('token');
+    if (token) {
+      let finalToken='';
+      finalToken = token.slice(1,-1);
+
+      console.log(finalToken)
+        axios.get('http://127.0.0.1:8000/info/', {
+          headers: {
+            'Authorization' : `Bearer ${finalToken}` 
+        }})
+      .then(response => {
+        console.log(response.data);
+      }) 
+      .catch(error=>{
+        console.error(error);
+      })
+    }
+  }
 
     return  (<header className={styles.header}>
   <h1>
@@ -38,13 +59,14 @@ function Header(){
             <>
               <li><NavLink to="/" className={router.pathname === '/d' && styles.active2}>동화 생성</NavLink>
                 <ul className={styles.downmenu}>
-                    <li><NavLink to="/">단어로 쓰는 동화</NavLink></li>
+                    <li><NavLink to="/fairytale/keyword">단어로 쓰는 동화</NavLink></li>
                     <li><NavLink to="/">그림으로 쓰는 동화</NavLink></li>
                 </ul>
               </li>
               <li><NavLink to="/record" className={router.pathname === '/record' && styles.active2}>동화 녹음</NavLink></li>
               <li className={styles.ID}><NavLink>{finalID} 님 환영합니다.</NavLink></li>
               <li style={{ width: '100px' }}><NavLink to="/" onClick={handleLogout} >로그 아웃</NavLink></li>
+              <li style={{ width: '100px' }}><NavLink to="/" onClick={redirectiontoMypage} >마이페이지</NavLink></li>
             </>
           ) : (
             <>

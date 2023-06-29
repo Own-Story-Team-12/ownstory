@@ -6,6 +6,7 @@ import JoinPage from './html/Join';
 import MainPage from './html/main';
 import RecordPage from './html/record';
 import KeywordInput from './html/fairytale';
+import MyPage from './html/mypage';
 
 
 function Pages(){
@@ -16,6 +17,7 @@ function Pages(){
     <Route path="/join" element={<JoinPage />}/>
     <Route path="/record" element={<RecordPage />}/>
     <Route path = "/fairytale/keyword" element={<KeywordInput />}/>
+    <Route path = "/mypage" element={<MyPage />}/>
   </Routes>
   );
 };
