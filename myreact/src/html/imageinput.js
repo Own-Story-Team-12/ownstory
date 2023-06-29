@@ -3,7 +3,9 @@ import React, { useState, useEffect } from 'react';
 import styles from '../input.module.css';
 import Headerjs from './header';
 import Footerjs from './footer';
-import 보이 from './static_image/boy.png'
+import { NavLink, useNavigate } from 'react-router-dom';
+
+
 
 function SelectInput(){
   const currentURL = window.location.href;
@@ -16,8 +18,11 @@ function Body(){
 
   const [selectedFile, setSelectedFile] = useState(null);
   const [FileName, setFileName] = useState(null);
+  const [File, setFile] = useState(null);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const usenavigate = useNavigate();
 
 
   useEffect(() => {
@@ -34,7 +39,7 @@ function Body(){
 
     const file = event.target.files[0];
     
-  
+
     
 
     const reader = new FileReader();
@@ -42,6 +47,7 @@ function Body(){
     reader.onload = () => {
       setSelectedFile(reader.result);
       setFileName(file.name);
+      setFile(file);
     };
 
     
@@ -63,6 +69,7 @@ function Body(){
     }
     
 
+  
     
 
   }  
@@ -71,20 +78,39 @@ function Body(){
 
     event.preventDefault();
 
+
+
+    
+
     if (selectedFile){
     
 
     const formData = new FormData()
 
-    formData.append('image_file', selectedFile)
+    formData.append('img_file', File)
+
+    // FormData 객체의 데이터 확인
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ': ' + pair[1]);
+      }
+
 
     const api = axios.create({
       baseURL: '/',
     });
 
-    api.post("/Ai/api/", formData)
+    api.post("http://127.0.0.1:8000//Ai/api/", formData,
+    { headers: {
+      'Content-type': 'multipart/form-data',
+    }})
     .then(function (response) {
-      console.log(response.data)
+      console.log(response)
+      localStorage.setItem('response', JSON.stringify(response));
+      usenavigate('/result');
+      
+      
+      
+
 
     })
     .catch(function (error) {
@@ -124,7 +150,7 @@ function Body(){
             <label htmlFor="generate" className="custom-generate">
                 <span className={styles.genbtn}>이 그림으로 동화를 만들어 주세요</span>
               </label> 
-            <button id='generate' onClick={PostImage}>생성하기</button>     
+            <button className={styles.postbtn} id='generate' onClick={PostImage}>생성하기</button>     
           </div>
         </div>
       </div>
