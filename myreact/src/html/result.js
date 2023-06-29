@@ -25,7 +25,7 @@ function Body() {
     })
 
 
-    api.post("http://127.0.0.1:8000/AI/save/", sendData
+    api.post("http://127.0.0.1:8000/Ai/save/", sendData
       ,{
         headers:{
           'Content-Type':'multipart/form-data',

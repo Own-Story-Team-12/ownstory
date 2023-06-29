@@ -6,5 +6,5 @@ app_name = 'Ai'
 
 urlpatterns = [
     path('result/', views.ResultAPIView.as_view()),
-    path('save/', views.save_json_data),
+    path('save/', views.SaveAPIView.as_view()),
 ]
