@@ -29,13 +29,13 @@ def result_image(file_absolute_path):
         ko_title = get_trans_papago(title, 'en','ko')
         ko_content = get_trans_papago(content, 'en','ko')
 
-        #current_dir = os.getcwd()
+        # current_dir = os.getcwd()
         # current_dir = os.path.dirname(os.path.abspath(__file__))
-        # image_url = os.path.join(current_dir + file_absolute_path)
+        image_url = os.path.join(file_absolute_path)
         
         #result 페이지에 넘겨줄 값
         context = {
-        #'image' : image_url,
+        'image' : image_url,
         'title' : title,
         'content' : content,
         'ko_title' : ko_title,
@@ -69,6 +69,7 @@ def result_keyword(ko_keyword):
     ko_content = get_trans_papago(content, 'en','ko')
  
     context = {
+        'image' : "no",
         'title' : title,
         'content' : content,
         'ko_title' : ko_title,
