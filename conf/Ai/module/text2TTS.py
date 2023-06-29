@@ -24,9 +24,12 @@ def saveuuid(original_file_path):
 
 def text2TTS(script):
     tts = TTS(model_name="tts_models/en/ljspeech/glow-tts", progress_bar=False, gpu=False)
+   
     tts.tts_to_file(text = script, file_path="media/example_voice.wav")
+    
     original_file_path = "media/example_voice.wav"
     file_path = saveuuid(original_file_path)
+
     return file_path
     
 
@@ -36,6 +39,7 @@ def text2TTS_myvoice(script):
     subprocess.call(command, shell=True)
     original_file_path = "media/my_voice.wav"
     file_path = saveuuid(original_file_path)
+    print(5)
     return file_path
 
 
