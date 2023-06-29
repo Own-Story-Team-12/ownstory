@@ -1,14 +1,9 @@
-* {
+/* * {
     margin : 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'SUITE-Regular', sans-serif;
-    /* border기준으로
-    개발자가 생각한 사이즈와
-    실제로 출력된 사이즈가
-    같기 때문에 개발환경이
-    편해진다. */
-  }
+  } */
   .body{
     min-height: 100vh;
     margin-top: 80px;
@@ -21,7 +16,7 @@
   }
 
   .inputback{
-    background-image: url('C:\Users\User\Desktop\bigp\Fairytale\myreact\src\html\static_image\동화 페이지 뒷배경.png');
+    background-image: url('./html/static_image/동화 페이지 뒷배경.png');
     background-size: cover;
     background-position: center;
 
@@ -30,9 +25,7 @@
   }
 
   .openbook{
-
-    
-    background-image: url('C:\Users\User\Desktop\bigp\Fairytale\myreact\src\html\static_image\책.png');
+    background-image: url('./html/static_image/책.png');
     background-size: contain;
     background-position: center;
     background-repeat:no-repeat;
@@ -90,7 +83,7 @@
   }
 
   button {
-    display: none;
+    /* display: none; */
   }
 
   .upload {

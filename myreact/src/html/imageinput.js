@@ -82,7 +82,7 @@ function Body(){
       baseURL: '/',
     });
 
-    api.post("/Ai/api/", formData)
+    api.post("http://127.0.0.1:8000/Ai/api/", formData)
     .then(function (response) {
       console.log(response.data)
 

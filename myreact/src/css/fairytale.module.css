@@ -1,0 +1,67 @@
+.inputback{
+    background-image: url('../html/static_image/동화 페이지 뒷배경.png');
+    background-size: cover;
+    background-position: center;
+
+    display:flex;
+    justify-content:center;
+    align-items: center;
+  }
+
+.body p{
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.body input{
+    margin-bottom: 15px;
+    height: 5vh;
+    text-align: center;
+    width: 20vw;
+    border-radius: 5px;
+    border: 1px;
+}
+
+.body button{
+    margin-bottom: 5px;
+    width: 10vw;
+    height: 5vh;
+}
+
+.buttondiv{
+    margin-top: 15px;
+}
+
+.openbook{
+    background-image: url('../html/static_image/책.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat:no-repeat;
+    object-fit: contain;
+    width: 100vw;
+    height: 75vh;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.icon{
+    background-image: url('../html/static_image/magic.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat:no-repeat;
+    object-fit: contain;
+    width: 55vw;
+    height: 40vh;
+    position: absolute;
+    top: 40% !important;
+    left: 55% !important;
+}
+
+.openbook > div{
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    transform: translate(-33%, -50%);
+}
+

@@ -6,7 +6,6 @@ function Header(){
   const router = useLocation();
   const token = localStorage.getItem('token');
   const ID = localStorage.getItem('IDinfo');
-  console.log(ID);
   let finalID = '';
 
   if (ID !== null) {
@@ -39,7 +38,7 @@ function Header(){
             <>
               <li><NavLink to="/" className={router.pathname === '/d' && styles.active2}>동화 생성</NavLink>
                 <ul className={styles.downmenu}>
-                    <li><NavLink to="/">단어로 쓰는 동화</NavLink></li>
+                    <li><NavLink to="/fairytale/keyword">단어로 쓰는 동화</NavLink></li>
                     <li><NavLink to="/imageinput">그림으로 쓰는 동화</NavLink></li>
                 </ul>
               </li>

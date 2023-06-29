@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import styles from '../login.module.css';
-import { useRecoilState } from 'recoil';
 import Modal from './Modal';
 import { NavLink, useNavigate  } from 'react-router-dom';
 

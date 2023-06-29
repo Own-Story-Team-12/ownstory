@@ -30,8 +30,6 @@ function LoginPage() {
         const onDataPost = () => {
             if (!id || !pw) {
                 setShowWarning(true); // id나 pw 값이 비어 있을 때 경고 메시지 표시
-                console.log('hi');
-                console.log(showWarning);
             }else{
                 const api = axios.create({
                     baseURL: '/',
@@ -41,7 +39,6 @@ function LoginPage() {
                     password: pw,
                 })
                 .then(function (response) {
-                    console.log(response.data);
                     const token = response.data;
                     const IDinfo = id
                     localStorage.setItem('IDinfo', JSON.stringify(IDinfo));
