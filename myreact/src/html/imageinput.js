@@ -102,6 +102,7 @@ function Body(){
         'Content-Type':'multipart/form-data',
       },
     })
+    
     .then(function (response) {
       console.log(response)
       localStorage.setItem('response', JSON.stringify(response));
