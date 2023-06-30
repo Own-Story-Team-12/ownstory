@@ -21,8 +21,8 @@ function Footer(){
         <li>최재호</li>
       </ul>
     </nav>
-        <p>ⓒ 2023. Own Story Project All rights reserved.</p>
-        <p>아이콘의 모든 저작권은 flaticon에 있습니다.</p>
+    <p>ⓒ 2023. Own Story Project All rights reserved.</p>
+    <p>아이콘의 모든 저작권은 flaticon에 있습니다.</p>
     </div>
 </footer>);
 }

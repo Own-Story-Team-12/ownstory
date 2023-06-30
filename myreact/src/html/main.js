@@ -1,6 +1,4 @@
-import logo from '../logo.svg';
-import { Link, NavLink } from 'react-router-dom';
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../main.module.css';
 import Headerjs from './header';
 import Footerjs from './footer';

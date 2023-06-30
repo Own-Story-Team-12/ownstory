@@ -1,49 +1,38 @@
-* {
-    margin : 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'SUITE-Regular', sans-serif;
-    /* border기준으로
-    개발자가 생각한 사이즈와
-    실제로 출력된 사이즈가
-    같기 때문에 개발환경이
-    편해진다. */
-  }
   .body{
-    min-height: 100vh;
-    margin-top: 80px;
-    /* padding-bottom : 100px; */
-    position : relative;
-    
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height:100vh;
     background-color: #FFFAEA;
-    
-    
   }
 
+  .header > h1{
+    display: flex;
+    align-items: center;
+  }
+
+  .logo{
+    background-image: url('./html/static_image/favicon.png');
+    background-size: cover;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+  }
+
+  .navLink{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
   .inputback{
-    background-image: url('./html/static_image/동화 페이지 뒷배경.png');
+    background-image: url('./html/static_image/backgroundimg.png');
     background-size: cover;
     background-position: center;
 
     display: grid;
     place-items: center;
-  }
-
-  .openbook{
-
-    
-    background-image: url('./html/static_image/책.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat:no-repeat;
-
-    min-width: 80%;
-    min-height: 80%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
   }
 
   .bookleft{
@@ -53,7 +42,6 @@
   .bookright{
     display: block;
   }
-  
   
   .header{
     width: 100%;
@@ -82,7 +70,7 @@
   .header > h1 > a{
     color : black;
     text-decoration: none;
-    margin-left : 200px; 
+    margin-left : 150px; 
     font-weight: bold;
   }
 
@@ -108,8 +96,11 @@
    a{
     text-decoration: none;
     color: black;
-
    }
+
+  button{
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
    
   .menu{
     margin-right : 180px;
@@ -150,7 +141,7 @@
     color : #59B95F;
   }
   .downmenu > li:first-child > a{
-    border-top: #A9DEAC 3.5px solid;
+    border-top: #59B95F 3.5px solid;
   }
 
   .menu .firstul > li:nth-child(5):hover > a{
@@ -220,3 +211,5 @@
     margin-left: 60px !important;
     width: 200px !important;
   }
+
+  /* ddddsdfsdf */
