@@ -19,7 +19,7 @@ function Body() {
       timer = setTimeout(() => {
         setSaveDone(false);
       }, 3000);
-    }
+    };
 
     return () => {
       clearTimeout(timer);
@@ -30,7 +30,7 @@ function Body() {
   const sendData = {
     user: localStorage.getItem('IDinfo').slice(1,-1),
      ...response.data
-    }
+    };
 
 
   console.log(sendData);
@@ -48,10 +48,10 @@ function Body() {
         },
       })
     .then(function (response) {
-      console.log("good")
+      console.log("good");
       const redbtn = document.querySelectorAll('.' + styles.clickhear);
-      console.log(redbtn)
-      setPop(false)
+      console.log(redbtn);
+      setPop(false);
       redbtn.forEach(element => {
         element.style.display = 'none';
       });
@@ -63,7 +63,7 @@ function Body() {
       
     })
     .catch(function (error) {
-      console.log(error)
+      console.log(error);
       
       
     })
@@ -81,7 +81,7 @@ function Body() {
   }
 
   const popupdown = (event)=>{
-    setPop(false)
+    setPop(false);
   }
 
   const engArray = response.data.content.split(". ");
@@ -126,9 +126,9 @@ function Body() {
                 <br></br>
               <div className={styles.engcontent}>
                 {engArray.map((item, index) => (
-                  <div>
-                  <p className={`class${index}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >{item}</p>
-                  <br></br>
+                  <div key={'e1'+ index} >
+                  <p key={'e2'+ index} className={`class${index}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >{item}</p>
+                  <br key={'e3'+ index}></br>
                   </div>
                   ))}
               </div> 
@@ -145,9 +145,9 @@ function Body() {
                       <br></br>
                     <div className={styles.krcontent}>  
                       {krArray.map((item, index) => (
-                        <div>
-                        <p className={`class${index}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{item}</p>
-                        <br></br>
+                        <div key={'k1'+ index} >
+                        <p key={'k2'+ index} className={`class${index}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >{item}</p>
+                        <br key={'k3'+ index} ></br>
                         </div>
                         ))} 
                     </div>
