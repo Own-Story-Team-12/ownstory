@@ -2,14 +2,36 @@ import Headerjs from './header';
 import Footerjs from './footer';
 import styles from '../result.module.css';
 import axios from "axios";
+import { useState, useEffect } from 'react';
+import Modal from './Modal';
+import { useNavigate } from 'react-router-dom';
 
 function Body() {
+
+  const [isPopup, setPop] = useState(false);
+  const [isSaveDone, setSaveDone] = useState(false);
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    let timer;
+
+    if (isSaveDone) {
+      timer = setTimeout(() => {
+        setSaveDone(false);
+      }, 3000);
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [isSaveDone]);
 
   const response = JSON.parse(localStorage.getItem('response'));
   const sendData = {
     user: localStorage.getItem('IDinfo').slice(1,-1),
      ...response.data
     }
+
 
   console.log(sendData);
 
@@ -25,7 +47,7 @@ function Body() {
     })
 
 
-    api.post("http://127.0.0.1:8000/Ai/save/", sendData
+    api.post("http://127.0.0.1:8000/save/", sendData
       ,{
         headers:{
           'Content-Type':'multipart/form-data',
@@ -33,24 +55,46 @@ function Body() {
       })
     .then(function (response) {
       console.log("good")
-      const cancelbtnelem = document.querySelectorAll(`${styles.cancellabel}`);
-      cancelbtnelem.style.color = red;
+      const redbtn = document.querySelectorAll('.' + styles.clickhear);
+      console.log(redbtn)
+      setPop(false)
+      redbtn.forEach(element => {
+        element.style.display = 'none';
+      });
+
+      setSaveDone(true);
+
+      
+      
+      
     })
     .catch(function (error) {
       console.log(error)
-      const cancelbtnelem = document.querySelectorAll(`${styles.cancellabel}`);
-      cancelbtnelem.style.color = red;
+      
+      
     })
     
   }
 
+  const popup = (event) => {
+
+    setPop(true);
+
+  }
+
+  const goback = (event) => {
+    navigate(-1);
+  }
+
+  const popupdown = (event)=>{
+    setPop(false)
+  }
+
   const engArray = response.data.content.split(". ");
   
-  console.log(response.data.content)
-
   const krArray = response.data.ko_content.split(". ");
   
-  console.log(krArray)
+  
 
 
   const handleMouseEnter = (event) => {
@@ -75,9 +119,10 @@ function Body() {
       element.style.fontWeight = 'normal';
     });
   };
-  
+
 
   return (
+    <>
         <div  className={`${styles.body} ${styles.inputback}`} >
           <div className={styles.left}>
             <div className={styles.onleftbook}>
@@ -122,7 +167,7 @@ function Body() {
                   <label htmlFor="cancelbtn" className={styles.cancellabel} >
                     <span className={styles.clickhear}>   취소</span>
                   </label> 
-                  <button id='cancelbtn' className={styles.cancelbtn} onClick={"/"}>취소</button>
+                  <button id='cancelbtn' className={styles.cancelbtn} onClick={popup}>취소</button>
                 </div>
                   
               </div>
@@ -133,6 +178,25 @@ function Body() {
 
           </div>
           </div>
+
+          {/* 모달 창 */}
+          {isPopup && (
+            <Modal onClose={() => setPop(false)}>
+              <h3>정말 취소하시겠어요?</h3>
+              <button onClick={goback}> 네, 취소할게요</button>
+              <button onClick={popupdown}> 아니요</button>
+            </Modal>
+          )}
+          {isSaveDone && (
+
+            <Modal id="popup" style="display: none;">
+            저장이 완료 되었습니다.
+            </Modal>
+
+          )}
+          
+          
+          </>
     )
 }
 
