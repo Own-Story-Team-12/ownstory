@@ -6,6 +6,7 @@ import Headerjs from './header';
 import Footerjs from './footer';
 import Animationjs from './animation';
 import { useMutation } from 'react-query';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 
 
@@ -20,8 +21,11 @@ function Body(){
 
   const [selectedFile, setSelectedFile] = useState(null);
   const [FileName, setFileName] = useState(null);
+  const [File, setFile] = useState(null);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const usenavigate = useNavigate();
 
 
   useEffect(() => {
@@ -42,6 +46,7 @@ function Body(){
     reader.onload = () => {
       setSelectedFile(reader.result);
       setFileName(file.name);
+      setFile(file);
     };
 
     
@@ -67,24 +72,33 @@ function Body(){
     event.preventDefault();
 
     if (selectedFile){
-    
-
+  
     const formData = new FormData()
 
-    formData.append('image_file', selectedFile)
+    formData.append('img_file', File)
+
+    // FormData 객체의 데이터 확인
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ': ' + pair[1]);
+      }
 
     const api = axios.create({
       baseURL: '/',
     });
 
-    api.post("http://127.0.0.1:8000/Ai/result/", formData)
+    api.post("http://127.0.0.1:8000/Ai/result/", formData,{
+      headers:{
+        'Content-Type':'multipart/form-data',
+      },
+    })
     .then(function (response) {
-      console.log(response.data)
-
+      console.log(response)
+      localStorage.setItem('response', JSON.stringify(response));
+      usenavigate('/result');
     })
     .catch(function (error) {
       console.log(error)
-    })
+    });
   }
 }
 

@@ -7,6 +7,8 @@ import RecordPage from './html/record';
 import ImageInputPage from './html/imageinput';
 import KeywordInput from './html/fairytale';
 import styles from './App.module.css';
+import Result from './html/result';
+
 
 function Pages(){
   return (
@@ -17,6 +19,7 @@ function Pages(){
     <Route path="/record" element={<RecordPage />}/>
     <Route path="/imageinput" element={<ImageInputPage />}/>
     <Route path = "/fairytale/keyword" element={<KeywordInput />}/>
+    <Route path = "/result" element={<Result />}/>
 
   </Routes>
   );

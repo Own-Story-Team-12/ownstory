@@ -25,7 +25,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
   }
 
   .imageinputbt {
@@ -48,10 +47,6 @@
 
   input[type="file"] {
     display: none;
-  }
-
-  button {
-    /* display: none; */
   }
 
   .upload {
