@@ -15,10 +15,8 @@
   같기 때문에 개발환경이
   편해진다. */
 }
-
-
 .App {
-  text-align: center;
+  background-color: black;
 }
 
 .App-logo {

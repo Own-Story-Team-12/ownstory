@@ -1,8 +1,11 @@
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
 import styles from '../input.module.css';
+import styles2 from '../css/fairytale.module.css';
 import Headerjs from './header';
 import Footerjs from './footer';
+import Animationjs from './animation';
+import { useMutation } from 'react-query';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 
@@ -19,7 +22,6 @@ function Body(){
   const [selectedFile, setSelectedFile] = useState(null);
   const [FileName, setFileName] = useState(null);
   const [File, setFile] = useState(null);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const usenavigate = useNavigate();
@@ -38,10 +40,6 @@ function Body(){
   const ReadyImage = (event) => {
 
     const file = event.target.files[0];
-    
-
-    
-
     const reader = new FileReader();
 
     reader.onload = () => {
@@ -52,7 +50,6 @@ function Body(){
 
     
     if (file) {
-
       if (file.size > 5 * 1024 * 1024) {
         setIsModalOpen(true);
         return;
@@ -67,95 +64,100 @@ function Body(){
       reader.readAsDataURL(file);
       setIsModalOpen(false);
     }
-    
-
+  }      
   
-    
 
-  }  
-
-  const PostImage = (event) => {
-
-    event.preventDefault();
-
-
-
-    
-
+  const PostImage = async () => {
     if (selectedFile){
-  
-    const formData = new FormData()
+      const formData = new FormData()
+      formData.append('img_file', File)
 
-    formData.append('img_file', File)
+      // FormData 객체의 데이터 확인
+      for (var pair of formData.entries()) {
+        console.log(pair[0] + ': ' + pair[1]);
+        }
 
-    // FormData 객체의 데이터 확인
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ': ' + pair[1]);
-      }
-
-    const api = axios.create({
-      baseURL: '/',
-    });
-
-    api.post("http://127.0.0.1:8000/Ai/result/", formData,{
-      headers:{
-        'Content-Type':'multipart/form-data',
-      },
-    })
-    
-    .then(function (response) {
-      console.log(response)
-      localStorage.setItem('response', JSON.stringify(response));
-      usenavigate('/result');
-      
-      
-      
-
-
-    })
-    .catch(function (error) {
-      console.log(error)
-    });
+      const response = await axios.post("http://127.0.0.1:8000/Ai/result/", formData,{
+        headers:{
+          'Content-Type':'multipart/form-data',
+        },
+      })
+    return response
+    }
   }
-}
-  
+
+  const { mutate, isLoading } = useMutation(PostImage, {
+    onMount: false,
+    onSuccess: (data) => {
+        console.log('응답 데이터:', data);
+        localStorage.setItem('response', JSON.stringify(data));
+        usenavigate('/result');
+        // 응답 데이터를 처리하는 추가 로직을 여기에 작성하세요.
+    },
+  });
+
+  const handleSubmit = (e) => {
+    try {
+        e.preventDefault();
+        mutate(); // 비동기 작업 완료 대기
+        console.log('비동기 작업이 완료되었습니다.'); // 비동기 작업 완료 후 실행되는 코드
+      } catch (error) {
+        console.error('비동기 작업 중 오류가 발생했습니다:', error);
+      }
+  };
+    
   
   return (
-    <div  className={`${styles.body} ${styles.inputback}`} >
-      <div className={styles.openbook}>
-
-        <div className={styles.bookleft}>
-          <div className={styles.imageinputbox}> 
-              <div style={{flex:3}}>
-                {FileName !== null && <span className={styles.uploaded} >{FileName}을 선택했어요.</span>}
-                {FileName == null && <span className={`${styles.uploaded} ${styles.ex}` } >최대 5M이하, jpg, png 첨부 가능</span>}
-                <br></br>
-                {isModalOpen && <span className={styles.warn} >파일 형식이 올바르지 않거나 크기가 큽니다.</span>}
-              </div>
-              <div style={{flex:1, display:"grid",  placeItems: 'center'}}>
-                <label htmlFor="file-input" className="custom-file-input">  
-                  <span className={styles.upload}>그림 가져오기</span>
-                </label> 
-                <input id='file-input' className={styles.imageinputbt } type='file' onChange={ReadyImage} accept=".jpg, .png" />
-              </div>
+    <div className={isLoading ? `${styles2.body}` : `${styles2.inputback}`}>
+        {isLoading ? (
+        <div className={styles2.animationWindow}>
+            <Animationjs></Animationjs>
+            <div className={styles2.loading}>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div> 
+        ) : (
+        <div className={styles2.body2}>
+          <div className={styles2.wordimg}>
+              <button className={styles2.keywordbtn}><NavLink to="/fairytale/keyword"  style={{ color: '#FFFFFF' }}>내가 직접 만드는 동화</NavLink></button>
+              <button className={styles2.imagebtn}><NavLink to="/imageinput"  style={{ color: '#757575' }}> 내가 그린 그림으로 만드는 동화</NavLink></button>
           </div>
-        </div>
-
-        <div className={styles.bookright}>
-          <div>
-            {FileName !== null && <img className={styles.selectedimg} src={selectedFile} width="300" height="300" />}
-            {FileName == null && <div className={styles.selectedimg} style={{width:"300px", height:"300px"}} ></div>}
+          <div className={styles2.content}>
+            <div className={styles.imageinputbox}> 
+                <div style={{flex:3}}>
+                  {FileName !== null && <span className={styles.uploaded} >{FileName}을 선택했어요.</span>}
+                  {FileName == null && <span className={`${styles.uploaded} ${styles.ex}` } >최대 5M이하, jpg, png 첨부 가능</span>}
+                  <br></br>
+                  {isModalOpen && <span className={styles.warn} >파일 형식이 올바르지 않거나 크기가 큽니다.</span>}
+                </div>
+                <div style={{flex:1, display:"grid",  placeItems: 'center'}}>
+                  <label htmlFor="file-input" className="custom-file-input">  
+                    <span className={styles.upload}>그림 가져오기</span>
+                  </label> 
+                  <input id='file-input' className={styles.imageinputbt } type='file' onChange={ReadyImage} accept=".jpg, .png" />
+                </div>
+            </div>
           </div>
-          <div>
-            <label htmlFor="generate" className="custom-generate">
-                <span className={styles.genbtn}>이 그림으로 동화를 만들어 주세요</span>
+  
+          <div className={styles2.content}>
+            <div>
+              {FileName !== null && <img className={styles.selectedimg} src={selectedFile} width="300px" height="297px" />}
+              {FileName == null && <div className={styles.selectedimg} style={{width:"300px", height:"300px"}} ></div>}
+            </div>
+            <div>
+              <label htmlFor="generate" className={styles.custom_generate}>
+                  {/* <span className={styles.genbtn}>이 그림으로 동화를 만들어 주세요</span> */}
+                  <button id='generate' onClick={handleSubmit}>이 그림으로 동화를 만들어 주세요</button>   
               </label> 
-            <button className={styles.postbtn} id='generate' onClick={PostImage}>생성하기</button>     
+              {/* <button id='generate' onClick={PostImage}>생성하기</button>      */}
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    )
+    )}
+    </div> 
+   );
   }
 
 

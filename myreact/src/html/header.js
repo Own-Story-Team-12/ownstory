@@ -6,7 +6,6 @@ function Header(){
   const router = useLocation();
   const token = localStorage.getItem('token');
   const ID = localStorage.getItem('IDinfo');
-  console.log(ID);
   let finalID = '';
 
   if (ID !== null) {
@@ -21,10 +20,13 @@ function Header(){
 
     return  (<header className={styles.header}>
   <h1>
-      <NavLink to="/">Own Story</NavLink>
+      <NavLink to="/" className={styles.navLink}>
+        <div className={styles.logo}></div>
+        <span className={styles.title}>Own Story</span>
+      </NavLink>
   </h1>
     {ID !== "" ? (
-    <nav className={`${styles.menu} ${styles.modifiedMenu}`} style={{ marginRight: '100px' }}>
+    <nav className={`${styles.menu} ${styles.modifiedMenu}`} style={{ marginRight: '140px' }}>
     <ul className={styles.firstul}>
       <li>
         <NavLink to="/" className={router.pathname === '/' && styles.active2}>서비스 소개</NavLink>
@@ -39,7 +41,7 @@ function Header(){
             <>
               <li><NavLink to="/" className={router.pathname === '/d' && styles.active2}>동화 생성</NavLink>
                 <ul className={styles.downmenu}>
-                    <li><NavLink to="/">단어로 쓰는 동화</NavLink></li>
+                    <li><NavLink to="/fairytale/keyword">단어로 쓰는 동화</NavLink></li>
                     <li><NavLink to="/imageinput">그림으로 쓰는 동화</NavLink></li>
                 </ul>
               </li>

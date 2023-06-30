@@ -7,17 +7,12 @@
     font-weight: 400;
     font-style: normal;
   }
-  * {
+  /* * {
     margin : 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'SUITE-Regular', sans-serif;
-    /* border기준으로
-    개발자가 생각한 사이즈와
-    실제로 출력된 사이즈가
-    같기 때문에 개발환경이
-    편해진다. */
-  }
+  } */
   
 
 .body{
@@ -171,6 +166,7 @@
 }
 
 .back{
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
     background-color: transparent;
     border: none;
     color: inherit;
