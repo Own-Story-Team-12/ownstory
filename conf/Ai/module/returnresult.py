@@ -12,6 +12,7 @@ def result_image(file_absolute_path):
         #img로부터 keyword 추출 후 DB에 저장
         img_keywords = Img2keyword(file_absolute_path)
         img_keywords = img_keywords.clarifai()
+        print(img_keywords)
         
         #동화 생성 후 제목, 내용 가져오기
         title, content = chatGPT(img_keywords)
@@ -41,7 +42,7 @@ def result_image(file_absolute_path):
         'ko_title' : ko_title,
         'ko_content' : ko_content,
         'TTS_example' : tts_example,
-        'TTS_myvoice' : tts_myvoice,
+        #'TTS_myvoice' : tts_myvoice,
         }
         
         return context

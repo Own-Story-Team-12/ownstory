@@ -9,17 +9,12 @@ from Ai.module.returnresult import result_image, result_keyword
 from django.http import JsonResponse
 from .models import Result
 from django.utils import timezone
-import json
 from Page.models import User
-from django.http import HttpResponse
 
 class SaveAPIView(APIView):
     def post(self, request):
         if request.method == 'POST':
-            print('시작')
-        #     json_data = request.POST.get('json_data')  # POST 요청에서 JSON 데이터 추출
 
-            # data = json.loads(request)
             username = request.data.get('user')
             user = User.objects.get(username = username)
 
@@ -47,15 +42,9 @@ class SaveAPIView(APIView):
             result.audio_myvoice = TTS_myvoice
             result.user = user
             result.pub_date = timezone.datetime.now()
-
             result.save()
             print('저장')
-                
-            # response['Access-Control-Allow-Origin'] = 'http://localhost:3000'
-            # response['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE'
-            # response['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
-            # response.content = 'Data saved successfully.'
-
+            
             return JsonResponse({'message': 'Data saved successfully.'})
         return JsonResponse({'message': 'Invalid request.'}, status=400)
 
@@ -89,7 +78,3 @@ class ResultAPIView(APIView):
         
 #Django REST Framework는 기본적으로 JSON 시리얼라이저를 사용하므로,
 #Python의 dict 객체를 Response 객체에 전달하면 자동으로 JSON으로 시리얼라이즈
-
-
-# class SaveViewSet(ModelViewSet):
-#     pass
