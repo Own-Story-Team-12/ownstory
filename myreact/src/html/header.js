@@ -20,10 +20,13 @@ function Header(){
 
     return  (<header className={styles.header}>
   <h1>
-      <NavLink to="/">Own Story</NavLink>
+      <NavLink to="/" className={styles.navLink}>
+        <div className={styles.logo}></div>
+        <span className={styles.title}>Own Story</span>
+      </NavLink>
   </h1>
     {ID !== "" ? (
-    <nav className={`${styles.menu} ${styles.modifiedMenu}`} style={{ marginRight: '100px' }}>
+    <nav className={`${styles.menu} ${styles.modifiedMenu}`} style={{ marginRight: '140px' }}>
     <ul className={styles.firstul}>
       <li>
         <NavLink to="/" className={router.pathname === '/' && styles.active2}>서비스 소개</NavLink>

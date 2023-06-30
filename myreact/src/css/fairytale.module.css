@@ -1,20 +1,35 @@
 .inputback{
-    background-image: url('../html/static_image/동화 페이지 뒷배경.png');
+    background-image: url('../html/static_image/backgroundimg.png');
     background-size: cover;
     background-position: center;
-
+    background-color: #FFFAEA;
     display:flex;
     justify-content:center;
     align-items: center;
+    min-height: 90vh;
+    margin-top: 80px;
   }
 
-.body p{
-    margin-bottom: 15px;
-    text-align: center;
+.body{
+    background-image: url('../html/static_image/동화 페이지 뒷배경.png');
+    background-size: cover;
+    background-position: center;
+    background-color: #FFFAEA;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    min-height: 90vh;
+    margin-top: 80px;
 }
 
-.body input{
+.body2 p{
     margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.body2 input{
+    margin-bottom: 20px;
     height: 5vh;
     text-align: center;
     width: 20vw;
@@ -22,46 +37,98 @@
     border: 1px;
 }
 
-.body button{
-    margin-bottom: 5px;
+.body2 .btndiv > button{
     width: 10vw;
     height: 5vh;
+    background: #59B95F;
+    color:#fff;
+    font-size:16px;
+    border:none;
+    border-radius:15px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px;
 }
 
-.buttondiv{
-    margin-top: 15px;
+.body2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
 
-.openbook{
-    background-image: url('../html/static_image/책.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat:no-repeat;
-    object-fit: contain;
-    width: 100vw;
-    height: 75vh;
-    position: absolute;
-    top: 48%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
 .icon{
-    background-image: url('../html/static_image/magic.jpg');
+    background-image: url('../html/static_image/treebook2.png');
     background-size: contain;
     background-position: center;
     background-repeat:no-repeat;
     object-fit: contain;
-    width: 55vw;
-    height: 40vh;
-    position: absolute;
-    top: 40% !important;
-    left: 55% !important;
+    width: 50vw;
+    height: 50vh;
+    margin-bottom: 10px;
 }
 
-.openbook > div{
-    position: absolute;
-    top: 50%;
-    left: 33%;
-    transform: translate(-33%, -50%);
-}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30vw;
+    position: relative;
+  }
 
+/* 애니메이션 */
+.animationWindow {
+
+    /* width: 40vw; */
+  }
+
+  .animationWindow > div:first-child{
+    width: 98.9vw;
+    margin: 0 auto;
+    margin-top: 80px;
+    height: 88vh;
+    text-align: center;
+    padding-bottom: 200px;
+  }
+
+  .loading {
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+  }
+  
+  .loading span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: gray;
+    border-radius: 50%;
+    animation: loading 1s linear infinite;
+    background-color: black;
+  }
+  
+  .loading span:nth-child(1) {
+    animation-delay: 0s;
+  }
+  
+  .loading span:nth-child(2) {
+    animation-delay: 0.2s;
+    margin: 0px 10px
+  }
+  
+  .loading span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes loading {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }

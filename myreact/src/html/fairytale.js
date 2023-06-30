@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import styles from '../main.module.css';
-import styles2 from '../css/fairytale.module.css'
+import styles from '../css/fairytale.module.css'
 import Headerjs from './header';
 import Footerjs from './footer';
 import Animationjs from './animation';
@@ -34,7 +33,7 @@ function KeywordInput(){
           content: content,
         };
     
-        const response = await axios.post('http://127.0.0.1:8000/Ai/api/', data); // Modify the URL according to your DRF endpoint
+        const response = await axios.post('http://127.0.0.1:8000/Ai/result/', data); // Modify the URL according to your DRF endpoint
         return response.data;
     };
 
@@ -93,29 +92,29 @@ function KeywordInput(){
     };
 
    return(
-    <div className={isLoading ? `${styles.darkbody}` : `${styles.body} ${styles2.inputback}`}>
+    <div className={isLoading ? `${styles.body}` : `${styles.inputback}`}>
         {isLoading ? (
         <div className={styles.animationWindow}>
             <Animationjs></Animationjs>
         </div> 
         ) : (
-        <div className={styles2.body}>
-            <div className={styles2.openbook}>
-                <div>
-                    <p>주인공의 이름은 뭐야?</p>
-                    <input type = "text" value = {name} onChange={handleNameChange}></input>
-                    <p>주인공에 대해서 설명해줘</p>
-                    <input type = "text" value = {personality} onChange={handlePersonalityChange}></input>
-                    <p>배경은 어디야?</p>
-                    <input type = "text" value = {background} onChange={handleBackgroundChange}></input>
-                    <p>어떤 내용으로 동화를 만들어줄까?</p>
-                    <input type = "text" value = {content} onChange={handleContentChange}></input>
-                    <div className={styles2.buttondiv}>
-                        <button onClick={handelSetInput}>아무거나 넣어볼래요</button>
-                        <button onClick={handleSubmit }>동화 만들어 주세요</button>
-                    </div>
+        <div className={styles.body2}>
+            <div className={styles.content}>
+                <p>주인공의 이름은 뭐야?</p>
+                <input type = "text" value = {name} onChange={handleNameChange}></input>
+                <p>주인공에 대해서 설명해줘</p>
+                <input type = "text" value = {personality} onChange={handlePersonalityChange}></input>
+                <p>배경은 어디야?</p>
+                <input type = "text" value = {background} onChange={handleBackgroundChange}></input>
+                <p>어떤 내용으로 동화를 만들어줄까?</p>
+                <input type = "text" value = {content} onChange={handleContentChange}></input>
+            </div>
+            <div className={styles.content}>
+                <div className={styles.icon}></div>
+                <div className={styles.btndiv}>
+                    <button onClick={handelSetInput}>아무거나 넣어볼래요</button>
+                    <button onClick={handleSubmit }>동화 만들어 주세요</button>
                 </div>
-                <div className={styles2.icon}></div>
             </div>
         </div>
       )}
