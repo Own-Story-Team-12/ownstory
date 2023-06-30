@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
-import styles from '../main.module.css';
+import styles from '../css/fairytale.module.css';
 
 function Animation() {
   const animationContainer = useRef(null);
@@ -25,11 +25,6 @@ function Animation() {
   return (
   <>
   <div ref={animationContainer}/>
-  <div className={styles.loading}>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
   </>
   );
 }

@@ -5,12 +5,14 @@ import Headerjs from './header';
 import Footerjs from './footer';
 import Animationjs from './animation';
 import { useMutation } from 'react-query';
+import { NavLink } from 'react-router-dom';
 
 function KeywordInput(){
     const [name, setName] = useState('');
     const [personality, setPersonality] = useState('');
     const [background, setBackground] = useState('');
     const [content, setContent] = useState('');
+    
 
     const handleNameChange = (e) => {
         setName(e.target.value);
@@ -96,9 +98,18 @@ function KeywordInput(){
         {isLoading ? (
         <div className={styles.animationWindow}>
             <Animationjs></Animationjs>
+            <div className={styles.loading}>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div> 
         ) : (
         <div className={styles.body2}>
+            <div className={styles.wordimg}>
+                <button className={styles.keywordbtn}><NavLink to="/fairytale/keyword"  style={{ color: '#FFFFFF' }}>내가 직접 만드는 동화</NavLink></button>
+                <button className={styles.imagebtn}><NavLink to="/imageinput"  style={{ color: '#757575' }}> 내가 그린 그림으로 만드는 동화</NavLink></button>
+            </div>
             <div className={styles.content}>
                 <p>주인공의 이름은 뭐야?</p>
                 <input type = "text" value = {name} onChange={handleNameChange}></input>
