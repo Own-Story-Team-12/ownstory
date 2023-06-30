@@ -33,9 +33,13 @@ function Body() {
       })
     .then(function (response) {
       console.log("good")
+      const cancelbtnelem = document.querySelectorAll(`${styles.cancellabel}`);
+      cancelbtnelem.style.color = red;
     })
     .catch(function (error) {
       console.log(error)
+      const cancelbtnelem = document.querySelectorAll(`${styles.cancellabel}`);
+      cancelbtnelem.style.color = red;
     })
     
   }
