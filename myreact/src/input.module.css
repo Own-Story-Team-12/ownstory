@@ -16,7 +16,7 @@
     position : relative;
     
     background-color: #FFFAEA;
-
+    
     
     
   }
@@ -33,7 +33,7 @@
   .openbook{
 
     
-    background-image: url('./html/static_image/책.png');
+    background-image: url('C:\Users\User\Desktop\bigp\Fairytale\myreact\src\html\static_image\책.png');
     background-size: contain;
     background-position: center;
     background-repeat:no-repeat;
