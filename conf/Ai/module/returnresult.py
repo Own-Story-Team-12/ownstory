@@ -19,7 +19,7 @@ def result_image(file_absolute_path):
         #TTS
        
         tts_example = text2TTS(content)
-           # tts_myvoice = text2TTS_myvoice(content)
+        # tts_myvoice = text2TTS_myvoice(content)
 
         #생성 동화 번역
         #deepL
@@ -42,7 +42,7 @@ def result_image(file_absolute_path):
         'ko_title' : ko_title,
         'ko_content' : ko_content,
         'TTS_example' : tts_example,
-        'TTS_myvoice' : tts_myvoice,
+        # 'TTS_myvoice' : tts_myvoice,
         }
         
         return context
