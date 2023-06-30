@@ -17,8 +17,9 @@ def result_image(file_absolute_path):
         title, content = chatGPT(img_keywords)
 
         #TTS
+       
         tts_example = text2TTS(content)
-        tts_myvoice = text2TTS_myvoice(content)
+           # tts_myvoice = text2TTS_myvoice(content)
 
         #생성 동화 번역
         #deepL
@@ -54,16 +55,17 @@ def result_keyword(ko_keyword):
 
     en_keyword = get_trans_papago(ko_keyword, 'ko','en')
     title, content = chatGPT(en_keyword)
-
+  
     #TTS
     tts_example = text2TTS(content)
+   
     # tts_myvoice = text2TTS_myvoice(content)
 
     #생성된 동화 번역
     #deepL
     # ko_title = get_trans_deepl(title)
     # ko_content = get_trans_deepl(content)
-
+  
     #papago
     ko_title = get_trans_papago(title, 'en','ko')
     ko_content = get_trans_papago(content, 'en','ko')

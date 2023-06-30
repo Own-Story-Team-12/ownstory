@@ -1,13 +1,14 @@
 // import logo from './logo.svg';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPage from './html/login';
 import JoinPage from './html/Join';
 import MainPage from './html/main';
 import RecordPage from './html/record';
 import ImageInputPage from './html/imageinput';
 import KeywordInput from './html/fairytale';
+import styles from './App.module.css';
 import Result from './html/result';
+
 
 function Pages(){
   return (
@@ -26,7 +27,7 @@ function Pages(){
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <BrowserRouter>
         <Pages></Pages>
       </BrowserRouter>
