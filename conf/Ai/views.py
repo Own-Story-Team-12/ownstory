@@ -79,11 +79,12 @@ class ResultAPIView(APIView):
             feature = request.data.get('feature')
             background = request.data.get('background')
             content = request.data.get('content')
-
+            print(1)
             ko_keyword = [name, feature, background, content]
-            
+            print(2)
             # 응답 데이터 구성
             response_data = result_keyword(ko_keyword)
+            print(3)
 
             return Response(response_data, status=status.HTTP_200_OK)
         
