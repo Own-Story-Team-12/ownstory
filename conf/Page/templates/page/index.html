@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock %}
 page app index.html
-
-
+{% if user %}
+    <p>Welcome, {{ user.username }}!</p>
+{% endif %}
 {% endblock %}

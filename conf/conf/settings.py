@@ -54,10 +54,17 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework", 
+    "rest_framework_simplejwt",
     "Page",
+    'django_extensions',
+    "Ai",
+    'corsheaders',
+    "post",
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -80,6 +87,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                'social_django.context_processors.backends', # 소셜로그인
+                'social_django.context_processors.login_redirect', # 소셜로그인
             ],
         },
     },
@@ -91,13 +100,25 @@ WSGI_APPLICATION = "conf.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+ENGINE = get_secret("ENGINE")
+HOST = get_secret("HOST")
+NAME = get_secret("NAME")
+PORT = get_secret("PORT")
+USER = get_secret("USER")
+PASSWORD = get_secret("PASSWORD")
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": ENGINE,
+        'HOST' : HOST,
+        "NAME": NAME,
+        'PORT': PORT,
+        'USER':USER,
+        'PASSWORD':PASSWORD,
     }
 }
 
+AUTH_USER_MODEL = 'Page.User' # 재정의 User 모델 
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -117,6 +138,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# GOOGLE_OAUTH2_KEY = get_secret("CLIENT_ID_GOOGLE")
+# GOOGLE_OAUTH2_SECRET = get_secret("CLIENT_PW_GOOGLE")
+# NAVER_OAUTH2_KEY = get_secret("CLIENT_ID_NAVER")
+# NAVER_OAUTH2_SECRET = get_secret("CLIENT_PW_NAVER")
+
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = GOOGLE_OAUTH2_KEY
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = GOOGLE_OAUTH2_SECRET
+# SOCIAL_AUTH_NAVER_KEY = NAVER_OAUTH2_KEY
+# SOCIAL_AUTH_NAVER_SECRET = NAVER_OAUTH2_SECRET
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -142,3 +172,14 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+CORS_ORIGIN_ALLOW_ALL = True
