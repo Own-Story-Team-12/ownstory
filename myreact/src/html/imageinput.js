@@ -22,7 +22,6 @@ function Body(){
   const [selectedFile, setSelectedFile] = useState(null);
   const [FileName, setFileName] = useState(null);
   const [File, setFile] = useState(null);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const usenavigate = useNavigate();
@@ -65,60 +64,66 @@ function Body(){
       reader.readAsDataURL(file);
       setIsModalOpen(false);
     }
-  }  
+  }      
+  
 
-  const PostImage = (event) => {
-
-    event.preventDefault();
-
+  const PostImage = async () => {
     if (selectedFile){
-  
-    const formData = new FormData()
+      const formData = new FormData()
+      formData.append('img_file', File)
 
-    formData.append('img_file', File)
+      // FormData 객체의 데이터 확인
+      for (var pair of formData.entries()) {
+        console.log(pair[0] + ': ' + pair[1]);
+        }
 
-    // FormData 객체의 데이터 확인
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ': ' + pair[1]);
-      }
-
-    const api = axios.create({
-      baseURL: '/',
-    });
-
-    api.post("http://127.0.0.1:8000/Ai/result/", formData,{
-      headers:{
-        'Content-Type':'multipart/form-data',
-      },
-    })
-    .then(function (response) {
-      console.log(response)
-      localStorage.setItem('response', JSON.stringify(response));
-      usenavigate('/result');
-    })
-    .catch(function (error) {
-      console.log(error)
-    });
+      const response = await axios.post("http://127.0.0.1:8000/Ai/result/", formData,{
+        headers:{
+          'Content-Type':'multipart/form-data',
+        },
+      })
+    return response
+    }
   }
-}
 
-const { mutate, isLoading } = useMutation(PostImage, {
-  onMount: false,
-  onSuccess: (data) => {
-      console.log('응답 데이터:', data);
-      // 응답 데이터를 처리하는 추가 로직을 여기에 작성하세요.
-  },
-});
-  
+  const { mutate, isLoading } = useMutation(PostImage, {
+    onMount: false,
+    onSuccess: (data) => {
+        console.log('응답 데이터:', data);
+        localStorage.setItem('response', JSON.stringify(data));
+        usenavigate('/result');
+        // 응답 데이터를 처리하는 추가 로직을 여기에 작성하세요.
+    },
+  });
+
+  const handleSubmit = (e) => {
+    try {
+        e.preventDefault();
+        mutate(); // 비동기 작업 완료 대기
+        console.log('비동기 작업이 완료되었습니다.'); // 비동기 작업 완료 후 실행되는 코드
+      } catch (error) {
+        console.error('비동기 작업 중 오류가 발생했습니다:', error);
+      }
+  };
+    
   
   return (
     <div className={isLoading ? `${styles2.body}` : `${styles2.inputback}`}>
         {isLoading ? (
         <div className={styles2.animationWindow}>
             <Animationjs></Animationjs>
+            <div className={styles2.loading}>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div> 
         ) : (
         <div className={styles2.body2}>
+          <div className={styles2.wordimg}>
+              <button className={styles2.keywordbtn}><NavLink to="/fairytale/keyword"  style={{ color: '#FFFFFF' }}>내가 직접 만드는 동화</NavLink></button>
+              <button className={styles2.imagebtn}><NavLink to="/imageinput"  style={{ color: '#757575' }}> 내가 그린 그림으로 만드는 동화</NavLink></button>
+          </div>
           <div className={styles2.content}>
             <div className={styles.imageinputbox}> 
                 <div style={{flex:3}}>
@@ -144,7 +149,7 @@ const { mutate, isLoading } = useMutation(PostImage, {
             <div>
               <label htmlFor="generate" className={styles.custom_generate}>
                   {/* <span className={styles.genbtn}>이 그림으로 동화를 만들어 주세요</span> */}
-                  <button id='generate' onClick={PostImage}>이 그림으로 동화를 만들어 주세요</button>   
+                  <button id='generate' onClick={handleSubmit}>이 그림으로 동화를 만들어 주세요</button>   
               </label> 
               {/* <button id='generate' onClick={PostImage}>생성하기</button>      */}
             </div>

@@ -14,17 +14,11 @@ function Body() {
   console.log(sendData);
 
   const saveDB = (event) => {
-    
-    
-    
-
     event.preventDefault();
     
     const api = axios.create({
       baseURL: '/',
     })
-
-
     api.post("http://127.0.0.1:8000/Ai/save/", sendData
       ,{
         headers:{
