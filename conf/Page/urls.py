@@ -12,8 +12,4 @@ urlpatterns = [
     path('upload-audio/', views.UploadAudioView.as_view(), name='upload-audio'),
     path('audio-check/', views.AudioCheckView.as_view(), name='audio-check'),
     path('audio-fit/', views.AudioFitView.as_view(), name='audio-fit'),
-<<<<<<< HEAD
 ]
-=======
-]
->>>>>>> 01a36c7c48b9a9fcd1d91455ac8db95e8d3f109e
