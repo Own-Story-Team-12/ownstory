@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import styles from '../record.module.css';
+import styles from '../css/record.module.css';
 import Headerjs from './header';
 import Footerjs from './footer';
 import axios from "axios";

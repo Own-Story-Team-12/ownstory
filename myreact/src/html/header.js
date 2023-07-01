@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { React } from 'react';
-import styles from '../main.module.css';
+import styles from '../css/main.module.css';
   
 function Header(){
   const router = useLocation();
@@ -39,10 +39,14 @@ function Header(){
       {token ? (
             // gId 값이 존재하는 경우에만 다른 li 태그를 렌더링합니다.
             <>
-              <li><NavLink to="/" className={router.pathname === '/d' && styles.active2}>동화 생성</NavLink>
+              <li><NavLink to="/fairytale/keyword" className={router.pathname === '/d' && styles.active2}>동화 생성</NavLink>
                 <ul className={styles.downmenu}>
-                    <li><NavLink to="/fairytale/keyword">단어로 쓰는 동화</NavLink></li>
-                    <li><NavLink to="/imageinput">그림으로 쓰는 동화</NavLink></li>
+                    <li><NavLink to="/fairytale/keyword" className={router.pathname === '/fairytale/keyword' && styles.active2}>
+                      단어로 쓰는 동화</NavLink>
+                    </li>
+                    <li><NavLink to="/imageinput" className={router.pathname === '/imageinput' && styles.active2}>
+                      그림으로 쓰는 동화</NavLink>
+                    </li>
                 </ul>
               </li>
               <li><NavLink to="/record" className={router.pathname === '/record' && styles.active2}>동화 녹음</NavLink></li>

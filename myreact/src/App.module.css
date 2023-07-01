@@ -16,7 +16,7 @@
   편해진다. */
 }
 .App {
-  background-color: black;
+  background-color: white;
 }
 
 .App-logo {
@@ -53,6 +53,8 @@
     transform: rotate(360deg);
   }
 }
+
+
 
 /* @font-face{
     font-family: a;
