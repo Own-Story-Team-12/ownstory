@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'django_extensions',
     "Ai",
     'corsheaders',
+    "post",
 ]
 
 MIDDLEWARE = [
