@@ -5,7 +5,12 @@
     <nav>
         <ul>
             <li><a href = "/"> HOME </a></li>
-            <li><a href = "login/"> LOGIN </a></li>
+            {% if user.is_authenticated %} 
+            <li><a href = "/logout/"> LOGOUT </a></li>
+            {% else %}
+            <li><a href = "/login/"> LOGIN </a></li>
+            {% endif %}
+            <li><a href = "/Ai/"> FAIRYTALE </a></li>
         </ul>
     </nav>
 </header>

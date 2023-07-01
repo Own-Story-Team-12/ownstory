@@ -16,7 +16,7 @@ from django.core.exceptions import ImproperlyConfigured
 
 
 
-
+# check
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     "rest_framework", 
     "rest_framework_simplejwt",
     "Page",
+    "Upload",
     'django_extensions',
     "Ai",
     'corsheaders',
@@ -137,6 +138,16 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+# GOOGLE_OAUTH2_KEY = get_secret("CLIENT_ID_GOOGLE")
+# GOOGLE_OAUTH2_SECRET = get_secret("CLIENT_PW_GOOGLE")
+# NAVER_OAUTH2_KEY = get_secret("CLIENT_ID_NAVER")
+# NAVER_OAUTH2_SECRET = get_secret("CLIENT_PW_NAVER")
+
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = GOOGLE_OAUTH2_KEY
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = GOOGLE_OAUTH2_SECRET
+# SOCIAL_AUTH_NAVER_KEY = NAVER_OAUTH2_KEY
+# SOCIAL_AUTH_NAVER_SECRET = NAVER_OAUTH2_SECRET
 
 # GOOGLE_OAUTH2_KEY = get_secret("CLIENT_ID_GOOGLE")
 # GOOGLE_OAUTH2_SECRET = get_secret("CLIENT_PW_GOOGLE")

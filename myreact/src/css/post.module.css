@@ -1,0 +1,50 @@
+.postpage{
+    min-height: 90vh;
+    margin-top: 80px;
+}
+
+.postlistContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.postlist{
+    width: 35vw;
+    height: 22vh;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+.postlist:first-child{
+    margin-top: 25px;
+}
+
+.postlist:nth-child(2){
+    margin-top: 25px;
+}
+
+
+.postlist > div:first-child{
+    margin-right: 30px;
+}
+
+.searchdiv > .search{
+    left:50%;
+    transform: translateX(-50%);
+    position: relative;
+    margin-top: 20px;
+    width: 40vw;
+    height: 35px;
+    border:none;
+    border:1px solid #BDBDBD;
+    font-size:15px; 
+    color:black;
+    outline:none;
+    border-radius: 10px;
+}
