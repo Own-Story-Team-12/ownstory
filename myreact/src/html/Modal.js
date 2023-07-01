@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../login.module.css';
+import styles from '../css/login.module.css';
 
 const Modal = ({ children, onClose }) => {
   return (

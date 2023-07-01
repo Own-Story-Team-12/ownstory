@@ -1,21 +1,12 @@
-.header{
-    display: block;
-}
-
-.header:hover{
-    display: none;
-}
-
 .inputback{
-    background-image: url('../html/static_image/page_bacground_img.png');
+    background-image: url('../html/static_image/background_.png');
     background-size: cover;
     background-position: center;
     background-color: #FFFAEA;
     display:flex;
     justify-content:center;
     align-items: center;
-    min-height: 90vh;
-    margin-top: 80px;
+    min-height: 100vh;
   }
 
 .body{
@@ -59,10 +50,12 @@
 }
 
 .body2{
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    z-index: 0;
 }
 
 
@@ -141,33 +134,60 @@
     }
   }
 
-  .wordimg{
-    position: absolute;
-    top: 10px;
-    text-align: center;
-    background-color: rgba(255,255,255,0.5);
-    width: 50%;
-    padding: 2%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-  }
   .keywordbtn{
     background-color: #f8bd56ef;
     border: none;
-
     margin-right: 10px;
     padding: 10px;
-    border-radius: 10%;
+    border-radius: 10px;
     box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
     transform: translateX(-50%);
     font-size: 20px;
+    font-weight: bold;
   }
-  .imagebtn{
-    background-color: transparent;
 
+  .imagebtn{
+    background-color: white;
     border: none;
     padding: 10px;
     border-radius: 10%;
     transform: translateX(50%);
     font-size: 20px;
+    font-weight: bold;
   }
+
+  .headerhover > *{
+    visibility: hidden;
+    opacity : 0;
+    transition: opacity 1.5s ease-in-out;
+  }
+
+  .lessThan15 > *{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .wordimglessThanwordimg{
+    display: none;
+    position: absolute;
+    top: 5%;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+  
+  .wordimg{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 50%;
+    padding: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: block;
+    height: 80px;
+    color:#fff;
+    font-size:16px;
+    border:none;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+

@@ -6,13 +6,13 @@ import Footerjs from './footer';
 import Animationjs from './animation';
 import { useMutation } from 'react-query';
 import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
 function KeywordInput(){
     const [name, setName] = useState('');
     const [personality, setPersonality] = useState('');
     const [background, setBackground] = useState('');
     const [content, setContent] = useState('');
-    
 
     const handleNameChange = (e) => {
         setName(e.target.value);
@@ -106,10 +106,6 @@ function KeywordInput(){
         </div> 
         ) : (
         <div className={styles.body2}>
-            <div className={styles.wordimg}>
-                <button className={styles.keywordbtn}><NavLink to="/fairytale/keyword"  style={{ color: '#FFFFFF' }}>내가 직접 만드는 동화</NavLink></button>
-                <button className={styles.imagebtn}><NavLink to="/imageinput"  style={{ color: '#757575' }}> 내가 그린 그림으로 만드는 동화</NavLink></button>
-            </div>
             <div className={styles.content}>
                 <p>주인공의 이름은 뭐야?</p>
                 <input type = "text" value = {name} onChange={handleNameChange}></input>
@@ -128,16 +124,45 @@ function KeywordInput(){
                 </div>
             </div>
         </div>
+        
       )}
     </div>
-
    ); 
 }
 
 function FairytalePage(){
+    const [isHovered, setIsHovered] = useState(false);
+    const [mouseY, setMouseY] = useState(0);
+
+    const handleMouseEnter = () => {
+      setIsHovered(true);
+    };
+  
+    const handleMouseLeave = () => {
+      setIsHovered(false);
+    };
+
+    const handleMouseMove = (event) => {
+        setMouseY(event.clientY);
+      };
+  
+    const containerClasses = classNames(styles.headerhover, {
+      [styles.lessThan15]: isHovered || mouseY < 32,
+    });
+
+    const containerClasses2 = classNames(styles.wordimglessThanwordimg, {
+        [styles.wordimg]: !isHovered && mouseY >= 32,
+      });
+    
     return (
-        <div className="app">
+        <div className="app" onMouseMove={handleMouseMove}>
+          <div className={containerClasses} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <Headerjs></Headerjs>
+          </div>
+          <div className={containerClasses2}>
+                <button className={styles.keywordbtn}><NavLink to="/fairytale/keyword"  style={{ color: '#FFFFFF' }}>단어로 쓰는 동화</NavLink></button>
+                <button className={styles.imagebtn}><NavLink to="/imageinput"  style={{ color: '#757575' }}> 그림으로 쓰는 동화</NavLink></button>
+            </div>
           <KeywordInput></KeywordInput>
           <Footerjs></Footerjs>
         </div>

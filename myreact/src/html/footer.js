@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import React from 'react';
-import styles from '../main.module.css';
+import styles from '../css/main.module.css';
 
 function Footer(){
   const router = useLocation();

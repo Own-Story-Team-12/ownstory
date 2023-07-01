@@ -1,0 +1,138 @@
+/* * {
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'SUITE-Regular', sans-serif;
+  } */
+  .body{
+    min-height: 100vh;
+    margin-top: 80px;
+    position : relative;
+    background-color: #FFFAEA;
+  }
+
+
+  .openbook{
+    min-width: 80%;
+    min-height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imageinputbt {
+    place-items: center;
+  }
+
+  .imageinputbox{
+    margin-bottom: 90px;
+    width : 19vw;
+    height: 30vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 2px dotted gray;
+  }
+
+  .imageinputbox > div{
+    text-align: center;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  .upload {
+    background-color: gray;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
+    color : white
+  }
+
+  .uploaded {
+    color: gray;
+    position: relative;
+    bottom : -10px;
+    right: -5px;
+  }
+
+  .warn {
+    color:red;
+    font-size:10;
+    position : relative;
+    bottom : -50px;
+
+  }
+
+  .genbtn {
+    background-color: #FFA500;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
+    color : black;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .selectedimg {
+    position: relative;
+    margin-bottom: 20px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .custom_generate > button{
+    margin-top: 10px;
+    width: 23vw;
+    height: 6vh;
+    background: #59B95F;
+    color:#fff;
+    font-size:18px;
+    border:none;
+    border-radius:15px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  /* dfd */
+  .wordimg{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 50%;
+    padding: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: block;
+    height: 80px;
+    color:#fff;
+    font-size:16px;
+    border:none;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  .imagebtn{
+    background-color: #f8bd56ef;
+    border: none;
+    padding: 10px;
+    border-radius: 10%;
+    transform: translateX(50%);
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .keywordbtn{
+    background-color: transparent;
+    border: none;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: bold;
+  }
