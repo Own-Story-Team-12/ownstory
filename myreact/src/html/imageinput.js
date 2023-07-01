@@ -159,7 +159,7 @@ function Body(){
 
 function MainPage() {
   const [isHovered, setIsHovered] = useState(false);
-  const [mouseY, setMouseY] = useState(0);
+  const [mouseY, setMouseY] = useState(300);
 
   const handleMouseEnter = () => {
     setIsHovered(true);

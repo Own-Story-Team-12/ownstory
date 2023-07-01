@@ -35,7 +35,7 @@ function Header(){
             <li><NavLink to="/">서비스 사용법</NavLink></li>
         </ul>
       </li>
-      <li><NavLink to="/">동화 게시판</NavLink></li>
+      <li><NavLink to="/postList" className={router.pathname === '/postList' && styles.active2}>동화 게시판</NavLink></li>
       {token ? (
             // gId 값이 존재하는 경우에만 다른 li 태그를 렌더링합니다.
             <>

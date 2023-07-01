@@ -8,7 +8,8 @@ import ImageInputPage from './html/imageinput';
 import KeywordInput from './html/fairytale';
 import styles from './App.module.css';
 import Result from './html/result';
-
+import PostList from './html/PostList';
+import PostDetail from './html/PostDetail';
 
 function Pages(){
   return (
@@ -20,7 +21,8 @@ function Pages(){
     <Route path="/imageinput" element={<ImageInputPage />}/>
     <Route path = "/fairytale/keyword" element={<KeywordInput />}/>
     <Route path = "/result" element={<Result />}/>
-
+    <Route path = "/postList" element={<PostList />}/>
+    <Route path = "/post/:id" element={<PostDetail />} />
   </Routes>
   );
 };
