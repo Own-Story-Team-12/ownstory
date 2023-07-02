@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../css/fairytale.module.css'
 import Headerjs from './header';
 import Footerjs from './footer';
 import Animationjs from './animation';
 import { useMutation } from 'react-query';
-import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 
 function KeywordInput(){

@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os, json
 from django.core.exceptions import ImproperlyConfigured
-
+import datetime
 
 
 # check
@@ -185,3 +185,12 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # 허용할 도메인 주소
+]
+
+JWT_AUTH = {
+    'JWT_REFRESH_TOKEN_EXPIRATION_DELTA': datetime.timedelta(days=30),  # 리프레시 토큰 만료 시간
+}

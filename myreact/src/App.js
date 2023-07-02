@@ -10,6 +10,8 @@ import styles from './App.module.css';
 import Result from './html/result';
 import PostList from './html/PostList';
 import PostDetail from './html/PostDetail';
+import MyPage from './html/mypage';
+
 
 function Pages(){
   return (
@@ -22,7 +24,7 @@ function Pages(){
     <Route path = "/fairytale/keyword" element={<KeywordInput />}/>
     <Route path = "/result" element={<Result />}/>
     <Route path = "/postList" element={<PostList />}/>
-    <Route path = "/post/:id" element={<PostDetail />} />
+    <Route path = "/post/:id" element={<PostDetail />} />    <Route path = "/mypage" element={<MyPage />}/>
   </Routes>
   );
 };
