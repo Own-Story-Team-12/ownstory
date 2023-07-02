@@ -25,10 +25,10 @@ class Post(models.Model):
         return self.postname
 
 class Comment(models.Model):
-    id = models.AutoField(primary_key=True, null=False, blank=False)
-    post = models.ForeignKey(Post, null=False, blank=False, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True, null=False, blank=False)
+    id = models.AutoField(primary_key=True)
+    post = models.ForeignKey(Result, related_name='comments', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
     comment = models.TextField()
     
     def __str__(self):
