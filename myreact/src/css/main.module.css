@@ -4,7 +4,7 @@
     align-items: center;
     height:100vh;
     background-color: white;
-    /* background-image: url('../html/static_image/bh.png'); */
+    
     background-size: cover;
     background-position: center;
   }
@@ -181,6 +181,7 @@
     /* bottom: 0px; */
     background-color: white;
     left: 0;
+
     /* align-item 영역의 수직방향 중앙에 위치시킨다. */
   }
 
