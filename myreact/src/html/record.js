@@ -1,9 +1,8 @@
-import { Link, NavLink } from 'react-router-dom';
-import React, { useState, useCallback } from 'react';
-import styles from '../main.module.css';
+import React, { useState, useCallback, useEffect } from 'react';
+import styles from '../css/record.module.css';
 import Headerjs from './header';
 import Footerjs from './footer';
-  
+import axios from "axios";
 
 function Body() {
     const [stream, setStream] = useState();
@@ -12,15 +11,40 @@ function Body() {
     const [source, setSource] = useState();
     const [analyser, setAnalyser] = useState();
     const [audioUrl, setAudioUrl] = useState();
+    const [currentIndex, setCurrentIndex] = useState(0);
     const chunks = []; // 오디오 청크 데이터를 저장할 배열
-    const audioUrls = JSON.parse(localStorage.getItem('audioUrls')) || [];
-    // audioUrls = []
-    // localStorage.setItem('audioUrls', JSON.stringify(audioUrls));
-    // console.log(audioUrls[0]);
 
-  
+    const texts = ['The pigs and cows ran everywhere.',
+                  'Float the soap on top of the bath water.',
+                  'A very young boy sliding down a slide into a swimming pool, wearing blue floaties.',
+                  "I can't do that right now. Please try again later.",
+                  'The boy was there when the sun rose.',
+                  '모든 녹음이 완료 되었습니다.   보이스 추가를 눌러주세요.']
+
+    
+
+    useEffect(() => {
+      const ID = localStorage.getItem('IDinfo');
+
+      const sendData = async () => {
+        try {
+          const data = {
+            name: ID
+          };
+          console.log(ID);
+          const response = await axios.post('http://127.0.0.1:8000/audio-check/', data);
+          // 요청에 대한 응답 처리
+          console.log(response.data.message);
+          setCurrentIndex(response.data.message);
+        } catch (error) {
+          // 요청 중 오류 처리
+          console.error('요청 중 오류 발생:', error);
+        }
+      };
+      sendData();
+    }, []);
+
     const onRecAudio = () => {
-      console.log(audioUrls.length);
       // 음원정보를 담은 노드를 생성하거나 음원을 실행또는 디코딩 시키는 일을 한다
       const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       
@@ -85,11 +109,30 @@ function Body() {
         source.disconnect();
 
         
-        if (audioUrl) {
-            const blob = new Blob(chunks, { type: 'audio/wav' });
-            audioUrls.push(blob);
-            localStorage.setItem('audioUrls', JSON.stringify(audioUrls));
-          }
+        // if (audioUrl) {
+        //     const blob = new Blob(chunks, { type: 'audio/wav' });
+        //     audioUrls.push(blob);
+        //     localStorage.setItem('audioUrls', JSON.stringify(audioUrls));
+        //   }
+      };
+
+      const uploadFileToServer = (file) => {
+        const formData = new FormData();
+        formData.append('audioFile', file);
+      
+        axios.post('http://127.0.0.1:8000/upload-audio/', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+        .then(response => {
+          console.log(response.data.message);
+          // 서버의 응답 처리
+        })
+        .catch(error => {
+          console.error('파일 전송 중 오류 발생:', error);
+          // 오류 처리
+        });
       };
 
     const onSubmitAudioFile = useCallback(() => {
@@ -97,36 +140,61 @@ function Body() {
           const audio = new Audio(URL.createObjectURL(audioUrl));
           audio.play();
         }
-        // File 생성자를 사용해 파일로 변환
-        const sound = new File([audioUrl], "soundBlob", { lastModified: new Date().getTime(), type: "audio" });
-        console.log(sound); // File 정보 출력
+        
       }, [audioUrl]);
 
-      function test() {
-        if (audioUrls.length > 0) {
-            // 첫 번째 오디오 URL을 가져옴 (인덱스 0)
-            console.log(2);
-            console.log(audioUrls[0]);
-            const blobUrl = URL.createObjectURL(audioUrls[0]);
-            const firstAudioUrl = blobUrl;
-            
-          
-            // 오디오 요소 생성
-            const audio = new Audio(firstAudioUrl);
-          
-            // 오디오 재생
-            audio.play();
-          }
-
-      }
+    function handleClickNext () {
+      const sound = new File([audioUrl], `${currentIndex}.wav`, { lastModified: new Date().getTime(), type: "audio/wav" });
+      console.log(sound);
+      uploadFileToServer(sound);
+        
+      setCurrentIndex((prevIndex) => {
+        const newIndex = prevIndex + 1;
+        if (newIndex >= 6) {
+          return 0;
+        }
+        return newIndex;
+      });
+  
+    }
     
+    const buttonClassName = currentIndex >= 5 ? `${styles.finishbutton}` : ""; 
+    const buttonText = currentIndex >= 5 ? "보이스 추가" : "저장 후 다음"; 
+    const progressClassName = currentIndex >= 5 ? `${styles.finishprogress}` : `${styles.progress}`; 
+    const progressText = currentIndex >= 5 ? "5" : `${currentIndex+1}`;
+    const scriptText = currentIndex >= 5 ? "보이스 추가 중입니다." : `${texts[currentIndex]}`
+
+    function handleVoice(){
+      alert('보이스 추가에는 처리 시간이 소요될 수 있습니다. 완료 시 마이페이지에서 확인할 수 있습니다.');
+      try {
+          const response = axios.post('http://127.0.0.1:8000/audio-fit/');
+          // 요청에 대한 응답 처리
+      } catch (error) {
+          // 요청 중 오류 처리
+          console.error('요청 중 오류 발생:', error);
+      };
+    }
 
     return (
-      <div className={styles.body}>
-        <div>
+      <div className={styles.recordbody}>
+        <div className={styles.recordcontainer}>
+          <h2>스크립트를 따라 읽어주세요</h2>
+          <div className={styles.script}>
+            <h4 className={progressClassName}>진행상황 : {progressText} / 5</h4>
+            <h3>{scriptText}</h3>
+          </div>
+        </div>
+
+        <div className={styles.btn_area}>
+          <div>
             <button onClick={onRec ? onRecAudio : offRecAudio}>녹음</button>
+          </div>
+          <div className={styles.btn_area}>
             <button onClick={onSubmitAudioFile}>결과 확인</button>
-            <button onClick={test}>저장 후 다음</button>
+          </div>
+          <div className={styles.btn_area}>
+            <button className={buttonClassName} onClick={currentIndex === 5 ? handleVoice : handleClickNext}>{buttonText}</button>
+          </div>
         </div>
       </div>
     );

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import styles from '../login.module.css';
+import styles from '../css/login.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 function LoginPage() {
@@ -30,8 +30,6 @@ function LoginPage() {
         const onDataPost = () => {
             if (!id || !pw) {
                 setShowWarning(true); // id나 pw 값이 비어 있을 때 경고 메시지 표시
-                console.log('hi');
-                console.log(showWarning);
             }else{
                 const api = axios.create({
                     baseURL: '/',
@@ -41,7 +39,6 @@ function LoginPage() {
                     password: pw,
                 })
                 .then(function (response) {
-                    console.log(response.data);
                     const token = response.data;
                     const IDinfo = id
                     localStorage.setItem('IDinfo', JSON.stringify(IDinfo));
@@ -63,7 +60,7 @@ function LoginPage() {
         <h1><NavLink to="/">Own Story</NavLink></h1>
         <div className={styles.int_area}>
             <input type="text" name="id" id="id" onChange={ onIdChange } autoComplete="off" required></input>
-            <label htmlFor="id" className={showWarning && !id ? styles.warning : ''}>USER NAME</label>
+            <label htmlFor="id" className={showWarning && !id ? styles.arning : ''}>USER NAME</label>
         </div>
         <div className={styles.int_area}>
             <input type="password" name="pw" id="pw" onChange={ onPwChange } autoComplete="off" required></input>

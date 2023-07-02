@@ -15,10 +15,8 @@
   같기 때문에 개발환경이
   편해진다. */
 }
-
-
 .App {
-  text-align: center;
+  background-color: white;
 }
 
 .App-logo {
@@ -55,6 +53,8 @@
     transform: rotate(360deg);
   }
 }
+
+
 
 /* @font-face{
     font-family: a;
