@@ -29,7 +29,7 @@ class SaveAPIView(APIView):
             TTS_myvoice = request.data.get('TTS_myvoice')
 
             if image == "no":
-                image = "/media/books.png"
+                image = "img_default.png"
 
             # 모델 인스턴스 생성 및 저장
             result = Result()
@@ -58,7 +58,6 @@ class ResultAPIView(APIView):
             fs = FileSystemStorage(location=settings.MEDIA_ROOT)
             filename = fs.save(file.name, file)
             uploaded_file_url = fs.url(filename)
-            
             response_data = result_image(uploaded_file_url)
 
             return Response(response_data, status=status.HTTP_200_OK)
