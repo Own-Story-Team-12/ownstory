@@ -133,14 +133,36 @@
 
 
     background-color: rgba(0, 0, 0, 0.5);
-    border: 1px solid;
+    border: none;
+    border-radius: 15%;
   }
   
   .modalcontent {
     position: relative;
     width: 400px;
+    height: 130px;
     padding: 20px;
     background-color: white;
+    box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
+    
+  }
+  .modalcontent p{
+    padding: 10px;
+  }
+  .modalbtn{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    height:35px;
+    background: #59B95F;
+    color:#fff;
+    font-size:18px;
+    border:none;
+    border-radius:25px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px;
   }
   
   .close {

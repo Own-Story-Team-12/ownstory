@@ -80,7 +80,6 @@ function JoinPage() {
                     if (error.response.status === 400) {
                         setIsFailModalOpen(true);
                         setErrormsg('이미 사용중인 ID입니다.');
-        
 
                     } else {
                       console.log(error);
@@ -103,13 +102,11 @@ function JoinPage() {
             <div className={styles.int_area}>
                 <input type="password" name="pw" id="pw" onChange={ onPwChange } autoComplete="off" required></input>
                 <label htmlFor="id" className={showWarning && !pw ? styles.warning : ''}>PASSWORD</label>
-                {showWarning && !pw && <p className={styles.error_message}>비밀번호를 입력해주세요.</p>}
             {pw && validatePassword(pw) && <p className={styles.error_message}>{validatePassword(pw)}</p>}
             </div>
             <div className={styles.int_area}>
                 <input type="password" name="pw2" id="pw2" onChange={ onPwChange2 } autoComplete="off" required></input>
                 <label htmlFor="id" className={showWarning && !pw ? styles.warning : ''}>PASSWORD CHECK</label>
-                {showWarning && !pw2 && <p className={styles.error_message}>비밀번호 확인을 입력해주세요.</p>}
                 {pw !== pw2 && <p className={styles.error_message}>비밀번호와 비밀번호 확인이 일치하지 않습니다.</p>}
             </div>
             <div className={ styles.btn_area}>
@@ -124,7 +121,7 @@ function JoinPage() {
         <Modal onClose={() => setIsSuccessModalOpen(false)}>
           <h3>회원가입 완료</h3>
           <p>회원가입이 성공적으로 완료되었습니다.</p>
-          <button onClick={handleConfirmModal}>로그인 페이지로 이동</button>
+          <button className={styles.modalbtn} onClick={handleConfirmModal}>로그인 페이지로 이동</button>
         </Modal>
         )}
 
@@ -133,7 +130,7 @@ function JoinPage() {
       <h3>회원가입 실패</h3>
       <p>{errormsg}</p> 
 
-      <button onClick={clossErrorModal}>닫기</button>
+      <button className={styles.modalbtn} onClick={clossErrorModal}>닫기</button>
      </Modal>
 
       )}

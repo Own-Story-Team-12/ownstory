@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import axios from "axios";
 import styles from '../css/login.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
+import Modal from './Modal';
 
 function LoginPage() {
         //useState() - 값이 변화되는 것을 저장
         const [id, setId] = useState(false);
         const [pw, setPw] = useState(false);
         const [showWarning, setShowWarning] = useState(false);
+        const [isFailModalOpen, setIsFailModalOpen] = useState(false);
+        const [errormsg, setErrormsg] = useState('');
         const usenavigate = useNavigate();
 
         //state값이 변화되는 함수 - input에 쓴 값으로 바뀜
@@ -25,6 +28,10 @@ function LoginPage() {
 
         const goBack=() => {
             usenavigate(-1);
+        }
+
+        const clossErrorModal=() =>{
+            setIsFailModalOpen(false);
         }
     
         const onDataPost = () => {
@@ -47,7 +54,10 @@ function LoginPage() {
                     usenavigate('/');
                 })
                 .catch(function (error) {
-                    console.log(error);
+
+                        setIsFailModalOpen(true);
+                        setErrormsg('ID 또는 비밀번호를 확인해주세요.');
+
                 });
             }
         }
@@ -73,7 +83,20 @@ function LoginPage() {
             <NavLink to="/join">SING UP?</NavLink>
         </div>
       </section>
+
+      {isFailModalOpen && (
+     <Modal onClose={() => setIsFailModalOpen(false)}>
+        <h3>로그인 실패</h3>
+        <p>{errormsg}</p> 
+
+        <button className={styles.modalbtn} onClick={clossErrorModal}>닫기</button>
+     </Modal>
+
+      )}
+
       </div>
+
+      
       
     );
   }

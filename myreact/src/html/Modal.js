@@ -5,9 +5,6 @@ const Modal = ({ children, onClose }) => {
   return (
     <div className={styles.modal}>
       <div className={styles.modalcontent}>
-        <button className={styles.close}onclick={onClose}> 
-        X
-        </button>
         {children}
       </div>
     </div>

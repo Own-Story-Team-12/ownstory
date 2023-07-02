@@ -16,6 +16,7 @@ function Header(){
   const handleLogout = () => {
         // 로그아웃 시 Local Storage에 저장된 토큰을 제거하고 로그인 상태를 초기화합니다.
     localStorage.removeItem('token');
+    localStorage.removeItem('posts');
   };
 
     return  (<header className={styles.header}>
@@ -51,7 +52,9 @@ function Header(){
               </li>
               <li><NavLink to="/record" className={router.pathname === '/record' && styles.active2}>동화 녹음</NavLink></li>
               <li className={styles.ID}><NavLink>{finalID} 님 환영합니다.</NavLink></li>
+              <li style={{ width: '100px' }}><NavLink to="/mypage"  >마이페이지</NavLink></li>
               <li style={{ width: '100px' }}><NavLink to="/" onClick={handleLogout} >로그 아웃</NavLink></li>
+              
             </>
           ) : (
             <>
