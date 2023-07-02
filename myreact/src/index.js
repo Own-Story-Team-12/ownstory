@@ -9,14 +9,16 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+{/* <React.StrictMode>
+</React.StrictMode> */}
 root.render(
-  <React.StrictMode>
+
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
         <App />
       </QueryClientProvider>
     </RecoilRoot>
-  </React.StrictMode>
+
 );
 
 // If you want to start measuring performance in your app, pass a function
