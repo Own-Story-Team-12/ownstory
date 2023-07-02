@@ -16,7 +16,7 @@
     position : relative;
     
     background-color: #FFFAEA;
-
+    height: 100vh;
   }
   .title{
     padding: 20px;
@@ -25,13 +25,14 @@
   .subtitle{
     text-decoration: underline;
     text-decoration-color: #BDBDBD;
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: 2.5px;
     text-underline-offset: 15px;
   }
   .btnarea{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding:10px
   }
   .btnrow{
     display: flex;
@@ -68,7 +69,7 @@
 
   .voice{
     width: 70%;
-    height: 30%;
+    height: 25%;
     margin: 1% auto;
     border:#BDBDBD solid;
     border-radius:10px;
@@ -78,13 +79,12 @@
 
   .mypost{
     width: 70%;
-    height: 30%;
+    height: 50%;
     margin: 1% auto;
     border:#BDBDBD solid;
     border-radius:10px;
     position: relative;
     padding: 1%;
-    
   }
 
   .voicebtn{
@@ -99,6 +99,7 @@
     cursor: pointer;
     margin-left: 20px;
     margin-right: 20px;
+    box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
   }
 
   .voicebtn img{
@@ -129,4 +130,38 @@
     margin: 10px;
     padding-top: 10px;
     padding-right: 20px;
+  }
+  .postContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .postbtn{
+    width: 400px;
+    height: 300px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FEEEBA;
+    border: #BDBDBD solid 1px;
+    border-radius:15px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
+  }
+  .postTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .postimg{
+    width: 70%;
+    height: auto;
+  }
+  .top{
+    padding-bottom: 50px;
   }

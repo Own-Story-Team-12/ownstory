@@ -7,7 +7,6 @@ function Header(){
   const router = useLocation();
   const token = localStorage.getItem('token');
   const ID = localStorage.getItem('IDinfo');
-  console.log(ID);
   let finalID = '';
 
   if (ID !== null) {
@@ -18,21 +17,25 @@ function Header(){
   const handleLogout = () => {
         // 로그아웃 시 Local Storage에 저장된 토큰을 제거하고 로그인 상태를 초기화합니다.
     localStorage.removeItem('token');
+    localStorage.removeItem('posts');
   };
 
-  const redirectiontoMypage=() =>{
-    const token = localStorage.getItem('token');
-    if (token) {
-      let finalToken='';
-      finalToken = token.slice(1,-1);
 
-      console.log(finalToken)
-        axios.get('http://127.0.0.1:8000/info/', {
-          headers: {
-            'Authorization' : `Bearer ${finalToken}` 
-        }})
+  const redirectiontoMypage=() =>{
+
+    if (finalID) {
+      const params = {
+        params: {username: finalID}
+      };
+      console.log(params)
+      axios.get('http://127.0.0.1:8000/info/', params)
       .then(response => {
         console.log(response.data);
+        const memberInfo = response.data;
+        const posts = memberInfo.results
+        localStorage.setItem('posts', JSON.stringify(posts));
+
+
       }) 
       .catch(error=>{
         console.error(error);
@@ -60,14 +63,15 @@ function Header(){
             <>
               <li><NavLink to="/" className={router.pathname === '/d' && styles.active2}>동화 생성</NavLink>
                 <ul className={styles.downmenu}>
-                    <li><NavLink to="/fairytale/keyword">단어로 쓰는 동화</NavLink></li>
+                  <li><NavLink to="/fairytale/keyword">단어로 쓰는 동화</NavLink></li>
                     <li><NavLink to="/imageinput">그림으로 쓰는 동화</NavLink></li>
                 </ul>
               </li>
               <li><NavLink to="/record" className={router.pathname === '/record' && styles.active2}>동화 녹음</NavLink></li>
               <li className={styles.ID}><NavLink>{finalID} 님 환영합니다.</NavLink></li>
+              <li style={{ width: '100px' }}><NavLink to="/mypage" onClick={redirectiontoMypage} >마이페이지</NavLink></li>
               <li style={{ width: '100px' }}><NavLink to="/" onClick={handleLogout} >로그 아웃</NavLink></li>
-              <li style={{ width: '100px' }}><NavLink to="/" onClick={redirectiontoMypage} >마이페이지</NavLink></li>
+              
             </>
           ) : (
             <>

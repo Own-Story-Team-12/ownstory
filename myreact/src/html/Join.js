@@ -103,13 +103,11 @@ function JoinPage() {
             <div className={styles.int_area}>
                 <input type="password" name="pw" id="pw" onChange={ onPwChange } autoComplete="off" required></input>
                 <label htmlFor="id" className={showWarning && !pw ? styles.warning : ''}>PASSWORD</label>
-                {showWarning && !pw && <p className={styles.error_message}>비밀번호를 입력해주세요.</p>}
             {pw && validatePassword(pw) && <p className={styles.error_message}>{validatePassword(pw)}</p>}
             </div>
             <div className={styles.int_area}>
                 <input type="password" name="pw2" id="pw2" onChange={ onPwChange2 } autoComplete="off" required></input>
                 <label htmlFor="id" className={showWarning && !pw ? styles.warning : ''}>PASSWORD CHECK</label>
-                {showWarning && !pw2 && <p className={styles.error_message}>비밀번호 확인을 입력해주세요.</p>}
                 {pw !== pw2 && <p className={styles.error_message}>비밀번호와 비밀번호 확인이 일치하지 않습니다.</p>}
             </div>
             <div className={ styles.btn_area}>

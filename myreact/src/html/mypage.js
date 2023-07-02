@@ -1,15 +1,25 @@
 import Headerjs from './header';
 import Footerjs from './footer';
 import styles from '../mypage.module.css';
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
-import Q from '../html/static_image/question.png';
-import mic from '../html/static_image/mic.png';
-import pencil from '../html/static_image/pencil.png';
+import Q from './static_image/question.png';
+import mic from './static_image/mic.png';
+import pencil from './static_image/pencil.png';
 
 function KeywordInput(){
     const[showTip, setShowTip] = useState(false);
     const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+      const storedPosts = localStorage.getItem('posts');
+      if (storedPosts) {
+        setPosts(JSON.parse(storedPosts));
+      }
+    }, []);
+  
+    const limitedPosts = posts.slice(0, 2);
 
     const handleMouseEnter = (e) =>{
         const { clientX, clientY } = e;
@@ -56,8 +66,26 @@ function KeywordInput(){
             </div>)}
         </div>
         <div className={styles.mypost}>
-            <h2 className={styles.subtitle}>내가 만든 동화목록</h2>
-            <p className={styles.more}>더보기 →</p>
+            <div className={styles.top}>
+                <h2 className={styles.subtitle}>내가 만든 동화목록</h2>
+                <p className={styles.more}>더보기 →</p>
+            </div>
+            {limitedPosts.length > 0 ? (
+                <div className={styles.postContainer}>
+                    {limitedPosts.map((post) => (
+                    <div className={styles.postItem} key={post.id}>
+                        <button className={styles.postbtn}>
+                        <div className={styles.postTitle}>
+                            <img className={styles.postimg} src={post.image} />
+                            <span>{post.title}({post.ko_title})</span>
+                        </div>
+                        </button>
+                    </div>
+                    ))}
+                </div>
+                ) : (
+                <p>게시물이 없습니다.</p>
+                )}
         </div>
     </div>
 

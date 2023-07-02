@@ -1,4 +1,5 @@
 import axios from "axios";
+import { NavLink, useLocation } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import styles from '../input.module.css';
 import Headerjs from './header';
@@ -96,8 +97,11 @@ function Body(){
   
   return (
     <div  className={`${styles.body} ${styles.inputback}`} >
+      <div className={styles.wordimg}>
+            <button className={styles.keywordbtn}><NavLink to="/fairytale/keyword"  style={{ color: '#757575' }}>내가 직접 만드는 동화</NavLink></button>
+            <button className={styles.imagebtn}><NavLink to="/imageinput"  style={{ color: '#FFFFFF' }}> 내가 그린 그림으로 만드는 동화</NavLink></button>
+        </div>
       <div className={styles.openbook}>
-
         <div className={styles.bookleft}>
           <div className={styles.imageinputbox}> 
               <div style={{flex:3}}>
@@ -123,7 +127,7 @@ function Body(){
           <div>
             <label htmlFor="generate" className="custom-generate">
                 <span className={styles.genbtn}>이 그림으로 동화를 만들어 주세요</span>
-              </label> 
+              </label>
             <button className={styles.button}id='generate' onClick={PostImage}>생성하기</button>     
           </div>
         </div>

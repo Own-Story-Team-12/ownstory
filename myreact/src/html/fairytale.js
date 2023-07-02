@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { json } from 'react-router-dom';
-import styles from '../main.module.css';
+import styles from '../keyword.module.css';
 import Headerjs from './header';
 import Footerjs from './footer';
+import boy from './static_image/boy.png';
 
 function KeywordInput(){
     const [name, setName] = useState('');
@@ -79,19 +81,33 @@ function KeywordInput(){
     };
 
    return(
-    <div className={styles.body}>
-        <button>내가 직접 만드는 동화</button>
-        <button> 내가 그린 그림으로 만드는 동화</button>
-        <p>주인공의 이름은 뭐야?</p>
-        <input type = "text" value = {name} onChange={handleNameChange}></input>
-        <p>주인공의 특징은 뭐야?</p>
-        <input type = "text" value = {personality} onChange={handlePersonalityChange}></input>
-        <p>어떤 동물이 나올까?</p>
-        <input type = "text" value = {animal} onChange={handleAnimalChange}></input>
-        <p>그 동물의 특징은 뭐야?</p>
-        <input type = "text" value = {animal_feature} onChange={handleAnimalFeatureChange}></input>
-        <button onClick={handelSetInput}>아무거나 넣어볼래요</button>
-        <button onClick={handleSubmit }>동화 만들어 주세요</button>
+    
+    <div  className={`${styles.body} ${styles.inputback}`} >
+        <div className={styles.wordimg}>
+            <button className={styles.keywordbtn}><NavLink to="/fairytale/keyword"  style={{ color: '#FFFFFF' }}>내가 직접 만드는 동화</NavLink></button>
+            <button className={styles.imagebtn}><NavLink to="/imageinput"  style={{ color: '#757575' }}> 내가 그린 그림으로 만드는 동화</NavLink></button>
+        </div>
+        <div className={styles.openbook}>
+            <div className={styles.bookleft}>
+                <p>주인공의 이름은 뭐야?</p>
+                <input type = "text" value = {name} onChange={handleNameChange}></input>
+                <p>주인공에 대해서 설명해줘</p>
+                <input type = "text" value = {personality} onChange={handlePersonalityChange}></input>
+                <p>배경은 어디야?</p>
+                <input type = "text" value = {animal} onChange={handleAnimalChange}></input>
+                <p>어떤 내용으로 동화를 만들어줄까?</p>
+                <input type = "text" value = {animal_feature} onChange={handleAnimalFeatureChange}></input>
+            </div>
+            <div className={styles.bookright}>
+                <div className={styles.iconarea}>
+                <img className={styles.icon} scr={boy}/>
+                </div>
+                <div className={styles.btnarea}>
+                <button className={styles.fillbtn}onClick={handelSetInput}>아무거나 넣어볼래요</button>
+                <button className={styles.genbtn} onClick={handleSubmit }>동화 만들어 주세요</button>
+                </div>
+            </div>
+        </div>
     </div>
 
    ); 
