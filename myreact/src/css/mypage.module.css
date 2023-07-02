@@ -21,6 +21,7 @@
   .title{
     padding: 20px;
     text-align: center;
+    font-size: 30px
   }
   .subtitle{
     text-decoration: underline;
@@ -48,6 +49,7 @@
     bottom: 0;
     right: 0;
     margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
   }
   .qIcon{    
     height: 45px;
@@ -57,13 +59,13 @@
   .tooltip{
     padding: 10px;
     height: auto;
-    width: 330px;
+    width: 420px;
     background-color: #E6E7DE;
     z-index: 999;
     position:absolute;
     border: #BDBDBD;
     text-align: center;
-    font-size: 13px;
+    font-size: 17px;
     z-index: 999;
   }
 
@@ -99,7 +101,7 @@
     cursor: pointer;
     margin-left: 20px;
     margin-right: 20px;
-    box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
   }
 
   .voicebtn img{
@@ -118,6 +120,7 @@
     width: 45px;
     border: none;
     background: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
   }
   .pencil img{
     width:13px;
@@ -150,13 +153,14 @@
     cursor: pointer;
     margin-left: 20px;
     margin-right: 20px;
-    box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
+
   }
   .postTitle{
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    font-size: 17px;
   }
   .postimg{
     width: 70%;
@@ -164,4 +168,20 @@
   }
   .top{
     padding-bottom: 50px;
+  }
+
+  .btn {
+    background-color: #59B95F;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
+
+    font-weight: bold;
+    font-size: 26px; 
+    cursor: pointer;
+    border:none;
+    margin-top: 20px;
   }

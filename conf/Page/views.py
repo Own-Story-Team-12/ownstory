@@ -95,25 +95,28 @@ class LoginView(APIView):
 
         return response
     
-class keywordtestview(APIView): # 테스트용 백
-    def post(self, request):
-        name = request.data.get('name')
-        personality = request.data.get('personality')
-        animal = request.data.get('animal')
-        animal_feature = request.data.get('animal_feature')
-        
-        return Response({'name':name, 'personality': personality})
-    
 class userInfo(APIView):
-    permission_classes = [IsAuthenticated]
-
     def get(self, request):
-        user = request.user
+        username = request.GET.get('username')
+        user = User.objects.get(username=username)
+        user_id = user.id
+        results = Result.objects.filter(user_id=user_id)
+        results_data = []
+        for result in results:
+            results_data.append({
+                'id': result.id,
+                'title': result.title,
+                'ko_title': result.ko_title,
+                'image': result.image.path,
+                'img_name' : result.image.name,
+            })
         member_info = {
             'username': user.username,
-            'password': user.password,
+            'results': results_data
+
         }
         return Response(member_info)
+    
 class UploadAudioView(APIView):
     def post(self, request, format=None):
         audio_file = request.FILES.get('audioFile')  # 파일 업로드 필드명에 맞게 수정하세요

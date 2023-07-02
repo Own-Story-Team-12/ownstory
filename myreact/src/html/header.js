@@ -1,6 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { React } from 'react';
-import axios from 'axios';
 import styles from '../css/main.module.css';
   
 function Header(){
@@ -19,29 +18,6 @@ function Header(){
     localStorage.removeItem('token');
     localStorage.removeItem('posts');
   };
-
-
-  const redirectiontoMypage=() =>{
-
-    if (finalID) {
-      const params = {
-        params: {username: finalID}
-      };
-      console.log(params)
-      axios.get('http://127.0.0.1:8000/info/', params)
-      .then(response => {
-        console.log(response.data);
-        const memberInfo = response.data;
-        const posts = memberInfo.results
-        localStorage.setItem('posts', JSON.stringify(posts));
-
-
-      }) 
-      .catch(error=>{
-        console.error(error);
-      })
-    }
-  }
 
     return  (<header className={styles.header}>
   <h1>
@@ -76,7 +52,7 @@ function Header(){
               </li>
               <li><NavLink to="/record" className={router.pathname === '/record' && styles.active2}>동화 녹음</NavLink></li>
               <li className={styles.ID}><NavLink>{finalID} 님 환영합니다.</NavLink></li>
-              <li style={{ width: '100px' }}><NavLink to="/mypage" onClick={redirectiontoMypage} >마이페이지</NavLink></li>
+              <li style={{ width: '100px' }}><NavLink to="/mypage"  >마이페이지</NavLink></li>
               <li style={{ width: '100px' }}><NavLink to="/" onClick={handleLogout} >로그 아웃</NavLink></li>
               
             </>
