@@ -121,7 +121,7 @@ function JoinPage() {
         <Modal onClose={() => setIsSuccessModalOpen(false)}>
           <h3>회원가입 완료</h3>
           <p>회원가입이 성공적으로 완료되었습니다.</p>
-          <button onClick={handleConfirmModal}>로그인 페이지로 이동</button>
+          <button className={styles.modalbtn} onClick={handleConfirmModal}>로그인 페이지로 이동</button>
         </Modal>
         )}
 
@@ -130,7 +130,7 @@ function JoinPage() {
       <h3>회원가입 실패</h3>
       <p>{errormsg}</p> 
 
-      <button onClick={clossErrorModal}>닫기</button>
+      <button className={styles.modalbtn} onClick={clossErrorModal}>닫기</button>
      </Modal>
 
       )}

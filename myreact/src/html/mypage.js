@@ -107,7 +107,7 @@ function Mypage(){
                 </div>
                 ) : (
                 <div className={styles.postContainer} style={{fontSize: '25px', display: 'inline-center', textAlign: 'center'  }}>생성한 동화가 없습니다.<br/> 동화생성 탭으로 이동하여 동화를 만들어보세요.<br/>
-                    <button className={styles.btn}>동화생성하러 가기</button>
+                    <button className={styles.btn}><NavLink to="/fairytale/keyword">동화생성하러 가기</NavLink></button>
                 </div>
                 )}
         </div>
