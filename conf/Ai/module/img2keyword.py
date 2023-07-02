@@ -18,6 +18,7 @@ class Img2keyword:
 
     #local file이면 file_bytes로 인코딩
     def clarifai(self):
+
         current_dir = os.getcwd()
         image_url = os.path.join(current_dir + self.image_url)
         with open(image_url, "rb") as f:

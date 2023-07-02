@@ -12,8 +12,7 @@ def result_image(file_absolute_path):
         #img로부터 keyword 추출 후 DB에 저장
         img_keywords = Img2keyword(file_absolute_path)
         img_keywords = img_keywords.clarifai()
-        print(img_keywords)
-        
+
         #동화 생성 후 제목, 내용 가져오기
         title, content = chatGPT(img_keywords)
 
@@ -33,8 +32,9 @@ def result_image(file_absolute_path):
 
         # current_dir = os.getcwd()
         # current_dir = os.path.dirname(os.path.abspath(__file__))
-        image_url = os.path.join(file_absolute_path)
-        
+        image_url = os.path.basename(file_absolute_path)
+        #image_url = os.path.join(file_absolute_path)
+        print(image_url)
         #result 페이지에 넘겨줄 값
         context = {
         'image' : image_url,
