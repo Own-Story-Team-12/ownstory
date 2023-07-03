@@ -83,9 +83,9 @@
 ## 6. 개발 환경 ⚙️
 - Front-End
 
-| HTML | CSS | JS | React |
-| --- | --- | --- | --- |
-| ![image](https://cdn.icon-icons.com/icons2/2790/PNG/512/html_filetype_icon_177535.png) | ![image](https://cdn.icon-icons.com/icons2/2790/PNG/512/css_filetype_icon_177544.png) | ![image](https://cdn.icon-icons.com/icons2/2699/PNG/512/javascript_vertical_logo_icon_168606.png) | ![image](https://cdn.icon-icons.com/icons2/2415/PNG/512/react_original_wordmark_logo_icon_146375.png)
+| HTML | CSS | JS | React | Figma |
+| --- | --- | --- | --- | --- |
+| ![image](https://cdn.icon-icons.com/icons2/2790/PNG/512/html_filetype_icon_177535.png) | ![image](https://cdn.icon-icons.com/icons2/2790/PNG/512/css_filetype_icon_177544.png) | ![image](https://cdn.icon-icons.com/icons2/2699/PNG/512/javascript_vertical_logo_icon_168606.png) | ![image](https://cdn.icon-icons.com/icons2/2415/PNG/512/react_original_wordmark_logo_icon_146375.png) | ![image](https://cdn.icon-icons.com/icons2/2699/PNG/512/figma_logo_icon_171159.png)
 
 - Back-End and Cloud
 
