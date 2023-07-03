@@ -11,7 +11,7 @@
 
 ## 📃 목차
 
-1.[ 개발 배경 및 목적](#1-개발-배경-및-목적-%EF%B8%8F)
+1.[ 개발 배경 및 목적](#1-개발-배경-및-목적-)
 
 2.[ 기능](#2-기능-)
 
@@ -27,7 +27,8 @@
 
 <br>
 
-## 1. 개발 배경 및 목적 🙋‍♀️
+## 1. 개발 배경 및 목적 💡
+
 >현대 사회에서는 많은 부모님들이 자녀의 언어 발달과 교육에 더 많은 관심을 가지고 있습니다. 특히 영어 유치원 진학 경쟁이 점점 치열해지고 있으며, 조기 영어 교육에 대한 관심도 크게 증가하고 있습니다. 영어 동화책을 선택하고 구매하는 과정은 가정에게 경제적인 부담과 시간적인 압박을 주는 요소로 작용하고 있습니다.
 위와 같은 배경을 고려하여, 우리는 맞춤형 서비스를 통해 어린이들의 지적 및 언어적 능력, 정서 발달을 촉진하고 부모님과의 정서적 교감 경험을 증진시킬 수 있는 솔루션을 개발하고자 합니다. 이를 통해 동화책 선정 과정을 간소화하고 구매 비용을 절약함으로써 가정의 경제적, 시간적 부담을 줄일 수 있습니다.
 또한, 이 서비스를 통해 어린이들은 동화 컨텐츠에 쉽게 접근할 수 있으며, 영어에 대한 흥미를 유발할 수 있습니다. 더 나아가, 추후에는 영어 이외의 다른 언어로도 서비스를 확장할 예정입니다.
@@ -83,9 +84,11 @@
 ## 6. 개발 환경 ⚙️
 - Front-End
 
-| HTML | CSS | JS | React |
-| --- | --- | --- | --- |
-| ![image](https://cdn.icon-icons.com/icons2/2790/PNG/512/html_filetype_icon_177535.png) | ![image](https://cdn.icon-icons.com/icons2/2790/PNG/512/css_filetype_icon_177544.png) | ![image](https://cdn.icon-icons.com/icons2/2699/PNG/512/javascript_vertical_logo_icon_168606.png) | ![image](https://cdn.icon-icons.com/icons2/2415/PNG/512/react_original_wordmark_logo_icon_146375.png)
+
+| HTML | CSS | JS | React | Figma |
+| --- | --- | --- | --- | --- |
+| ![image](https://cdn.icon-icons.com/icons2/2790/PNG/512/html_filetype_icon_177535.png) | ![image](https://cdn.icon-icons.com/icons2/2790/PNG/512/css_filetype_icon_177544.png) | ![image](https://cdn.icon-icons.com/icons2/2699/PNG/512/javascript_vertical_logo_icon_168606.png) | ![image](https://cdn.icon-icons.com/icons2/2415/PNG/512/react_original_wordmark_logo_icon_146375.png) | ![image](https://cdn.icon-icons.com/icons2/2699/PNG/512/figma_logo_icon_171159.png)
+
 
 - Back-End and Cloud
 

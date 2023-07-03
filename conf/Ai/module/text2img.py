@@ -5,8 +5,8 @@ import time
 class Txt2img():
     def __init__(self):
         self.headers = {
-            'x-api-key': '7N3tPOOwK92nIiFfdrMUu6rDEI4gae6r1frRRVux',
-            'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODkyMzE4MzksImlhdCI6MTY4NjYzOTgzOSwic3ViIjoiOWFlYjc0YTQ2YWNkNWQ3NDNkYmY5YjhjOTJiZWM2YTgifQ.Rk0lfb8RE4qjhY-hyWqXzEMzzx1tkP82m38f7W3irqw',
+            'x-api-key': '',
+            'Authorization': '',
             'Content-Type': 'application/json'
         }
     def txt2img(self, keyword):
