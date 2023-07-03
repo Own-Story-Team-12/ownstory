@@ -38,6 +38,7 @@ function Body() {
     };
 
 
+  
   console.log(sendData);
 
   const saveDB = (event) => {
@@ -111,12 +112,12 @@ function Body() {
     
     event.preventDefault();
     if (ismyvoice) {  
-      option = sendData.TTS_myvoice.split('media')[1];
+      option = sendData.TTS_myvoice;
       
       
     }
     else{
-      option = sendData.TTS_example.split('media')[1];
+      option = sendData.TTS_example;
       
       
     }
