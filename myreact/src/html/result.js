@@ -212,16 +212,15 @@ function Body() {
                 <div className={styles.btnpart} >
 
                   <label htmlFor="voicebtn" className={styles.voicelabel}>
-                    {ismyvoice && <span className={styles.clickhear}>나의 목소리</span>}
-                    {!ismyvoice &&<span className={styles.clickhear}>기본 목소리</span>}
+                    {ismyvoice && <span className={styles.myvoice}>나의 목소리</span>}
+                    {!ismyvoice &&<span className={styles.basicvoice}>기본 목소리</span>}
                   </label> 
                   <button id='voicebtn' className={styles.voicebtn} onClick={changeVoice}>실행하기</button>
                   
                   <label htmlFor="playbtn" className={styles.playlabel}>
-                    {!audioUrl && <span className={styles.clickhear}>실행 하기</span>}
-                    {audioUrl && <audio src={audioUrl} controls />}
+                    <span className={styles.select}>목소리 선택</span>
                   </label>
-                  <button id='playbtn' className={styles.playbtn} onClick={playVoice}>실행하기</button>
+                  <button id='playbtn' className={styles.playbtn} onClick={playVoice}>선택하기</button>
                       
                   
 
@@ -235,9 +234,10 @@ function Body() {
                   </label> 
                   <button id='cancelbtn' className={styles.cancelbtn} onClick={popup}>취소</button>
                 </div>
-
                 
-                
+                <div className={styles.audiopart}>
+                  {audioUrl && <audio src={audioUrl} controls />}
+                </div>
               </div>
 
               
