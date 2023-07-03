@@ -40,7 +40,7 @@ def get_secret(KEY, secrets=secrets):
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -57,11 +57,11 @@ INSTALLED_APPS = [
     "rest_framework", 
     "rest_framework_simplejwt",
     "Page",
-    "Upload",
     'django_extensions',
     "Ai",
     'corsheaders',
     "post",
+    'Voice'
 ]
 
 MIDDLEWARE = [

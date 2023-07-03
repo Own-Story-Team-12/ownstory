@@ -1,6 +1,7 @@
 import openai
+from conf.settings import get_secret
 
-openai.api_key = "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"# 원장희 gpt api key
+openai.api_key = get_secret("openai_api_key")
 
 def chatGPT(prompt):
 

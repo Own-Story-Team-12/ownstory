@@ -1,8 +1,8 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import styles from '../css/record.module.css';
+import React from 'react';
+import styles from '../css/main.module.css';
 import Headerjs from './header';
 import Footerjs from './footer';
-import axios from "axios";
+import styles2 from '../css/main2.module.css';
 
 function Body() {
     const [stream, setStream] = useState();
@@ -191,10 +191,11 @@ function Body() {
           </div>
         </div>
       </div>
-    );
-  }  
+    </div>
+  );
+}
 
-function RecordPage() {
+function MainPage() {
   return (
     <div className="app">
       <Headerjs></Headerjs>
@@ -204,4 +205,4 @@ function RecordPage() {
   );
 }
 
-export default RecordPage;
+export default MainPage;
