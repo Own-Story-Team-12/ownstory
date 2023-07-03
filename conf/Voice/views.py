@@ -9,12 +9,13 @@ import os
 
 class Voice(APIView):
     def get(self, request):
-        base_path = r"C:\Users\User\Desktop\ej\Fairytale\conf\media"
-        voice_name = fr"\\{request.GET.get('voice')}"
+        base_path = r"./media/"
+        voice_name = fr"{request.GET.get('voice')}"
         #voice_name = r'\tts.wav' # request.TTS
         
-        print(fr"{request.GET.get('voice')}")
+        #print(fr"{request.GET.get('voice')}")
         file_path = base_path + voice_name
+        print(file_path)
         with open(file_path, 'rb') as file:
             response = HttpResponse(open(file_path, 'rb'), content_type='audio/wav')
            

@@ -20,7 +20,7 @@ def result_image(file_absolute_path):
        
         tts_example = text2TTS(content)
         print(tts_example)
-        # tts_myvoice = text2TTS_myvoice(content)
+        #tts_myvoice = text2TTS_myvoice(content)
 
         #생성 동화 번역
         #deepL
