@@ -11,8 +11,9 @@ function Body() {
   const [isPopup, setPop] = useState(false);
   const [isSaveDone, setSaveDone] = useState(false);
 
-  const [ismyvoice, setmyvoice] = useState(true);
+  const [ismyvoice, setmyvoice] = useState(false);
   const [controlbtn,setcontrolbtn] = useState(false);
+  const [audioUrl,setaudioUrl] = useState();
   
   const navigate = useNavigate();
   
@@ -109,13 +110,14 @@ function Body() {
 
     
     event.preventDefault();
-    if (ismyvoice) {
-      // const option = sendData.TTS_example.split('media')[1];
-      option = sendData.image.split('media')[1];
+    if (ismyvoice) {  
+      option = sendData.TTS_myvoice.split('media')[1];
+      
       
     }
     else{
-      // const option = sendData.TTS_myvoice.split('media')[1];
+      option = sendData.TTS_example.split('media')[1];
+      
       
     }
     
@@ -128,15 +130,10 @@ function Body() {
       .then(response => {
         // 요청이 성공한 경우
         
-        const audioUrl = URL.createObjectURL(response.data);
+        setaudioUrl(URL.createObjectURL(response.data));
         // 오디오 파일 URL을 생성합니다.
 
-        const audioElement = new Audio(audioUrl);
-        // 오디오 요소를 생성하고 오디오 파일 URL을 설정합니다.
         
-
-        audioElement.play();
-        // 오디오 파일을 재생합니다.
         setcontrolbtn(true);
       })
       .catch(error => {
@@ -220,11 +217,12 @@ function Body() {
                   <button id='voicebtn' className={styles.voicebtn} onClick={changeVoice}>실행하기</button>
                   
                   <label htmlFor="playbtn" className={styles.playlabel}>
-                    <span className={styles.clickhear}>실행 하기</span>
+                    {!audioUrl && <span className={styles.clickhear}>실행 하기</span>}
+                    {audioUrl && <audio src={audioUrl} controls />}
                   </label>
                   <button id='playbtn' className={styles.playbtn} onClick={playVoice}>실행하기</button>
                       
-          
+                  
 
                   <label htmlFor="savebtn" className={styles.savelabel}>
                     <span className={styles.clickhear}>저장 하기</span>
@@ -236,10 +234,9 @@ function Body() {
                   </label> 
                   <button id='cancelbtn' className={styles.cancelbtn} onClick={popup}>취소</button>
                 </div>
-                <audio controls>
 
-                </audio>
-                  
+                
+                
               </div>
 
               
