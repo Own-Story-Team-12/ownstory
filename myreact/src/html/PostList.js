@@ -16,9 +16,10 @@ function Body() {
   const nextPageRef = useRef(1);
 
   const fetchPosts = async () => {
+    
     const nextPage = nextPageRef.current;
 
-    if (maxPages < nextPageRef) {
+    if (maxPages < nextPage) {
       return;
     } else {
       const response = await fetch(`http://127.0.0.1:8000/post/api/posts/?page=${nextPage}`);
@@ -26,11 +27,11 @@ function Body() {
       setMaxPages(data.max_pages);
       setPosts(prevPosts => [...prevPosts, ...data.results]);
       nextPageRef.current = nextPage + 1; // nextPage 값을 업데이트
-      console.log(nextPageRef);
     }
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     fetchPosts();
   }, []);
 
@@ -40,7 +41,7 @@ function Body() {
     if (!isScrolling && scrollTop + clientHeight >= scrollHeight - 5) {
         setIsScrolling(true); // 스크롤 이벤트 처리 중임을 표시
 
-        console.log('ggg');
+        console.log('스크롤 이벤트 실행');
         fetchPosts(); // 다음 페이지 데이터 가져오기
       }
     };
@@ -48,6 +49,7 @@ function Body() {
     const debounceHandleScroll = debounce(handleScroll, 300); // 300ms 디바운스 적용
 
     window.addEventListener('scroll', debounceHandleScroll);
+    setIsScrolling(false);
 
     return () => {
       window.removeEventListener('scroll', debounceHandleScroll);
