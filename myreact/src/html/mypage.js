@@ -81,7 +81,7 @@ function Mypage(){
 
         {showTip && (
             <div
-            className={styles.tooltip} style={{ top: tooltipPosition.y -235, left: tooltipPosition.x-400 }}>
+            className={styles.tooltip} style={{ top: tooltipPosition.y -290, left: tooltipPosition.x-450 }}>
                 마이크 아이콘을 클릭하면 저장된 목소리를 들어볼 수 있어요.<br/>
                 아이디당 최대 2가지 음성 녹음이 가능해요.<br/>
                 생성중인 음성은 조금만 기다려주세요.
