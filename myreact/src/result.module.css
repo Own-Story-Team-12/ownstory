@@ -101,6 +101,25 @@
   .cancelbtn {
     display: none;
   }
+  .playbtn{
+    display: none;
+  }
+  .voicebtn{
+    display: none;
+  }
+
+  .voicelabel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .playlabel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .savelabel {
     flex: 1;
