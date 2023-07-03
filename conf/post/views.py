@@ -5,14 +5,18 @@ from Ai.views import Result
 from .models import Comment
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
+from rest_framework.pagination import PageNumberPagination
 
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Result.objects.all()
     serializer_class = PostListSerializer
+    pagination_class = PageNumberPagination
+    pagination_class.page_size = 6
     
-    # # serializer.save() 재정의
-    # def perform_create(self, serializer):
-    #     serializer.save(user=self.request.user)
+    def get_paginated_response(self, data):
+        response = super().get_paginated_response(data)
+        response.data['max_pages'] = self.paginator.page.paginator.num_pages
+        return response
     
 class PostDetailViewSet(viewsets.ModelViewSet):
     serializer_class = PostDetailSerializer

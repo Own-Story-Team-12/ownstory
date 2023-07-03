@@ -13,5 +13,4 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('', PostViewSet.as_view({'get':'list'}), name='post_list'),
     path('api/posts/<int:id>/', PostDetailViewSet.as_view({'get': 'retrieve'}), name='post-detail'),
-
 ]

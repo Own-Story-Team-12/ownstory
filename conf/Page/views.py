@@ -15,6 +15,7 @@ from .serializers import UserSerializer
 import os
 import time
 import csv
+from Ai.models import Result
 
 from rest_framework.permissions import IsAuthenticated
 
