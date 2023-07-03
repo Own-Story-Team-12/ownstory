@@ -30,6 +30,10 @@
     font-weight: bold;
 }
 
+.recordbtn{
+    background-color: #FFA500 !important;
+}
+
 .btn_area > div:first-child {
     margin-left: 0px;
 }
