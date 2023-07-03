@@ -101,6 +101,12 @@
   .cancelbtn {
     display: none;
   }
+  .playbtn{
+    display: none;
+  }
+  .voicebtn{
+    display: none;
+  }
 
   .savelabel {
     flex: 1;

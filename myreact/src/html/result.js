@@ -10,6 +10,9 @@ function Body() {
 
   const [isPopup, setPop] = useState(false);
   const [isSaveDone, setSaveDone] = useState(false);
+
+  const [ismyvoice, setmyvoice] = useState(true);
+
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -68,7 +71,7 @@ function Body() {
       
     })
     
-  }
+  };
 
   const popup = (event) => {
 
@@ -87,7 +90,60 @@ function Body() {
   const engArray = response.data.content.split(". ");
   
   const krArray = response.data.ko_content.split(". ");
-  
+
+  const changeVoice = (event) =>
+  {
+    event.preventDefault();
+    if (ismyvoice){
+      setmyvoice(false);
+    }
+    else{
+      setmyvoice(true);
+    }
+  }
+
+  const playVoice = (event) => {
+
+    let option
+
+    
+    event.preventDefault();
+    if (ismyvoice) {
+      // const option = sendData.TTS_example.split('media')[1];
+      option = sendData.image.split('media')[1];
+      
+    }
+    else{
+      // const option = sendData.TTS_myvoice.split('media')[1];
+      
+    }
+    
+    // 장고 서버로 GET 요청 보내기
+    axios.get('http://127.0.0.1:8000/Voice/', { 
+      params : 
+      {voice:`${option}`},
+      responseType: 'blob' })
+
+      .then(response => {
+        // 요청이 성공한 경우
+        
+        const audioUrl = URL.createObjectURL(response.data);
+        // 오디오 파일 URL을 생성합니다.
+
+        const audioElement = new Audio(audioUrl);
+        // 오디오 요소를 생성하고 오디오 파일 URL을 설정합니다.
+
+
+        audioElement.play();
+        // 오디오 파일을 재생합니다.
+      })
+      .catch(error => {
+        // 요청이 실패한 경우
+        console.error('오디오 파일을 가져오는 동안 오류가 발생했습니다:', error);
+      });
+
+  }
+
   
 
 
@@ -153,6 +209,18 @@ function Body() {
                     </div>
                 </div>
                 <div className={styles.btnpart} >
+
+                <label htmlFor="voicebtn" className={styles.voicelabel}>
+                  {ismyvoice && <span className={styles.clickhear}>나의 목소리</span>}
+                  {!ismyvoice &&<span className={styles.clickhear}>기본 목소리</span>}
+                </label> 
+                <button id='voicebtn' className={styles.voicebtn} onClick={changeVoice}>실행하기</button>
+                
+                <label htmlFor="playbtn" className={styles.playlabel}>
+                  <span className={styles.clickhear}>실행 하기</span>
+                </label> 
+                <button id='playbtn' className={styles.playbtn} onClick={playVoice}>실행하기</button>
+
                   <label htmlFor="savebtn" className={styles.savelabel}>
                     <span className={styles.clickhear}>저장 하기</span>
                   </label> 
@@ -163,6 +231,9 @@ function Body() {
                   </label> 
                   <button id='cancelbtn' className={styles.cancelbtn} onClick={popup}>취소</button>
                 </div>
+                <audio controls>
+
+                </audio>
                   
               </div>
 
