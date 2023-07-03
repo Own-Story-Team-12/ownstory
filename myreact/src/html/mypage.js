@@ -7,13 +7,14 @@ import axios from 'axios';
 import Q from './static_image/question.png';
 import mic from './static_image/mic.png';
 import pencil from './static_image/pencil.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 function Mypage(){
     const apiUrl = process.env.REACT_APP_API_URL;
     const[showTip, setShowTip] = useState(false);
     const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
     const [posts, setPosts] = useState([]);
+    const [selectedPostId, setSelectedPostId] = useState(null);
     const ID = localStorage.getItem('IDinfo');
     let finalID = '';
 
@@ -51,6 +52,10 @@ function Mypage(){
     const handleMouseLeave = () =>{
         setShowTip(false);
     };
+
+    const handlePostClick = postId => {
+        setSelectedPostId(postId);
+      };
    return(
     <div className={styles.body}>
         <h2 className={styles.title}>마이페이지</h2>
@@ -95,14 +100,16 @@ function Mypage(){
             {limitedPosts.length > 0 ? (
                 <div className={styles.postContainer}>
                     {limitedPosts.map((post) => (
-                    <div className={styles.postItem} key={post.id}>
-                        <button className={styles.postbtn}>
-                        <div className={styles.postTitle}>
-                            <img className={styles.postimg} src={'http://127.0.0.1:8000/media/'+post.img_name} />
-                            <span>{post.title}({post.ko_title})</span>
+                    <Link to={`/post/${post.id}`}>
+                        <div className={styles.postItem} key={post.id}>
+                            <button className={styles.postbtn}>
+                            <div className={styles.postTitle}>
+                                <img className={styles.postimg} src={'http://127.0.0.1:8000/media/'+post.img_name} />
+                                <span>{post.title}({post.ko_title})</span>
+                            </div>
+                            </button>
                         </div>
-                        </button>
-                    </div>
+                    </Link>
                     ))}
                 </div>
                 ) : (
