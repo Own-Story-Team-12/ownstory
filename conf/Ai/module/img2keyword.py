@@ -3,10 +3,10 @@ from clarifai_grpc.grpc.api import service_pb2_grpc
 from clarifai_grpc.grpc.api import service_pb2, resources_pb2
 from clarifai_grpc.grpc.api.status import status_code_pb2
 import os
+from conf.settings import get_secret
 
 stub = service_pb2_grpc.V2Stub(ClarifaiChannel.get_grpc_channel())
-YOUR_CLARIFAI_API_KEY = "935b6ea5b10e42998d669593fa58c7d8" #your api key
-
+YOUR_CLARIFAI_API_KEY = get_secret("YOUR_CLARIFAI_API_KEY")
 
 class Img2keyword:
     def __init__(self, image_url):
