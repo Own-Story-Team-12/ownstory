@@ -1,8 +1,9 @@
 import React from 'react';
-import styles from '../css/main.module.css';
+import styles from '../css/record.module.css';
 import Headerjs from './header';
 import Footerjs from './footer';
-import styles2 from '../css/main2.module.css';
+import axios from "axios";
+import { useEffect, useState, useCallback } from 'react';
 
 function Body() {
     const [stream, setStream] = useState();
@@ -191,7 +192,6 @@ function Body() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
