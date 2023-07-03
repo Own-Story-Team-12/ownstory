@@ -7,7 +7,6 @@ from django.conf import settings
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('Page.urls')),
-    path('Upload/', include('Upload.urls')),
     path('Ai/', include('Ai.urls')),
     path('post/', include('post.urls')),
     path('Voice/', include('Voice.urls')),

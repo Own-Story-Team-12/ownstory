@@ -1,10 +1,10 @@
 
+import logging
 from rest_framework import viewsets
-from .serializer import PostDetailSerializer, PostListSerializer, CommentSerializer
+from .serializer import PostDetailSerializer, PostListSerializer, ResultSerializer
 from Ai.views import Result
-from .models import Comment
-from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework.pagination import PageNumberPagination
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -19,38 +19,34 @@ class PostViewSet(viewsets.ModelViewSet):
         return response
     
 class PostDetailViewSet(viewsets.ModelViewSet):
+    queryset = Result.objects.all()
     serializer_class = PostDetailSerializer
-    
-    def get_object(self):
-        id = self.kwargs['id']
-        obj = get_object_or_404(Result, id=id)
-        return obj
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+
+        return Response(serializer.data)
     
     def get_serializer_class(self):
         if self.action == 'retrieve':
             return PostDetailSerializer
-        return super().get_serializer_class()
-   
-    def retrieve(self, request, *args, **kwargs):
-        instance = self.get_object()
-        serializer = self.get_serializer(instance, many=False)
-        
-        # 직렬화된 결과를 생성하여 필요한 필드를 포함시킴
-        response_data = serializer.data
-        response_data['comments'] = self.get_comments(instance)
-        
-        return Response(serializer.data)
-    
-    
-    
-    
-        
-# (댓글) Comment 보여주기, 수정하기, 삭제하기
-class CommentViewSet(viewsets.ModelViewSet):
-    # authentication_class = [BasicAuthentication, SessionAuthentication]
-    # permission_class = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
+        return PostListSerializer    
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    
+# 검색 기능
+class SearchResultAPIView(APIView):
+    def get(self, request):
+        # 검색어를 가져온다
+        query = request.GET.get('query')
+        
+        if query:
+            # DB로부터 검색어를 포함한 결과를 필터링하여 가져옴
+            results = Result.objects.filter(title__icontains=query)          
+      
+        else:
+            # 검색어가 없는 경우 모든 결과를 가져옴
+            results = Result.objects.all()
+            
+        serializer = ResultSerializer(results, many=True)
+        return Response(serializer.data)

@@ -4,6 +4,7 @@ import PostDetail from './PostDetail';
 import styles from '../css/post.module.css';
 import Headerjs from './header';
 import Footerjs from './footer';
+import SearchBar from './SearchBar';
 
 function Body() {
   const [selectedPostId, setSelectedPostId] = useState(null);
@@ -88,17 +89,21 @@ function Body() {
           />
         );
       }
-};
+  };
+
+  const handleSearch = (query) => {
+    fetch(`http://127.0.0.1:8000/post/api/search/?query=${query}`)
+    .then(response => response.json())
+    .then(data => setPosts(data));
+  }
 
   return (
     <div className={styles.postpage}>
-      {/* 검색 요소 */}
-      <div className={styles.searchdiv}>
-        <input className={styles.search} placeholder="동화제목을 입력해주세요" type="text" autoComplete="off" required />
-        <div className={styles.searchicon} />
-      </div>
-      <div className={styles.postlistContainer}>
-        {posts && posts.map(post => (
+        <div className={styles.searchdiv}>
+            <SearchBar handleSearch={handleSearch} />
+        </div>
+        <div className={styles.postlistContainer}>
+        {posts.map(post => (
           <div className={styles.postlist} key={post.id}>
             {/* 포스트 컴포넌트 */}
             <div>
@@ -110,7 +115,6 @@ function Body() {
               </Link>
               <p>작성자: {post.user}</p>
               <p>작성일: {formatPubDate(post.pub_date)}</p>
-              <p>{post.content}</p>
             </div>
           </div>
         ))}
