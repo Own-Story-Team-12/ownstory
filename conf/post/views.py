@@ -1,4 +1,5 @@
 
+import logging
 from rest_framework import viewsets
 from .serializer import PostDetailSerializer, PostListSerializer, ResultSerializer
 from Ai.views import Result
