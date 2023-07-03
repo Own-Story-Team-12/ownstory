@@ -78,7 +78,7 @@ function Body() {
   };
 
   const renderImage = post => {
-    if (post && post.image) {
+    if (post.image) {
         return <img src={post.image} alt="게시물 이미지" width="200" />;
       } else {
         return (
