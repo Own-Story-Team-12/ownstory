@@ -12,7 +12,8 @@ function Body() {
   const [isSaveDone, setSaveDone] = useState(false);
 
   const [ismyvoice, setmyvoice] = useState(true);
-
+  const [controlbtn,setcontrolbtn] = useState(false);
+  
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -132,10 +133,11 @@ function Body() {
 
         const audioElement = new Audio(audioUrl);
         // 오디오 요소를 생성하고 오디오 파일 URL을 설정합니다.
-
+        
 
         audioElement.play();
         // 오디오 파일을 재생합니다.
+        setcontrolbtn(true);
       })
       .catch(error => {
         // 요청이 실패한 경우
@@ -143,6 +145,7 @@ function Body() {
       });
 
   }
+
 
   
 
@@ -210,22 +213,24 @@ function Body() {
                 </div>
                 <div className={styles.btnpart} >
 
-                <label htmlFor="voicebtn" className={styles.voicelabel}>
-                  {ismyvoice && <span className={styles.clickhear}>나의 목소리</span>}
-                  {!ismyvoice &&<span className={styles.clickhear}>기본 목소리</span>}
-                </label> 
-                <button id='voicebtn' className={styles.voicebtn} onClick={changeVoice}>실행하기</button>
-                
-                <label htmlFor="playbtn" className={styles.playlabel}>
-                  <span className={styles.clickhear}>실행 하기</span>
-                </label> 
-                <button id='playbtn' className={styles.playbtn} onClick={playVoice}>실행하기</button>
+                  <label htmlFor="voicebtn" className={styles.voicelabel}>
+                    {ismyvoice && <span className={styles.clickhear}>나의 목소리</span>}
+                    {!ismyvoice &&<span className={styles.clickhear}>기본 목소리</span>}
+                  </label> 
+                  <button id='voicebtn' className={styles.voicebtn} onClick={changeVoice}>실행하기</button>
+                  
+                  <label htmlFor="playbtn" className={styles.playlabel}>
+                    <span className={styles.clickhear}>실행 하기</span>
+                  </label>
+                  <button id='playbtn' className={styles.playbtn} onClick={playVoice}>실행하기</button>
+                      
+          
 
                   <label htmlFor="savebtn" className={styles.savelabel}>
                     <span className={styles.clickhear}>저장 하기</span>
                   </label> 
                   <button id='savebtn' className={styles.savebtn} onClick={saveDB}>저장하기</button>
-                  
+                    
                   <label htmlFor="cancelbtn" className={styles.cancellabel} >
                     <span className={styles.clickhear}>   취소</span>
                   </label> 
