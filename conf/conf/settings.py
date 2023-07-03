@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     "Ai",
     'corsheaders',
     "post",
+    'Voice'
 ]
 
 MIDDLEWARE = [
