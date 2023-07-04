@@ -108,15 +108,35 @@ C++ build tools 다운로드 후 C++ 를 사용한 데스크톱 개발 선택하
 
 ### 실행 방법
 #### 1. 가상환경 설정
+```shell
 python -m venv 가상환경이름
 
 cd 가상환경이름\Scripts
 
-activate
+activate 가상환경이름
+```
+#### 2. 장고 서버 
 
-#### 2. requirements 설치
+##### requirements 설치
+```shell
 pip install -r requirements.txt
+```
 
-#### 3. 실행
+##### 장고 서버 실행
+```shell
 python manage.py runserver
+```
+<br>
+
+#### 3. 리액트 서버 
+
+##### 리액트 패키지 설치
+```shell
+npm install
+```
+
+##### 리액트 서버 실행
+```shell
+npm start
+```
 <br>
