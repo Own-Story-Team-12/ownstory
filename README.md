@@ -102,8 +102,8 @@
 <br>
 
 ## 7. 유저 가이드 👀
-requirements.txt 설치시 TTS 오류 관련 문제<br>
-https://visualstudio.microsoft.com/visual-cpp-build-tools/<br>
+requirements.txt 설치시 TTS 오류 관련 문제<br><br>
+https://visualstudio.microsoft.com/visual-cpp-build-tools/<br><br>
 C++ build tools 다운로드 후 C++ 를 사용한 데스크톱 개발 선택하여 설치
 
 ### 실행 방법
