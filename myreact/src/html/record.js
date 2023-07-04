@@ -1,8 +1,9 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React from 'react';
 import styles from '../css/record.module.css';
 import Headerjs from './header';
 import Footerjs from './footer';
 import axios from "axios";
+import { useEffect, useState, useCallback } from 'react';
 
 function Body() {
     const [stream, setStream] = useState();
@@ -24,6 +25,7 @@ function Body() {
     
 
     useEffect(() => {
+      window.scrollTo(0, 0);
       const ID = localStorage.getItem('IDinfo');
 
       const sendData = async () => {
@@ -107,13 +109,6 @@ function Body() {
         // 메서드가 호출 된 노드 연결 해제
         analyser.disconnect();
         source.disconnect();
-
-        
-        // if (audioUrl) {
-        //     const blob = new Blob(chunks, { type: 'audio/wav' });
-        //     audioUrls.push(blob);
-        //     localStorage.setItem('audioUrls', JSON.stringify(audioUrls));
-        //   }
       };
 
       const uploadFileToServer = (file) => {
@@ -186,8 +181,8 @@ function Body() {
         </div>
 
         <div className={styles.btn_area}>
-          <div>
-            <button onClick={onRec ? onRecAudio : offRecAudio}>녹음</button>
+          <div >
+            <button className={onRec ? "" : styles.recordbtn} onClick={onRec ? onRecAudio : offRecAudio}>{onRec ? '녹음 시작' : '녹음 중지'}</button>
           </div>
           <div className={styles.btn_area}>
             <button onClick={onSubmitAudioFile}>결과 확인</button>
@@ -197,10 +192,10 @@ function Body() {
           </div>
         </div>
       </div>
-    );
-  }  
+  );
+}
 
-function RecordPage() {
+function MainPage() {
   return (
     <div className="app">
       <Headerjs></Headerjs>
@@ -210,4 +205,4 @@ function RecordPage() {
   );
 }
 
-export default RecordPage;
+export default MainPage;

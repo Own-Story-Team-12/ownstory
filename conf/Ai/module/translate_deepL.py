@@ -1,4 +1,5 @@
 import requests
+from conf.settings import get_secret
 
 def get_trans_deepl(text) -> str:
     url = "https://text-translator2.p.rapidapi.com/translate"
@@ -10,7 +11,7 @@ def get_trans_deepl(text) -> str:
     }
     headers = {
         "content-type": "application/x-www-form-urlencoded",
-        "X-RapidAPI-Key": "45332f9e6amshc077140eb7e7641p133239jsna8acd0cf10a0",
+        "X-RapidAPI-Key": get_secret("deepL_api_key"),
         "X-RapidAPI-Host": "text-translator2.p.rapidapi.com"
     }
 

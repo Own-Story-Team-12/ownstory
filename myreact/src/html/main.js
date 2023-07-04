@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from '../css/main.module.css';
+import { Element } from 'react-scroll';
 import Headerjs from './header';
 import Footerjs from './footer';
 import styles2 from '../css/main2.module.css';
 
 function Body(){
+  useEffect(() => {
+    const fetchData = window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className={styles2.body}>
       <div className={styles2.container}>
@@ -48,21 +53,22 @@ function Body(){
           </div>
 
         </div>
-        <div className={styles2.section2}>
-          <img className={styles2.mainimg} src="/images/main1_bg.png"></img>
-        </div>
-        <div className={styles2.section3}>
-            <img className={styles2.mainimg} src="/images/main2_bg.png"></img>
-        </div>
+        <Element id="myDiv1" className={styles2.section2}>
+          <img className={styles2.mainimg} src="/images/main1.png"></img>
+        </Element >
+        <Element  id="myDiv2" className={styles2.section3}>
+            <img className={styles2.mainimg} src="/images/main2.png"></img>
+        </Element >
       </div>
     </div>
   );
 }
 
+
 function MainPage() {
   return (
     <div className="app">
-      <Headerjs></Headerjs>
+      <Headerjs ></Headerjs>
       <Body></Body>
       <Footerjs></Footerjs>
     </div>
