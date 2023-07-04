@@ -7,13 +7,14 @@ import axios from 'axios';
 import Q from './static_image/question.png';
 import mic from './static_image/mic.png';
 import pencil from './static_image/pencil.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 function Mypage(){
     const apiUrl = process.env.REACT_APP_API_URL;
     const[showTip, setShowTip] = useState(false);
     const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
     const [posts, setPosts] = useState([]);
+    const [selectedPostId, setSelectedPostId] = useState(null);
     const ID = localStorage.getItem('IDinfo');
     let finalID = '';
 
@@ -22,6 +23,7 @@ function Mypage(){
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         const fetchData = async () => {
           try {
             const response = await axios.get('http://127.0.0.1:8000/info/', {
@@ -51,6 +53,10 @@ function Mypage(){
     const handleMouseLeave = () =>{
         setShowTip(false);
     };
+
+    const handlePostClick = postId => {
+        setSelectedPostId(postId);
+      };
    return(
     <div className={styles.body}>
         <h2 className={styles.title}>마이페이지</h2>
@@ -81,7 +87,7 @@ function Mypage(){
 
         {showTip && (
             <div
-            className={styles.tooltip} style={{ top: tooltipPosition.y -235, left: tooltipPosition.x-400 }}>
+            className={styles.tooltip} style={{ top: tooltipPosition.y -290, left: tooltipPosition.x-450 }}>
                 마이크 아이콘을 클릭하면 저장된 목소리를 들어볼 수 있어요.<br/>
                 아이디당 최대 2가지 음성 녹음이 가능해요.<br/>
                 생성중인 음성은 조금만 기다려주세요.
@@ -95,14 +101,16 @@ function Mypage(){
             {limitedPosts.length > 0 ? (
                 <div className={styles.postContainer}>
                     {limitedPosts.map((post) => (
-                    <div className={styles.postItem} key={post.id}>
-                        <button className={styles.postbtn}>
-                        <div className={styles.postTitle}>
-                            <img className={styles.postimg} src={'http://127.0.0.1:8000/media/'+post.img_name} />
-                            <span>{post.title}({post.ko_title})</span>
+                    <Link to={`/post/${post.id}`}>
+                        <div className={styles.postItem} key={post.id}>
+                            <button className={styles.postbtn}>
+                            <div className={styles.postTitle}>
+                                <img className={styles.postimg} src={'http://127.0.0.1:8000/media/'+post.img_name} />
+                                <span>{post.title}({post.ko_title})</span>
+                            </div>
+                            </button>
                         </div>
-                        </button>
-                    </div>
+                    </Link>
                     ))}
                 </div>
                 ) : (

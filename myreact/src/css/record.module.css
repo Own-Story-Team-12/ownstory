@@ -8,6 +8,8 @@
     flex-direction: column;
     text-align: center;
     background-image: url('../html/static_image/bh.png');
+    background-size: cover;
+    background-position: center;
     background-color: #FFFAEA;
   }
   
@@ -26,6 +28,10 @@
     border-radius:10px;
     cursor: pointer;
     font-weight: bold;
+}
+
+.recordbtn{
+    background-color: #FFA500 !important;
 }
 
 .btn_area > div:first-child {

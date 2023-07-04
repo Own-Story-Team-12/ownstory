@@ -104,11 +104,37 @@ function Body(){
         console.error('비동기 작업 중 오류가 발생했습니다:', error);
       }
   };
+
+  const [isHovered, setIsHovered] = useState(false);
+  const [mouseY, setMouseY] = useState(300);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  const handleMouseMove = (event) => {
+      setMouseY(event.clientY);
+    };
+
+  const containerClasses = classNames(styles2.headerhover, {
+    [styles2.lessThan15]: isHovered || mouseY < 32,
+  });
+
+  const containerClasses2 = classNames(styles2.wordimglessThanwordimg, {
+      [styles2.wordimg]: !isHovered && mouseY >= 32,
+    });
     
   
   return (
-    <div className={isLoading ? `${styles2.body}` : `${styles2.inputback}`}>
-        {isLoading ? (
+    <div className={isLoading ? `${styles2.body}` : `${styles2.inputback}`}  onMouseMove={handleMouseMove}>
+      <div className={containerClasses} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <Headerjs></Headerjs>
+      </div>
+      {isLoading ? (
         <div className={styles2.animationWindow}>
             <Animationjs></Animationjs>
             <div className={styles2.loading}>
@@ -119,6 +145,10 @@ function Body(){
         </div> 
         ) : (
         <div className={styles2.body2}>
+          <div className={containerClasses2}>
+            <button className={styles.keywordbtn}><NavLink to="/fairytale/keyword"  style={{ color: '#757575'}}>단어로 쓰는 동화</NavLink></button>
+            <button className={styles.imagebtn}><NavLink to="/imageinput"  style={{ color: '#FFFFFF'}}> 그림으로 쓰는 동화</NavLink></button>
+          </div>
           <div className={styles2.content}>
             <div className={styles.imageinputbox}> 
                 <div style={{flex:3}}>
@@ -158,38 +188,8 @@ function Body(){
 
 
 function MainPage() {
-  const [isHovered, setIsHovered] = useState(false);
-  const [mouseY, setMouseY] = useState(300);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-
-  const handleMouseMove = (event) => {
-      setMouseY(event.clientY);
-    };
-
-  const containerClasses = classNames(styles2.headerhover, {
-    [styles2.lessThan15]: isHovered || mouseY < 32,
-  });
-
-  const containerClasses2 = classNames(styles2.wordimglessThanwordimg, {
-      [styles2.wordimg]: !isHovered && mouseY >= 32,
-    });
-
   return (
-    <div className="app" onMouseMove={handleMouseMove}>
-      <div className={containerClasses} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        <Headerjs></Headerjs>
-      </div>
-      <div className={containerClasses2}>
-          <button className={styles.keywordbtn}><NavLink to="/fairytale/keyword"  style={{ color: '#757575'}}>단어로 쓰는 동화</NavLink></button>
-          <button className={styles.imagebtn}><NavLink to="/imageinput"  style={{ color: '#FFFFFF'}}> 그림으로 쓰는 동화</NavLink></button>
-      </div>
+    <div className="app">
       <Body></Body>
       <Footerjs></Footerjs>
     </div>
