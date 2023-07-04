@@ -63,20 +63,19 @@ function Mypage(){
         <div className={styles.voice}>
             <h2 className={styles.subtitle}> 목소리 목록 </h2>
             <div className={styles.btnarea}>
-            <div className={styles.btnrow}>
-            <button className={styles.voicebtn}>
-                <div className={styles.btnContent}>
-                <img src={mic}/>
-                <span>엄마<button className={styles.pencil}><img src={pencil} /></button></span>
-                </div>
-            </button>
-            <button className={styles.voicebtn}>
-                <div className={styles.btnContent}>
-                <img src={mic}/>
-                <span>아빠<button className={styles.pencil}><img src={pencil}/> </button></span>
-                </div>
-            </button>
-            </div>
+              <button className={styles.voicebtn}>
+                  <div className={styles.btnContent}>
+                  <img src={mic}/>
+                  <span>엄마<button className={styles.pencil}><img src={pencil} /></button></span>
+                  </div>
+              </button>
+              <button className={styles.voicebtn}>
+                  <div className={styles.btnContent}>
+                  <img src={mic}/>
+                  <span>아빠<button className={styles.pencil}><img src={pencil}/> </button></span>
+                  </div>
+              </button>
+
             </div>
 
             <button onMouseEnter = {handleMouseEnter} onMouseLeave = {handleMouseLeave} className={styles.question}>
@@ -96,16 +95,17 @@ function Mypage(){
         <div className={styles.mypost}>
             <div className={styles.top}>
                 <h2 className={styles.subtitle}>내가 만든 동화목록</h2>
-                <p className={styles.more}>더보기 →</p>
+                <p className={styles.more}><>더보기 →</></p>
             </div>
             {limitedPosts.length > 0 ? (
+              <div>
                 <div className={styles.postContainer}>
                     {limitedPosts.map((post) => (
                     <Link to={`/post/${post.id}`}>
-                        <div className={styles.postItem} key={post.id}>
+                        <div key={post.id}>
                             <button className={styles.postbtn}>
                             <div className={styles.postTitle}>
-                                <img className={styles.postimg} src={'http://127.0.0.1:8000/media/'+post.img_name} />
+                                <img src={'http://127.0.0.1:8000/media/'+post.img_name} />
                                 <span>{post.title}({post.ko_title})</span>
                             </div>
                             </button>
@@ -113,8 +113,10 @@ function Mypage(){
                     </Link>
                     ))}
                 </div>
+                </div>
                 ) : (
-                <div className={styles.postContainer} style={{fontSize: '25px', display: 'inline-center', textAlign: 'center'  }}>생성한 동화가 없습니다.<br/> 동화생성 탭으로 이동하여 동화를 만들어보세요.<br/>
+                <div className={styles.postContainer} style={{fontSize: '25px', display: 'inline-center', textAlign: 'center', flexDirection: 'column' }}>
+                  생성한 동화가 없습니다.<br/> 동화생성 탭으로 이동하여 동화를 만들어보세요.
                     <button className={styles.btn}><NavLink to="/fairytale/keyword">동화생성하러 가기</NavLink></button>
                 </div>
                 )}
