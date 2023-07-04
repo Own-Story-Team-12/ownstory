@@ -20,15 +20,15 @@ class PostListSerializer(serializers.ModelSerializer):
         model = Result
         fields = ['id', 'title', 'ko_title', 'content', 'ko_content', 'user', 'pub_date', 'audio_myvoice', 'audio_example',]
     
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        title = representation['title']       
-        if 'ko_title' in representation:
-            ko_title = representation['ko_title']
-            representation['title'] = f'{title} ({ko_title})'
-        else:
-            representation['title'] = title
-        return representation
+    # def to_representation(self, instance):
+    #     representation = super().to_representation(instance)
+    #     title = representation['title']       
+    #     if 'ko_title' in representation:
+    #         ko_title = representation['ko_title']
+    #         representation['title'] = f'{title} ({ko_title})'
+    #     else:
+    #         representation['title'] = title
+    #     return representation
     
         
 class ResultSerializer(serializers.ModelSerializer):

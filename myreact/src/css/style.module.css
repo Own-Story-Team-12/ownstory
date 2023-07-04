@@ -28,7 +28,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 300px;
+    width: 120px;
     height: 1px;
     background: linear-gradient(90deg, #fff,
     transparent);
@@ -45,7 +45,7 @@
     }
     100%
     {
-        transform: rotate(315deg) translateX(-3000px);
+        transform: rotate(315deg) translateX(-950px);
     }
 }
 .spanContainer:nth-child(1)

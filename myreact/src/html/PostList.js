@@ -8,7 +8,7 @@ import SearchBar from './SearchBar';
 
 function Body() {
   const [selectedPostId, setSelectedPostId] = useState(null);
-  const [maxPages, setMaxPages] = useState(2);
+  const [maxPages, setMaxPages] = useState(1);
   const [posts, setPosts] = useState([]);
   const [isScrolling, setIsScrolling] = useState(false);
 
@@ -19,6 +19,7 @@ function Body() {
     const nextPage = nextPageRef.current;
 
     if (maxPages < nextPage) {
+      console.log(232323);
       return;
     } else {
       console.log(22);

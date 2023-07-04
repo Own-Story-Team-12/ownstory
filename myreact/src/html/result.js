@@ -180,7 +180,14 @@ function Body() {
 
   return (
     <>
-        <div  className={`${styles.body} ${isMouseMoving ? styles.dark : styles.body}`}>
+   
+        <div  className={`${styles.body} ${isMouseMoving ? styles.dark : styles.body}`}>    
+        <section className={styles.sectionContainer}>
+                <span className={styles.spanContainer}></span>
+                <span className={styles.spanContainer}></span>
+                <span className={styles.spanContainer}></span>
+                <span className={styles.spanContainer}></span>
+            </section>      
           <div className={styles.left}>
             <div className={styles.onleftbook}>
               <div className={styles.engtitle}>{response.data.title}</div>
@@ -236,11 +243,13 @@ function Body() {
                 </label> 
                 <button id='savebtn' className={styles.savebtn} onClick={saveDB}>저장하기</button>
                 <button id='cancelbtn' className={styles.cancelbtn} onClick={popup}>
-                        <img src = "./images/backicon.png"></img>
+                        <img src = "/images/backicon.png"></img>
                 </button>
               </div>
             </div>
           </div>
+
+        
 
           {/* 모달 창 */}
           {isPopup && (
