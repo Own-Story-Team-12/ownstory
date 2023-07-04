@@ -66,7 +66,7 @@
 <br>
 
 ## 3. 서비스 Flow 🔍
-![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/122524846/2525c085-74a2-4c1a-a35f-cbf950d6b162)
+![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/80252681/30c10549-272f-4053-a59e-1760290b0c28)
 
 <br>
 
