@@ -95,9 +95,9 @@
 
 - etc
 
-| GitHub | VS Code | Microsoft Teams | Notion | Slack | Discord |
-| --- | --- | --- | --- | --- | --- |
-| ![image](https://cdn.icon-icons.com/icons2/2415/PNG/512/github_original_wordmark_logo_icon_146506.png) | ![image](https://cdn.icon-icons.com/icons2/3053/PNG/512/microsoft_visual_studio_code_alt_macos_bigsur_icon_189952.png) | ![image](https://cdn.icon-icons.com/icons2/2397/PNG/512/microsoft_office_teams_logo_icon_145726.png) | ![image](https://cdn.icon-icons.com/icons2/2389/PNG/512/notion_logo_icon_145025.png) | ![image](https://cdn.icon-icons.com/icons2/2699/PNG/512/slack_tile_logo_icon_168820.png) | ![image](https://cdn.icon-icons.com/icons2/1945/PNG/512/iconfinder-discord-4661587_122459.png) |
+| GitHub | VS Code | Microsoft Teams | Notion | Slack | Discord | Post Man |
+| --- | --- | --- | --- | --- | --- | --- |
+| ![image](https://cdn.icon-icons.com/icons2/2415/PNG/512/github_original_wordmark_logo_icon_146506.png) | ![image](https://cdn.icon-icons.com/icons2/3053/PNG/512/microsoft_visual_studio_code_alt_macos_bigsur_icon_189952.png) | ![image](https://cdn.icon-icons.com/icons2/2397/PNG/512/microsoft_office_teams_logo_icon_145726.png) | ![image](https://cdn.icon-icons.com/icons2/2389/PNG/512/notion_logo_icon_145025.png) | ![image](https://cdn.icon-icons.com/icons2/2699/PNG/512/slack_tile_logo_icon_168820.png) | ![image](https://cdn.icon-icons.com/icons2/1945/PNG/512/iconfinder-discord-4661587_122459.png) | ![image](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fs5te4%2Fbtqvv3ATyIX%2FOxKKYKDvFhRhSbxMbeBkK0%2Fimg.png) |
 
 <br>
 
