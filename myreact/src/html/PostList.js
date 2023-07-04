@@ -8,25 +8,26 @@ import SearchBar from './SearchBar';
 
 function Body() {
   const [selectedPostId, setSelectedPostId] = useState(null);
-//   const [nextPage, setNextPage] = useState(1);
-  const [maxPages, setMaxPages] = useState(1);
+  const [maxPages, setMaxPages] = useState(2);
   const [posts, setPosts] = useState([]);
   const [isScrolling, setIsScrolling] = useState(false);
 
   const nextPageRef = useRef(1);
 
   const fetchPosts = async () => {
-    
+  
     const nextPage = nextPageRef.current;
 
     if (maxPages < nextPage) {
       return;
     } else {
+      console.log(22);
       const response = await fetch(`http://127.0.0.1:8000/post/api/posts/?page=${nextPage}`);
       const data = await response.json();
+      nextPageRef.current = nextPage + 1; // nextPage 값을 업데이트
       setMaxPages(data.max_pages);
       setPosts(prevPosts => [...prevPosts, ...data.results]);
-      nextPageRef.current = nextPage + 1; // nextPage 값을 업데이트
+      
     }
   };
 
@@ -40,8 +41,6 @@ function Body() {
     const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
     if (!isScrolling && scrollTop + clientHeight >= scrollHeight - 5) {
         setIsScrolling(true); // 스크롤 이벤트 처리 중임을 표시
-
-        console.log('스크롤 이벤트 실행');
         fetchPosts(); // 다음 페이지 데이터 가져오기
       }
     };

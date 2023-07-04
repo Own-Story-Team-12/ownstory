@@ -99,7 +99,7 @@ function Header(props, ref){
               <li><NavLink to="/record" className={router.pathname === '/record' && styles.active2}>동화 녹음</NavLink></li>
               <li className={styles.ID}><NavLink>{finalID} 님 환영합니다.</NavLink></li>
               <li style={{ width: '100px' }}><NavLink to="/mypage"  >마이페이지</NavLink></li>
-              <li style={{ width: '100px' }}><NavLink to="/" onClick={handleLogout} >로그 아웃</NavLink></li>
+              <li style={{ width: '100px' }}><NavLink to="/" onClick={handleLogout} >로그아웃</NavLink></li>
               
             </>
           ) : (
