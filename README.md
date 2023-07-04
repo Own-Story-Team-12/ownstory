@@ -1,5 +1,6 @@
 # ![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/80252681/22d9ab34-b86e-4c95-8869-89dca7a281f7)
-영어 동화를 생성하여 부모님 목소리로 읽어주는 서비스
+부모님이 읽어주는 영어 동화 생성 서비스
+
 
 <br>
 
@@ -102,9 +103,9 @@
 <br>
 
 ## 7. 유저 가이드 👀
-requirements.txt 설치시 TTS 오류 관련 문제<br><br>
+### requirements.txt 설치시 TTS 오류 관련 문제<br><br>
 https://visualstudio.microsoft.com/visual-cpp-build-tools/<br><br>
-C++ build tools 다운로드 후 C++ 를 사용한 데스크톱 개발 선택하여 설치
+#### C++ build tools 다운로드 후 C++ 를 사용한 데스크톱 개발 선택하여 설치
 
 ### 실행 방법
 #### 1. 가상환경 설정
