@@ -107,6 +107,11 @@
     font-weight: bold;
 }
 
+.btn_area button:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
+
 .caption{
     margin-top : 20px;
     text-align:center;
@@ -153,9 +158,8 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 30%;
     height:35px;
-    background: #59B95F;
+    background: #FCC517;
     color:#fff;
     font-size:18px;
     border:none;
@@ -163,13 +167,10 @@
     cursor: pointer;
     font-weight: bold;
     margin: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   
-  .close {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-  }
 
   .disabled_btn {
     background: gray;
