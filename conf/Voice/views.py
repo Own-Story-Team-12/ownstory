@@ -15,6 +15,7 @@ class Voice(APIView):
         
         #print(fr"{request.GET.get('voice')}")
         file_path = base_path + voice_name
+        
         print(file_path)
         with open(file_path, 'rb') as file:
             response = HttpResponse(open(file_path, 'rb'), content_type='audio/wav')

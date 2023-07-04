@@ -89,7 +89,7 @@ function LoginPage() {
         <h3>로그인 실패</h3>
         <p>{errormsg}</p> 
 
-        <button className={styles.modalbtn} onClick={clossErrorModal}>닫기</button>
+        <button className={styles.button} onClick={clossErrorModal}>닫기</button>
      </Modal>
 
       )}

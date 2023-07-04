@@ -24,7 +24,8 @@ function Pages(){
     <Route path = "/fairytale/keyword" element={<KeywordInput />}/>
     <Route path = "/result" element={<Result />}/>
     <Route path = "/postList" element={<PostList />}/>
-    <Route path = "/post/:id" element={<PostDetail />} />    <Route path = "/mypage" element={<MyPage />}/>
+    <Route path = "/post/:id" element={<PostDetail />} />    
+    <Route path = "/mypage" element={<MyPage />}/>
   </Routes>
   );
 };

@@ -41,5 +41,6 @@ psd
 thumb
 sketch
 src/html/google.js
+src/html/myposts.js
 
 # End of https://www.toptal.com/developers/gitignore/api/react
