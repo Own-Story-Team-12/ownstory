@@ -35,7 +35,7 @@ function JoinPage() {
             //e: 이벤트 객체
             setPw2(e.target.value); //이벤트를 받는 타겟의 value값으로 변경
             setShowWarning(false);
-            setIsButtonDisabled(pw2 !== e.target.value);
+            setIsButtonDisabled(pw !== e.target.value);
         }
         
         const goBack=() => {
