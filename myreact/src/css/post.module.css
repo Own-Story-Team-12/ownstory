@@ -51,10 +51,10 @@
     align-items: center;
     margin-left: -3.6vw;
     position: absolute;
-    z-index: 9999;
+    z-index: 1;
 }
 
-.searchdiv > .search{
+.searchdiv > form > .search{
     width: 35vw;
     height: 35px;
     border:none;
@@ -64,6 +64,13 @@
     outline:none;
     border-radius: 10px;
     padding-left: 14px;
+  
+}
+
+.searchdiv > form{
+    display: flex;
+    align-items: center;
+    margin-bottom: 55px;
 }
 
 .searchicon{

@@ -54,10 +54,10 @@ function Body(){
 
         </div>
         <Element id="myDiv1" className={styles2.section2}>
-          <img className={styles2.mainimg} src="/images/main1_bg.png"></img>
+          <img className={styles2.mainimg} src="/images/main1.png"></img>
         </Element >
         <Element  id="myDiv2" className={styles2.section3}>
-            <img className={styles2.mainimg} src="/images/main2_bg.png"></img>
+            <img className={styles2.mainimg} src="/images/main2.png"></img>
         </Element >
       </div>
     </div>
