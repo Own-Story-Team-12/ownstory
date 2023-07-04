@@ -17,6 +17,7 @@
     
     background-color: #FFFAEA;
     height: 100vh;
+    overflow: auto;
   }
   .title{
     padding: 20px;
@@ -24,21 +25,21 @@
     font-size: 30px
   }
   .subtitle{
+    position:absolute;
+    top:0;
+    left:0;
     text-decoration: underline;
     text-decoration-color: #BDBDBD;
     text-decoration-thickness: 2.5px;
     text-underline-offset: 15px;
+    padding: 2%;
   }
   .btnarea{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    padding:10px
-  }
-  .btnrow{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    text-align: center;
   }
   .question{
     height: 45px;
@@ -70,25 +71,34 @@
 
   .voice{
     width: 70%;
-    height: 25%;
+    height: 30%;
     margin: 1% auto;
     border:#BDBDBD solid;
     border-radius:10px;
     position: relative;
     padding: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
 
   .mypost{
     width: 70%;
-    height: 50%;
-    margin: 1% auto;
+    height: 45%;
+    margin: 2% auto;
     border:#BDBDBD solid;
     border-radius:10px;
     position: relative;
     padding: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
 
   .voicebtn{
+    position: relative;
     width: 176px;
     height: 137px;
     display: inline-flex;
@@ -101,6 +111,9 @@
     margin-left: 20px;
     margin-right: 20px;
     font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
   }
 
   .voicebtn img{
@@ -135,24 +148,23 @@
   }
   .postContainer{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     text-align: center;
   }
   .postbtn{
-    width: 400px;
+    position: relative;
+    width: 350px;
     height: 300px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color: #FEEEBA;
     border: #BDBDBD solid 1px;
     border-radius:15px;
     cursor: pointer;
-    margin-left: 20px;
-    margin-right: 20px;
-
+    margin: 20px;
   }
   .postTitle{
     display: flex;
@@ -161,7 +173,7 @@
     text-align: center;
     font-size: 17px;
   }
-  .postimg{
+  .postbtn img{
     width: 70%;
     height: auto;
   }
