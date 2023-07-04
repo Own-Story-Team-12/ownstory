@@ -236,14 +236,15 @@ function Body() {
                 </label> 
                 <button id='savebtn' className={styles.savebtn} onClick={saveDB}>저장하기</button>
                 <button id='cancelbtn' className={styles.cancelbtn} onClick={popup}>
-                        <img src = "./images/backicon.png"></img>
+                        {!isSaveDone && <img src = "./images/backicon.png" ></img>}
+                        {isSaveDone && <img src = "./images/backicon.png" onClick={goback}></img>}
                 </button>
               </div>
             </div>
           </div>
 
           {/* 모달 창 */}
-          {isPopup && (
+          {isPopup && ! isSaveDone && (
             <Modal onClose={() => setPop(false)}>
               <h3>저장을 하지 않았습니다. 취소하시겠습니까?</h3>
               <div>
