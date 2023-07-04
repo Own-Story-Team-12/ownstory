@@ -17,7 +17,7 @@
     display: flex;
     color: #E0E0E0;
     transition: 'filter 2s';
-    filter: brightness(0.2);
+    filter: brightness(1);
     opacity: 1;
   }
 
@@ -27,14 +27,15 @@
   }
 
   .left{
-    margin-left: 140px;
+    margin-left: 100px;
     flex:1;
     position:relative;
     
   }
 
   .right{
-    margin-left: 40px;
+    margin-left: 60px;
+    margin-right: 100px;
     flex:1;
     position:relative;
     display:flex;
@@ -60,10 +61,8 @@
   }
 
   .krtitle {
-
     font-weight: bold;
     font-size: 20px;
-    
   }
 
   .krcontent {
@@ -76,8 +75,6 @@
     
     display: flex;
     top :-160px;
-    
-    
   }
 
 
