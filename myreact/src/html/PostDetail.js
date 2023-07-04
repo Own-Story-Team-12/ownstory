@@ -78,17 +78,11 @@ function PostDetail() {
                     <p>표준 음성: <AudioPlayer audioUrl={post.audio_example} /></p>
                 </div>
             </div>
-            <section>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+            <section className={styles.sectionContainer}>
+                <span className={styles.spanContainer}></span>
+                <span className={styles.spanContainer}></span>
+                <span className={styles.spanContainer}></span>
+                <span className={styles.spanContainer}></span>
             </section>
         </div>
     )

@@ -9,29 +9,17 @@ body{
     overflow: hidden;
 
 }
-section{
+.sectionContainer{
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: url('../html/static_image/test.png');
+    background: url('../html/static_image/back2.jpg');
     background-position-x: center;
     background-size: cover;
-    /* animation: animateBg 5s linear infinite; */
 }
-/* @keyframes animateBg
-{
-    0%
-    {
-        transform: scale(1);
-    }
-    50%
-    {
-        transform: scale(1.2);
-    }
-} */
-span
+.spanContainer
 {
     position: absolute;
     top: 50%;
@@ -45,7 +33,7 @@ span
     0 0 20px rgba(255,255,255,1);
     animation: animate 3s, linear infinite;
 }
-span::before
+.spanContainer::before
 {
     content: '';
     position: absolute;
@@ -68,104 +56,44 @@ span::before
     }
     100%
     {
-        transform: rotate(315deg) translateX(-1000px);
+        transform: rotate(315deg) translateX(-3000px);
     }
 }
-span:nth-child(1)
+.spanContainer:nth-child(1)
 {
     top: 0;
     right: 0;
     animation-delay: 0;
-    animation-duration: 1s;
+    animation-duration: 10s;
     animation-iteration-count: infinite;
 }
-span:nth-child(2)
+.spanContainer:nth-child(2)
 {
     top: 0;
     right: 80px;
     left: initial;
     animation-delay: 0.4s;
-    animation-duration: 3s;
+    animation-duration: 10s;
     animation-iteration-count: infinite;
 
 }
-span:nth-child(3)
+.spanContainer:nth-child(3)
 {
     top: 80px;
     right: 0px;
     left: initial;
     animation-delay: 0.8s;
-    animation-duration: 3s;
+    animation-duration: 10s;
     animation-iteration-count: infinite;
 
 }
-span:nth-child(4)
-{
-    top: 0px;
-    right: 180px;
-    left: initial;
-    animation-delay: 1.2s;
-    animation-duration: 1.5s;
-    animation-iteration-count: infinite;
-
-}
-span:nth-child(5)
+.spanContainer:nth-child(4)
 {
     top: 0px;
     right: 400px;
     left: initial;
-    animation-delay: 1.6s;
-    animation-duration: 2.5s;
-    animation-iteration-count: infinite;
-
-}
-span:nth-child(6)
-{
-    top: 0px;
-    right: 600px;
-    left: initial;
-    animation-delay: 2.0s;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-
-}
-span:nth-child(7)
-{
-    top: 300px;
-    right: 0px;
-    left: initial;
-    animation-delay: 2.8s;
-    animation-duration: 1.75s;
-    animation-iteration-count: infinite;
-
-}
-span:nth-child(8)
-{
-    top: 0px;
-    right: 700px;
-    left: initial;
-    animation-delay: 3.2s;
-    animation-duration: 1.25s;
-    animation-iteration-count: infinite;
-
-}
-span:nth-child(9)
-{
-    top: 0px;
-    right: 1000px;
-    left: initial;
-    animation-delay: 3.6s;
-    animation-duration: 2.25s;
-    animation-iteration-count: infinite;
-
-}
-span:nth-child(10)
-{
-    top: 0px;
-    right: 450px;
-    left: initial;
-    animation-delay: 4.2s;
-    animation-duration: 2.25s;
+    animation-delay: 1.2s;
+    animation-duration: 10s;
     animation-iteration-count: infinite;
 
 }
