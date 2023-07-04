@@ -181,8 +181,8 @@ function Body() {
   return (
     <>
    
-        <div  className={`${styles.body} ${isMouseMoving ? styles.dark : styles.body}`}>    
-        <section className={styles.sectionContainer}>
+        <div className={`${styles.body} ${isMouseMoving ? styles.dark : styles.body}`}>    
+            <section className={styles.sectionContainer}>
                 <span className={styles.spanContainer}></span>
                 <span className={styles.spanContainer}></span>
                 <span className={styles.spanContainer}></span>
@@ -243,12 +243,7 @@ function Body() {
                 </label> 
                 <button id='savebtn' className={styles.savebtn} onClick={saveDB}>저장하기</button>
                 <button id='cancelbtn' className={styles.cancelbtn} onClick={popup}>
-<<<<<<< HEAD
                         <img src = "/images/backicon.png"></img>
-=======
-                        {!isSaveDone && <img src = "./images/backicon.png" ></img>}
-                        {isSaveDone && <img src = "./images/backicon.png" onClick={goback}></img>}
->>>>>>> 7109a289c20c506b5e74cdc506ee9121cb4e9b81
                 </button>
               </div>
             </div>
