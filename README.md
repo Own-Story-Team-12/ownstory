@@ -1,4 +1,4 @@
-# 📖  OwnStory 
+# ![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/80252681/22d9ab34-b86e-4c95-8869-89dca7a281f7)
 영어 동화를 생성하여 부모님 목소리로 읽어주는 서비스
 
 <br>
