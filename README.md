@@ -76,7 +76,7 @@
 <br>
 
 ## 5. DB 설계 🧱
-![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/122524846/c4a5f4b4-464f-45f0-ad76-691924baa782)
+![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/80252681/cf2fc6df-cf8b-4716-bcd0-7a4893a27c69)
 
 <br>
 
