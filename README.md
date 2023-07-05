@@ -72,7 +72,8 @@
 <br>
 
 ## 4. 3 Tier Architecture 🏢
-![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/122524846/6b30e54a-0206-46b1-af08-0664dd4c5574)
+![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/122524846/0db24b1f-4f5b-4ad3-a992-5c9d6d22ccf0)
+
 
 <br>
 
