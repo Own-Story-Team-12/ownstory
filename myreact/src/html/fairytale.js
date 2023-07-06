@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from '../css/fairytale.module.css'
 import Headerjs from './header';
@@ -13,6 +13,8 @@ function KeywordInput(){
     const [personality, setPersonality] = useState('');
     const [background, setBackground] = useState('');
     const [content, setContent] = useState('');
+
+    const usenavigate = useNavigate();
 
     const handleNameChange = (e) => {
         setName(e.target.value);
@@ -36,7 +38,7 @@ function KeywordInput(){
         };
     
         const response = await axios.post('http://127.0.0.1:8000/Ai/result/', data); // Modify the URL according to your DRF endpoint
-        return response.data;
+        return response;
     };
 
     const { mutate, isLoading } = useMutation(createFairytale, {
@@ -44,6 +46,8 @@ function KeywordInput(){
         onSuccess: (data) => {
             console.log('응답 데이터:', data);
             // 응답 데이터를 처리하는 추가 로직을 여기에 작성하세요.
+            localStorage.setItem('response', JSON.stringify(data));
+            usenavigate('/result');
         },
       });
 
@@ -93,8 +97,35 @@ function KeywordInput(){
         setContent(jsonData.content);
     };
 
+    const [isHovered, setIsHovered] = useState(false);
+    const [mouseY, setMouseY] = useState(300);
+
+    const handleMouseEnter = () => {
+      setIsHovered(true);
+    };
+  
+    const handleMouseLeave = () => {
+      setIsHovered(false);
+    };
+
+    const handleMouseMove = (event) => {
+        setMouseY(event.clientY);
+      };
+  
+    const containerClasses = classNames(styles.headerhover, {
+      [styles.lessThan15]: isHovered || mouseY < 32,
+    });
+
+    const containerClasses2 = classNames(styles.wordimglessThanwordimg, {
+        [styles.wordimg]: !isHovered && mouseY >= 32,
+      });
+
    return(
-    <div className={isLoading ? `${styles.body}` : `${styles.inputback}`}>
+    <div className={isLoading ? `${styles.body}` : `${styles.inputback}`}  onMouseMove={handleMouseMove}>
+        <div className={containerClasses} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <Headerjs></Headerjs>
+        </div>
+
         {isLoading ? (
         <div className={styles.animationWindow}>
             <Animationjs></Animationjs>
@@ -105,7 +136,12 @@ function KeywordInput(){
             </div>
         </div> 
         ) : (
+          
         <div className={styles.body2}>
+                  <div className={containerClasses2}>
+                <button className={styles.keywordbtn}><NavLink to="/fairytale/keyword"  style={{ color: '#FFFFFF' }}>단어로 쓰는 동화</NavLink></button>
+                <button className={styles.imagebtn}><NavLink to="/imageinput"  style={{ color: '#757575' }}> 그림으로 쓰는 동화</NavLink></button>
+          </div>
             <div className={styles.content}>
                 <p>주인공의 이름은 뭐야?</p>
                 <input type = "text" value = {name} onChange={handleNameChange}></input>
@@ -131,38 +167,10 @@ function KeywordInput(){
 }
 
 function FairytalePage(){
-    const [isHovered, setIsHovered] = useState(false);
-    const [mouseY, setMouseY] = useState(300);
 
-    const handleMouseEnter = () => {
-      setIsHovered(true);
-    };
-  
-    const handleMouseLeave = () => {
-      setIsHovered(false);
-    };
-
-    const handleMouseMove = (event) => {
-        setMouseY(event.clientY);
-      };
-  
-    const containerClasses = classNames(styles.headerhover, {
-      [styles.lessThan15]: isHovered || mouseY < 32,
-    });
-
-    const containerClasses2 = classNames(styles.wordimglessThanwordimg, {
-        [styles.wordimg]: !isHovered && mouseY >= 32,
-      });
     
     return (
-        <div className="app" onMouseMove={handleMouseMove}>
-          <div className={containerClasses} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <Headerjs></Headerjs>
-          </div>
-          <div className={containerClasses2}>
-                <button className={styles.keywordbtn}><NavLink to="/fairytale/keyword"  style={{ color: '#FFFFFF' }}>단어로 쓰는 동화</NavLink></button>
-                <button className={styles.imagebtn}><NavLink to="/imageinput"  style={{ color: '#757575' }}> 그림으로 쓰는 동화</NavLink></button>
-            </div>
+        <div className="app">
           <KeywordInput></KeywordInput>
           <Footerjs></Footerjs>
         </div>

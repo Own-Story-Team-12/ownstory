@@ -1,0 +1,384 @@
+.body{
+    min-height: 100vh;
+    background-image: url('../html/static_image/back2.jpg');
+    position : relative;
+    display: flex;
+    align-items: center;
+    color: #E0E0E0;
+    transition: 'filter 2s';
+    filter: brightness(1);
+    opacity: 1;
+    overflow: hidden;
+  }
+
+  .dark{
+    min-height: 100vh;
+    background-image: url('../html/static_image/back2.jpg');
+    position : relative;
+    display: flex;
+    color: #E0E0E0;
+    transition: 'filter 2s';
+    filter: brightness(0.7);
+    opacity: 1;
+    overflow: hidden;
+  }
+
+  .progress_bar{
+    width: 10vw;
+    height: 20px;
+  }
+
+  .left{
+    margin-top: 50px;
+    margin-left: 100px;
+    flex:1;
+    position:relative;
+    
+  }
+
+  .right{
+    margin-top: 50px;
+    margin-left: 60px;
+    margin-right: 100px;
+    flex:1;
+    position:relative;
+    display:flex;
+    flex-direction: column;
+  }
+
+  .onrightbook {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .txtpart{
+    position: relative;   
+  }
+
+  .engtitle {
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  .engcontent {
+    font-size: 20px;
+  }
+
+  .krtitle {
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  .krcontent {
+    font-size: 20px;
+  }
+
+  .btnpart{
+    position: relative;
+    height: 40px;
+    
+    display: flex;
+    top :-160px;
+  }
+
+
+  .playbtn{
+    display: none;
+  }
+
+  .voicebtn{
+    display: none;
+  }
+
+  .savebtn {
+    display: none;
+  }
+ 
+  .cancelbtn {
+    position: absolute;
+    bottom:40vw;
+    left:-60vw;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  .cancelbtn > img{
+    width: 35px;
+    height: 35px;
+  }
+
+  .popupsave{
+    border-radius: 5px;
+    background-color: #59B95F;
+  }
+
+ 
+
+  .voicelabel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .playlabel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .savelabel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cancellabel {
+    flex: 1;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .clickhear{
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.2);
+    color : black;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .select{
+    background-color: black;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
+    color : white;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .myvoice{
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
+    color : black;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .basicvoice{
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 5px 5px 15px 1px rgba(0, 0, 0, 0.2);
+    color : black;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .basicvoice:hover {
+    color : #59B95F;
+  }
+
+  .myvoice:hover {
+    color : #59B95F;
+  }
+
+  .select:hover {
+    color : #59B95F;
+  }
+
+  .clickhear:hover {
+    color : #59B95F;
+  }
+
+  .audiopart{
+    position: relative;
+    height: 20px;
+    
+    display: flex;
+    top :-130px;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .playerArea{
+    position: fixed;
+    width: 98.8vw;
+    /* height: 150px; */
+    bottom: 0;
+    z-index: 3;
+  }
+
+  .playerArea > div:first-child > div:first-child{
+    height: 150px;
+  }
+  
+  .playerArea > div > div > div > div:nth-child(2){
+    margin-bottom: 15px;
+  }
+
+  .playerArea > div > div > div > div:nth-child(2) button{
+    box-shadow: none;
+  }
+
+  .playerbtnArea{
+    position: absolute;
+    width: 20vw;
+    bottom: 22%;
+    right:15%;
+  }
+
+  .btnarea{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal {
+    /* 최상단위치 */
+    z-index: 999;
+
+    /* 중앙배치 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .modalcontent {
+    position: relative;
+    width: 400px;
+    height: 130px;
+    text-align: center;
+    padding-top: 25px;
+    box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
+  }
+  .modalcontent p{
+    padding: 10px;
+  }
+
+  .modalcontent > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modalcontent > div > button{
+    width: 30%;
+    height:35px;
+    background: #59B95F;
+    color:#fff;
+    font-size:18px;
+    border:none;
+    border-radius:25px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px;
+  }
+
+  .spanContainer
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.1),
+    0 0 0 8px rgba(255,255,255,0.1),
+    0 0 20px rgba(255,255,255,1);
+    animation: animate 3s, linear infinite;
+}
+
+.spanContainer::before
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, #fff,
+    transparent);
+}
+
+  @keyframes animate
+{
+    0%
+    {
+        transform: rotate(315deg) translateX(0);
+    }
+    70%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        transform: rotate(315deg) translateX(-1400px);
+    }
+}
+
+
+
+  .spanContainer:nth-child(1)
+{
+    top: 0;
+    right: 0;
+    animation-delay: 1.4s;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+.spanContainer:nth-child(2)
+{
+    top: 2;
+    right: 80px;
+    left: initial;
+    animation-delay: 1s;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+
+}
+.spanContainer:nth-child(3)
+{
+    top: 2px;
+    right: 0px;
+    left: initial;
+    animation-delay: 1.2s;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+
+}
+.spanContainer:nth-child(4)
+{
+    top: 2px;
+    right: 300px;
+    left: initial;
+    animation-delay: 1.6s;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+
+}

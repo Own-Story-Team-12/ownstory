@@ -13,6 +13,7 @@ function JoinPage() {
         const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
         const [isFailModalOpen, setIsFailModalOpen] = useState(false);
         const [errormsg, setErrormsg] = useState('');
+        const [isButtonDisabled, setIsButtonDisabled] = useState(true);
         const navigate = useNavigate ();
 
         //state값이 변화되는 함수 - input에 쓴 값으로 바뀜
@@ -27,12 +28,14 @@ function JoinPage() {
             //e: 이벤트 객체
             setPw(e.target.value); //이벤트를 받는 타겟의 value값으로 변경
             setShowWarning(false);
+            setIsButtonDisabled(pw2 !== e.target.value);
         }
 
         const onPwChange2 = (e) => {
             //e: 이벤트 객체
             setPw2(e.target.value); //이벤트를 받는 타겟의 value값으로 변경
             setShowWarning(false);
+            setIsButtonDisabled(pw !== e.target.value);
         }
         
         const goBack=() => {
@@ -110,7 +113,7 @@ function JoinPage() {
                 {pw !== pw2 && <p className={styles.error_message}>비밀번호와 비밀번호 확인이 일치하지 않습니다.</p>}
             </div>
             <div className={ styles.btn_area}>
-                <button type="submit" onClick={onDataPost} >회원가입</button>
+                <button type="submit" onClick={onDataPost} disabled={isButtonDisabled}>회원가입</button>
             </div>
  
         </section>
@@ -121,7 +124,7 @@ function JoinPage() {
         <Modal onClose={() => setIsSuccessModalOpen(false)}>
           <h3>회원가입 완료</h3>
           <p>회원가입이 성공적으로 완료되었습니다.</p>
-          <button className={styles.modalbtn} onClick={handleConfirmModal}>로그인 페이지로 이동</button>
+          <button className={styles.button} onClick={handleConfirmModal}>로그인 페이지로 이동</button>
         </Modal>
         )}
 
@@ -130,7 +133,7 @@ function JoinPage() {
       <h3>회원가입 실패</h3>
       <p>{errormsg}</p> 
 
-      <button className={styles.modalbtn} onClick={clossErrorModal}>닫기</button>
+      <button className={styles.button} onClick={clossErrorModal}>닫기</button>
      </Modal>
 
       )}

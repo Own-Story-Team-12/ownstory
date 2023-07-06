@@ -47,3 +47,12 @@
 .section [id="slide01"]:checked ~ .slidewrap .control01 {display: block;}
 .section [id="slide02"]:checked ~ .slidewrap .control02 {display: block;}
 .section [id="slide03"]:checked ~ .slidewrap .control03 {display: block;}
+
+
+.mainimg{
+    width: 98.8vw;
+}
+
+.body{
+    background-color: #FFFAEA;
+}

@@ -1,20 +1,26 @@
+@font-face {
+  font-family: 'KCC Murukmuruk';
+  src: url('../fonts/KCC-Murukmuruk.ttf') format('truetype');
+}
+  
   .body{
     display:flex;
     justify-content:center;
     align-items: center;
     height:100vh;
-    background-color: white;
+    background-color: black;
     
     background-size: cover;
     background-position: center;
   }
+
   .header > h1{
     display: flex;
     align-items: center;
   }
 
   .logo{
-    background-image: url('../html/static_image/favicon.png');
+    background-image: url('../html/static_image/favicon3.png');
     background-size: cover;
     background-position: center;
     width: 50px;
@@ -29,9 +35,9 @@
     color: inherit;
   }
   .inputback{
-    background-image: url('../html/static_image/backgroundimg.png');
+    /* background-image: url('../html/static_image/backgroundimg.png');
     background-size: cover;
-    background-position: center;
+    background-position: center; */
     display: grid;
     place-items: center;
   }
@@ -110,7 +116,7 @@
     font-size: 0;
   }
   .menu .firstul > li{
-    width: 140px;
+    width: 9vw;
     font-size: 16px;
     text-align: center;
     margin:0 0px;
@@ -123,15 +129,17 @@
 
   .menu .firstul > li:hover > .downmenu{
     display: block;
+    z-index: 1000;
   }
 
   .downmenu{
     position: absolute;
     display: none;
     background-color: white;
+    z-index: 9999;
   }
   .downmenu > li{
-    width: 140px;
+    width: 9vw;
   }
   .downmenu > li > a{
     display: block;
@@ -170,7 +178,7 @@
   
   .footer{
     width: 100%;
-    height: 140px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -209,7 +217,7 @@
 
   /* ID 스타일부분 */
   .ID{
-    margin-left: 60px !important;
+    margin-left: 30px !important;
     width: 200px !important;
   }
 
@@ -219,4 +227,8 @@
     background-position: center;
     width: 100px;
     height:100px;
+  }
+
+  .title{
+    font-family: 'KCC Murukmuruk', sans-serif;
   }

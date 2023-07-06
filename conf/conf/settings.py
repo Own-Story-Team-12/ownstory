@@ -57,11 +57,11 @@ INSTALLED_APPS = [
     "rest_framework", 
     "rest_framework_simplejwt",
     "Page",
-    "Upload",
     'django_extensions',
     "Ai",
     'corsheaders',
     "post",
+    'Voice'
 ]
 
 MIDDLEWARE = [

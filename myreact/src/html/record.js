@@ -1,8 +1,9 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React from 'react';
 import styles from '../css/record.module.css';
 import Headerjs from './header';
 import Footerjs from './footer';
 import axios from "axios";
+import { useEffect, useState, useCallback } from 'react';
 
 function Body() {
     const [stream, setStream] = useState();
@@ -17,13 +18,14 @@ function Body() {
     const texts = ['The pigs and cows ran everywhere.',
                   'Float the soap on top of the bath water.',
                   'A very young boy sliding down a slide into a swimming pool, wearing blue floaties.',
-                  "I can't do that right now. Please try again later.",
-                  'The boy was there when the sun rose.',
+                  // "I can't do that right now. Please try again later.",
+                  // 'The boy was there when the sun rose.',
                   '모든 녹음이 완료 되었습니다.   보이스 추가를 눌러주세요.']
 
     
 
     useEffect(() => {
+      window.scrollTo(0, 0);
       const ID = localStorage.getItem('IDinfo');
 
       const sendData = async () => {
@@ -107,13 +109,6 @@ function Body() {
         // 메서드가 호출 된 노드 연결 해제
         analyser.disconnect();
         source.disconnect();
-
-        
-        // if (audioUrl) {
-        //     const blob = new Blob(chunks, { type: 'audio/wav' });
-        //     audioUrls.push(blob);
-        //     localStorage.setItem('audioUrls', JSON.stringify(audioUrls));
-        //   }
       };
 
       const uploadFileToServer = (file) => {
@@ -150,7 +145,7 @@ function Body() {
         
       setCurrentIndex((prevIndex) => {
         const newIndex = prevIndex + 1;
-        if (newIndex >= 6) {
+        if (newIndex >= 4) {
           return 0;
         }
         return newIndex;
@@ -158,11 +153,11 @@ function Body() {
   
     }
     
-    const buttonClassName = currentIndex >= 5 ? `${styles.finishbutton}` : ""; 
-    const buttonText = currentIndex >= 5 ? "보이스 추가" : "저장 후 다음"; 
-    const progressClassName = currentIndex >= 5 ? `${styles.finishprogress}` : `${styles.progress}`; 
-    const progressText = currentIndex >= 5 ? "5" : `${currentIndex+1}`;
-    const scriptText = currentIndex >= 5 ? "보이스 추가 중입니다." : `${texts[currentIndex]}`
+    const buttonClassName = currentIndex >= 3 ? `${styles.finishbutton}` : ""; 
+    const buttonText = currentIndex >= 3 ? "보이스 추가" : "저장 후 다음"; 
+    const progressClassName = currentIndex >= 3 ? `${styles.finishprogress}` : `${styles.progress}`; 
+    const progressText = currentIndex >= 3 ? "3" : `${currentIndex+1}`;
+    const scriptText = currentIndex >= 3 ? "보이스 추가 중입니다." : `${texts[currentIndex]}`
 
     function handleVoice(){
       alert('보이스 추가에는 처리 시간이 소요될 수 있습니다. 완료 시 마이페이지에서 확인할 수 있습니다.');
@@ -180,27 +175,27 @@ function Body() {
         <div className={styles.recordcontainer}>
           <h2>스크립트를 따라 읽어주세요</h2>
           <div className={styles.script}>
-            <h4 className={progressClassName}>진행상황 : {progressText} / 5</h4>
+            <h4 className={progressClassName}>진행상황 : {progressText} / 3</h4>
             <h3>{scriptText}</h3>
           </div>
         </div>
 
         <div className={styles.btn_area}>
-          <div>
-            <button onClick={onRec ? onRecAudio : offRecAudio}>녹음</button>
+          <div >
+            <button className={onRec ? "" : styles.recordbtn} onClick={onRec ? onRecAudio : offRecAudio}>{onRec ? '녹음 시작' : '녹음 중지'}</button>
           </div>
           <div className={styles.btn_area}>
             <button onClick={onSubmitAudioFile}>결과 확인</button>
           </div>
           <div className={styles.btn_area}>
-            <button className={buttonClassName} onClick={currentIndex === 5 ? handleVoice : handleClickNext}>{buttonText}</button>
+            <button className={buttonClassName} onClick={currentIndex === 3 ? handleVoice : handleClickNext}>{buttonText}</button>
           </div>
         </div>
       </div>
-    );
-  }  
+  );
+}
 
-function RecordPage() {
+function MainPage() {
   return (
     <div className="app">
       <Headerjs></Headerjs>
@@ -210,4 +205,4 @@ function RecordPage() {
   );
 }
 
-export default RecordPage;
+export default MainPage;

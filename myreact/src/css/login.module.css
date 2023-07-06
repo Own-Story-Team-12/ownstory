@@ -107,6 +107,11 @@
     font-weight: bold;
 }
 
+.btn_area button:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
+
 .caption{
     margin-top : 20px;
     text-align:center;
@@ -121,68 +126,22 @@
     color: red;
 }
 
-.modal {
-    /* 최상단위치 */
-    z-index: 999;
 
-    /* 중앙배치 */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    border-radius: 15%;
-  }
   
-  .modalcontent {
-    position: relative;
-    width: 400px;
-    height: 130px;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
-    
-  }
-  .modalcontent p{
-    padding: 10px;
-  }
-  .modalbtn{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 30%;
-    height:35px;
-    background: #59B95F;
-    color:#fff;
-    font-size:18px;
-    border:none;
-    border-radius:25px;
-    cursor: pointer;
-    font-weight: bold;
-    margin: 10px;
-  }
-  
-  .close {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-  }
 
   .disabled_btn {
     background: gray;
   }
 
   .button{
-    width: 100%;
-    height:50px;
+    padding-right: 10px;
+    padding-left: 10px;
+    height:35px;
     background: #59B95F;
     color:#fff;
-    font-size:20px;
+    font-size:17px;
     border:none;
-    border-radius:25px;
+    border-radius:15px;
     cursor: pointer;
     font-weight: bold;
 }
