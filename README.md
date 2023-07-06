@@ -150,7 +150,6 @@ cd myreact
 
 ##### 리액트 패키지 설치
 ```shell
-cd myreact
 npm install
 ```
 
