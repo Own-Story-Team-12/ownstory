@@ -133,6 +133,7 @@ pip install -r requirements.txt
 
 ##### 장고 서버 실행
 ```shell
+cd conf
 python manage.py runserver
 ```
 <br>
@@ -141,6 +142,7 @@ python manage.py runserver
 
 ##### 리액트 패키지 설치
 ```shell
+cd myreact
 npm install
 ```
 
