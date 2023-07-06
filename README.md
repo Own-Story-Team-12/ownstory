@@ -115,10 +115,16 @@ https://visualstudio.microsoft.com/visual-cpp-build-tools/<br><br>
 #### 1. 가상환경 설정
 ```shell
 python -m venv 가상환경이름 python=3.10.11
-
 cd 가상환경이름\Scripts
-
 activate 가상환경이름
+```
+
+conda 사용시
+
+```shell
+conda create -n 가상환경이름 python=3.10.11
+conda activate 가상환경이름
+conda env list
 ```
 #### 2. 장고 서버 
 
