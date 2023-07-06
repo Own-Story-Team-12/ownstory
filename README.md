@@ -124,7 +124,7 @@ activate 가상환경이름
 conda create -n 가상환경이름 python=3.10.11
 conda activate 가상환경이름
 ```
-#### 2. 장고 서버 
+#### 2. Django 서버 
 
 ##### requirements 설치
 ```shell
@@ -135,25 +135,25 @@ pip install -r requirements.txt
 cd conf
 ```
 
-##### 장고 서버 실행
+##### Django 서버 실행
 ```shell
 python manage.py runserver
 ```
 <br>
 
-#### 3. 리액트 서버 
+#### 3. React 서버 
 
 ##### React 프로젝트로 경로변경
 ```shell
 cd myreact
 ```
 
-##### 리액트 패키지 설치
+##### React 패키지 설치
 ```shell
 npm install
 ```
 
-##### 리액트 서버 실행
+##### React 서버 실행
 ```shell
 npm start
 ```
