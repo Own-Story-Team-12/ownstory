@@ -63,19 +63,23 @@ function Mypage(){
         <div className={styles.voice}>
             <h2 className={styles.subtitle}> 목소리 목록 </h2>
             <div className={styles.btnarea}>
-              <button className={styles.voicebtn}>
+              {/* <button className={styles.voicebtn}>
                   <div className={styles.btnContent}>
                   <img src={mic}/>
-                  <span>엄마<button className={styles.pencil}><img src={pencil} /></button></span>
+                  <span>목소리 생성 중<button className={styles.pencil}><img src={pencil} /></button></span>
                   </div>
-              </button>
+              </button> */}
               <button className={styles.voicebtn}>
                   <div className={styles.btnContent}>
                   <img src={mic}/>
                   <span>아빠<button className={styles.pencil}><img src={pencil}/> </button></span>
                   </div>
               </button>
-
+              
+              {/* <div className={styles.postContainer} style={{fontSize: '20px', display: 'inline-center', textAlign: 'center', flexDirection: 'column' }}>
+                  녹음한 목소리가 없습니다.<br/> 동화 녹음탭으로 이동하여 본인의 목소리를 등록해보세요.
+                    <button className={styles.btn}><NavLink to="/keyword">녹음하러 가기</NavLink></button>
+                </div> */}
             </div>
 
             <button onMouseEnter = {handleMouseEnter} onMouseLeave = {handleMouseLeave} className={styles.question}>
@@ -115,7 +119,7 @@ function Mypage(){
                 </div>
                 </div>
                 ) : (
-                <div className={styles.postContainer} style={{fontSize: '25px', display: 'inline-center', textAlign: 'center', flexDirection: 'column' }}>
+                <div className={styles.postContainer} style={{fontSize: '20px', display: 'inline-center', textAlign: 'center', flexDirection: 'column' }}>
                   생성한 동화가 없습니다.<br/> 동화생성 탭으로 이동하여 동화를 만들어보세요.
                     <button className={styles.btn}><NavLink to="/fairytale/keyword">동화생성하러 가기</NavLink></button>
                 </div>

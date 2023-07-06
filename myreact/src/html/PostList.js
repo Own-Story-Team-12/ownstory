@@ -19,6 +19,7 @@ function Body() {
     const nextPage = nextPageRef.current;
 
     if (maxPages < nextPage) {
+      console.log(232323);
       return;
     } else {
       console.log(22);
@@ -80,6 +81,7 @@ function Body() {
 
   const renderImage = post => {
     if (post && post.image) {
+        console.log(post.image, 23232);
         return <img src={post.image} alt="게시물 이미지" width="200" />;
       } else {
         return (

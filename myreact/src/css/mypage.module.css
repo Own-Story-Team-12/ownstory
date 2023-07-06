@@ -9,12 +9,18 @@
     같기 때문에 개발환경이
     편해진다. */
   }
+  .btnarea > p{
+    font-size: 20px;
+  }
+
   .body{
     min-height: 100vh;
     margin-top: 80px;
     /* padding-bottom : 100px; */
     position : relative;
-    
+    background-image: url('../html/static_image/bh.png');
+    background-size: cover;
+    background-position: center;
     background-color: #FFFAEA;
     height: 100vh;
   }
@@ -103,7 +109,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: #FEEEBA;
+    background-color: white;
     border: #BDBDBD solid 1px;
     border-radius:15px;
     cursor: pointer;
@@ -146,6 +152,7 @@
     padding-right: 20px;
   }
   .postContainer{
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -154,12 +161,12 @@
   }
   .postbtn{
     position: relative;
-    width: 350px;
-    height: 300px;
+    width: 20vw;
+    height: 28vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #FEEEBA;
+    background-color: white;
     border: #BDBDBD solid 1px;
     border-radius:15px;
     cursor: pointer;
@@ -190,7 +197,7 @@
     box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
 
     font-weight: bold;
-    font-size: 26px; 
+    font-size: 20px; 
     cursor: pointer;
     border:none;
     margin-top: 20px;

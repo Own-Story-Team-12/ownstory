@@ -8,7 +8,7 @@ def chatGPT(prompt):
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": "We're going to create a fairy tale. On the first line, write the title of the fairy tale, but don't start with Title:. \
-                   Use a minimum of 20 words and a maximum of 50 words to write the story in very simple words that a 2 to 4 year old can read. \
+                   Use a minimum of 100 words and a maximum of 150 words to write the story in very simple words that a 2 to 4 year old can read. \
                    Don't start your story with Content:. And use these keywords to describe your fairy tale. The keywords are " + str(prompt)}]
     )
     
