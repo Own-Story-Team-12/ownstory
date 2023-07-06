@@ -130,15 +130,23 @@ conda activate 가상환경이름
 ```shell
 pip install -r requirements.txt
 ```
+##### Django 프로젝트로 경로변경
+```shell
+cd conf
+```
 
 ##### 장고 서버 실행
 ```shell
-cd conf
 python manage.py runserver
 ```
 <br>
 
 #### 3. 리액트 서버 
+
+##### React 프로젝트로 경로변경
+```shell
+cd myreact
+```
 
 ##### 리액트 패키지 설치
 ```shell
