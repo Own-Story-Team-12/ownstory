@@ -119,7 +119,7 @@ cd 가상환경이름\Scripts
 activate 가상환경이름
 ```
 
-conda 사용시
+#####conda 사용시
 
 ```shell
 conda create -n 가상환경이름 python=3.10.11
