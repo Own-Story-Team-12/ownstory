@@ -114,7 +114,7 @@ https://visualstudio.microsoft.com/visual-cpp-build-tools/<br><br>
 ### 실행 방법
 #### 1. 가상환경 설정
 ```shell
-python -m venv 가상환경이름
+python -m venv 가상환경이름 python=3.10.11
 
 cd 가상환경이름\Scripts
 
