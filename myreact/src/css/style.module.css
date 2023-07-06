@@ -7,6 +7,7 @@
     background: url('../html/static_image/back2.jpg');
     background-position-x: center;
     background-size: cover;
+    
 }
 .spanContainer
 {
@@ -45,7 +46,7 @@
     }
     100%
     {
-        transform: rotate(315deg) translateX(-950px);
+        transform: rotate(315deg) translateX(-1400px);
     }
 }
 .spanContainer:nth-child(1)

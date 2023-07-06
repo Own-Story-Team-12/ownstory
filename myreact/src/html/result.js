@@ -1,5 +1,3 @@
-import Headerjs from './header';
-import Footerjs from './footer';
 import styles from '../css/result.module.css';
 import axios from "axios";
 import { useState, useEffect } from 'react';
@@ -25,7 +23,7 @@ function Body() {
     if (isSaveDone) {
       timer = setTimeout(() => {
         setSaveDone(false);
-      }, 3000);
+      }, 2000);
     };
 
     return () => {
@@ -252,12 +250,13 @@ function Body() {
         
 
           {/* 모달 창 */}
+    
           {isPopup && ! isSaveDone && (
             <Modal onClose={() => setPop(false)}>
-              <h3>저장을 하지 않았습니다. 취소하시겠습니까?</h3>
+              <h3>종료하시겠습니까?</h3>
               <div>
-                <button onClick={goback}> 네, 취소할게요</button>
-                <button onClick={popupdown}> 아니요</button>
+                <button onClick={goback}> 네, 종료할게요.</button>
+                <button onClick={popupdown}> 아니요.</button>
               </div>
             </Modal>
           )}

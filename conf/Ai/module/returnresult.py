@@ -24,12 +24,12 @@ def result_image(file_absolute_path):
 
         #생성 동화 번역
         #deepL
-        # ko_title = get_trans_deepl(title)
-        # ko_content = get_trans_deepl(content)
+        ko_title = get_trans_deepl(title)
+        ko_content = get_trans_deepl(content)
 
         #papago
-        ko_title = get_trans_papago(title, 'en','ko')
-        ko_content = get_trans_papago(content, 'en','ko')
+        # ko_title = get_trans_papago(title, 'en','ko')
+        # ko_content = get_trans_papago(content, 'en','ko')
 
         # current_dir = os.getcwd()
         # current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -54,9 +54,9 @@ def result_image(file_absolute_path):
 def result_keyword(ko_keyword):
     #입력받은 키워드 영어로 변환 후 동화 생성
     #deepL
-    # en_keyword = get_trans_deepl(ko_keyword)
+    en_keyword = get_trans_deepl(ko_keyword)
 
-    en_keyword = get_trans_papago(ko_keyword, 'ko','en')
+    # en_keyword = get_trans_papago(ko_keyword, 'ko','en')
     title, content = chatGPT(en_keyword)
   
     #TTS
@@ -66,12 +66,12 @@ def result_keyword(ko_keyword):
 
     #생성된 동화 번역
     #deepL
-    # ko_title = get_trans_deepl(title)
-    # ko_content = get_trans_deepl(content)
+    ko_title = get_trans_deepl(title)
+    ko_content = get_trans_deepl(content)
   
     #papago
-    ko_title = get_trans_papago(title, 'en','ko')
-    ko_content = get_trans_papago(content, 'en','ko')
+    # ko_title = get_trans_papago(title, 'en','ko')
+    # ko_content = get_trans_papago(content, 'en','ko')
  
     context = {
         'image' : "no",

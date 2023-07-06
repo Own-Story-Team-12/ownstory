@@ -21,7 +21,7 @@ function PostDetail() {
     const [audioUrl,setaudioUrl] = useState();
     const [isMouseMoving, setIsMouseMoving] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [ismyvoice, setmyvoice] = useState(false);
+    const [ismyvoice, setmyvoice] = useState(true);
 
     useEffect(() => {
         let timer;

@@ -8,7 +8,7 @@ import SearchBar from './SearchBar';
 
 function Body() {
   const [selectedPostId, setSelectedPostId] = useState(null);
-  const [maxPages, setMaxPages] = useState(1);
+  const [maxPages, setMaxPages] = useState(2);
   const [posts, setPosts] = useState([]);
   const [isScrolling, setIsScrolling] = useState(false);
 
@@ -81,6 +81,7 @@ function Body() {
 
   const renderImage = post => {
     if (post && post.image) {
+        console.log(post.image, 23232);
         return <img src={post.image} alt="게시물 이미지" width="200" />;
       } else {
         return (

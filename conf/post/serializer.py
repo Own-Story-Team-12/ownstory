@@ -18,7 +18,7 @@ class PostListSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Result
-        fields = ['id', 'title', 'ko_title', 'content', 'ko_content', 'user', 'pub_date', 'audio_myvoice', 'audio_example',]
+        fields = ['id', 'title', 'ko_title', 'content', 'ko_content', 'image', 'user', 'pub_date', 'audio_myvoice', 'audio_example',]
     
     # def to_representation(self, instance):
     #     representation = super().to_representation(instance)

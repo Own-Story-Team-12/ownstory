@@ -8,6 +8,7 @@
     transition: 'filter 2s';
     filter: brightness(1);
     opacity: 1;
+    overflow: hidden;
   }
 
   .dark{
@@ -19,6 +20,7 @@
     transition: 'filter 2s';
     filter: brightness(0.7);
     opacity: 1;
+    overflow: hidden;
   }
 
   .progress_bar{
@@ -27,6 +29,7 @@
   }
 
   .left{
+    margin-top: 50px;
     margin-left: 100px;
     flex:1;
     position:relative;
@@ -34,6 +37,7 @@
   }
 
   .right{
+    margin-top: 50px;
     margin-left: 60px;
     margin-right: 100px;
     flex:1;
@@ -53,20 +57,20 @@
 
   .engtitle {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
   }
 
   .engcontent {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .krtitle {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
   }
 
   .krcontent {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .btnpart{
@@ -172,7 +176,7 @@
     padding-top: 5px;
     padding-bottom: 5px;
     box-shadow: 5px 5px 15px 0.5px rgba(0, 0, 0, 0.2);
-    color : skyblue;
+    color : black;
     font-weight: bold;
     font-size: 20px;
   }
@@ -218,7 +222,7 @@
   }
 
   .playerArea{
-    position: absolute;
+    position: fixed;
     width: 98.8vw;
     /* height: 150px; */
     bottom: 0;
@@ -334,7 +338,7 @@
     }
     100%
     {
-        transform: rotate(315deg) translateX(-950px);
+        transform: rotate(315deg) translateX(-1400px);
     }
 }
 
@@ -344,13 +348,13 @@
 {
     top: 0;
     right: 0;
-    animation-delay: 1.4;
+    animation-delay: 1.4s;
     animation-duration: 10s;
     animation-iteration-count: infinite;
 }
 .spanContainer:nth-child(2)
 {
-    top: 0;
+    top: 2;
     right: 80px;
     left: initial;
     animation-delay: 1s;
@@ -360,7 +364,7 @@
 }
 .spanContainer:nth-child(3)
 {
-    top: 0px;
+    top: 2px;
     right: 0px;
     left: initial;
     animation-delay: 1.2s;
@@ -370,8 +374,8 @@
 }
 .spanContainer:nth-child(4)
 {
-    top: 0px;
-    right: 400px;
+    top: 2px;
+    right: 300px;
     left: initial;
     animation-delay: 1.6s;
     animation-duration: 10s;
