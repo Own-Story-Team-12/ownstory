@@ -124,7 +124,6 @@ conda 사용시
 ```shell
 conda create -n 가상환경이름 python=3.10.11
 conda activate 가상환경이름
-conda env list
 ```
 #### 2. 장고 서버 
 
