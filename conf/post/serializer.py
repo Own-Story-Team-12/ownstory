@@ -35,3 +35,15 @@ class ResultSerializer(serializers.ModelSerializer):
     class Meta:
         model = Result
         fields = '__all__'
+        
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['image'] = self.add_media_prefix(representation['image'])
+        representation['audio_example'] = self.add_media_prefix(representation['audio_example'])
+        representation['audio_myvoice'] = self.add_media_prefix(representation['audio_myvoice'])
+        return representation
+
+    def add_media_prefix(self, value):
+        if value:
+            return f"http://127.0.0.1:8000{value}"
+        return None
