@@ -125,15 +125,15 @@ conda create -n 가상환경이름 python=3.10.11
 conda activate 가상환경이름
 ```
 #### 2. Django 서버 
-
-##### requirements 설치
-```shell
-pip install -r requirements.txt
 ```
 ##### Django 프로젝트로 경로변경
 ```shell
 cd conf
 ```
+
+##### requirements 설치
+```shell
+pip install -r requirements.txt
 
 ##### Django 서버 실행
 ```shell
