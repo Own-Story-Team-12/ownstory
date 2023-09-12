@@ -1,4 +1,4 @@
-# ![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/80252681/22d9ab34-b86e-4c95-8869-89dca7a281f7)
+# ![image](images/logo.png)
 ### 부모님이 읽어주는 영어 동화 생성 서비스
 
 
@@ -68,18 +68,18 @@
 <br>
 
 ## 3. 서비스 Flow 🔍
-![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/80252681/30c10549-272f-4053-a59e-1760290b0c28)
+![image](images/serviceflow.png)
 
 <br>
 
 ## 4. 3 Tier Architecture 🏢
-![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/122524846/0db24b1f-4f5b-4ad3-a992-5c9d6d22ccf0)
+![image](images/architecture.png)
 
 
 <br>
 
 ## 5. DB 설계 🧱
-![image](https://github.com/AIVLE-School-Third-Big-Project/Fairytale/assets/80252681/cf2fc6df-cf8b-4716-bcd0-7a4893a27c69)
+![image](images/erd.png)
 
 <br>
 
